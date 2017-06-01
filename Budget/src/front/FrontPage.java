@@ -12,22 +12,25 @@ public class FrontPage extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		Container plate = getContentPane();
-		plate.setLayout(null);
-		setSize(1700, 1000);
-		
-		ImageIcon image = new ImageIcon("./resources/darami.png");
-		JLabel l = new JLabel(image);
+		plate.setLayout(new BorderLayout(1700,1000));
+	
+		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
+		Image oldImage = oldIcon.getImage();
+		Image newImage = oldImage.getScaledInstance(1700,1000,java.awt.Image.SCALE_SMOOTH);
+		ImageIcon newIcon = new ImageIcon(newImage);
+		JLabel l = new JLabel(newIcon);
 		l.setSize(1700,1000);
+		l.setLocation(0,0);
 		plate.add(l);
 		
 		JButton button1 = new JButton("가계부 작성");
 		JButton button2 = new JButton("가계부 분석");
-		
-		plate.setLayout(null);
+	
 		plate.add(button1);
-		plate.add(title);
+		plate.add(l);
 		
 		setVisible(true);
+		setSize(1700,1000);
 	}
 	
 	
