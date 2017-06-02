@@ -1,9 +1,15 @@
 package front;
 
-public class Main {
+
+public class Main{
+	
+	static MyFrame fr;
 	
 	public static void main(String [] args){
-		FrontPage front = new FrontPage();
+		fr = new MyFrame();
 		
 	}
+
 }
+	
+	

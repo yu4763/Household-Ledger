@@ -1,23 +1,17 @@
 package front;
 
 import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
 
-public class FrontPage extends JFrame{
+public class FrontPanel extends JPanel{
 	
 	ImageIcon daram;
 	
-	FrontPage(){
-		
-		setTitle("다람이 가계부 프로그램");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	FrontPanel(){
 		
 		daram = new ImageIcon("./resources/darami.jpg");
 		
-		Container plate = getContentPane();
-		plate.setLayout(new BorderLayout(1700,1000));
+		setLayout(null);
 	
 		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
 		Image oldImage = oldIcon.getImage();
@@ -53,18 +47,15 @@ public class FrontPage extends JFrame{
 		b1.setFont(font2);
 		b2.setFont(font2);
 		
+		b1.addActionListener(new ChangePanel());
+		
 		l.add(title);
 		l.add(b1);
 		l.add(b2);
-		plate.add(l);
+		add(l);
 		
-		setVisible(true);
 		setSize(1700,1000);
 		
-		
-		
 	}
-	
-	
 
 }
