@@ -9,11 +9,13 @@ public class MyFrame extends JFrame{
 	
 	public FrontPanel front;
 	public WritingPanel write;
+	public LoginPanel login;
 	
 	MyFrame(){
 		
 		front = new FrontPanel();
 		write = new WritingPanel();
+		login = new LoginPanel();
 		setTitle("다람이 가계부 프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().add(front);
