@@ -1,21 +1,23 @@
 package front;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.text.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import javax.swing.table.DefaultTableModel;
 
 public class WritingPanel extends JPanel{
 	
 	ImageIcon daram;
 	
+	public JLabel l;
 	public Label statusLabel;
-//	public Panel controlPanel1;
-	public JPanel controlPanel2;
-	public JPanel controlPanel3;
+	public JPanel tablePanel;
 	
 	WritingPanel(){
 
@@ -49,8 +51,6 @@ public class WritingPanel extends JPanel{
 		JTextField Tdelete = new JTextField(4);
 				
 		
-		JButton add = new JButton("입력");
-		JButton delete = new JButton("삭제");
 		
 		
 		Font titlef = new Font("HY나무B", Font.PLAIN, 30);
@@ -136,18 +136,26 @@ public class WritingPanel extends JPanel{
 		l.add(inout);
 		
 		
-		controlPanel2 = new JPanel();
-		controlPanel2.setFont(titlef);
-		controlPanel2.setSize(500,300);
-		controlPanel2.setLocation(585,300);
-		controlPanel2.setOpaque(false);
-		
-		JCheckBox in = new JCheckBox("수입");
-		JCheckBox out = new JCheckBox("지출");
+		JRadioButton in = new JRadioButton("수입");
+		JRadioButton out = new JRadioButton("지출");
 		in.setOpaque(false);
 		out.setOpaque(false);
 		in.setFont(contentf);
 		out.setFont(contentf);
+		
+		ButtonGroup group1 = new ButtonGroup();
+		group1.add(in);
+		group1.add(out);
+		
+		
+		JPanel controlPanel1 = new JPanel();
+		controlPanel1.setFont(titlef);
+		controlPanel1.setSize(500,300);
+		controlPanel1.setLocation(570,300);
+		controlPanel1.setOpaque(false);
+		controlPanel1.add(in);
+		controlPanel1.add(out);
+		
 		
 		in.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
@@ -160,9 +168,7 @@ public class WritingPanel extends JPanel{
 			}
 		});
 		
-		controlPanel2.add(in);
-		controlPanel2.add(out);
-		l.add(controlPanel2);
+		l.add(controlPanel1);
 		/* 수입 or 지출 입력 완료 */
 		
 		
@@ -175,18 +181,25 @@ public class WritingPanel extends JPanel{
 		cashcard.setFont(titlef);
 		l.add(cashcard);
 		
-		controlPanel3 = new JPanel();
-		controlPanel3.setFont(titlef);
-		controlPanel3.setSize(500,300);
-		controlPanel3.setLocation(1025,300);
-		controlPanel3.setOpaque(false);
-		
-		JCheckBox cash = new JCheckBox("현금");
-		JCheckBox card = new JCheckBox("카드");
+		JRadioButton cash = new JRadioButton("현금");
+		JRadioButton card = new JRadioButton("카드");
 		cash.setOpaque(false);
 		card.setOpaque(false);
 		cash.setFont(contentf);
 		card.setFont(contentf);
+		
+		ButtonGroup group2 = new ButtonGroup();
+		group2.add(cash);
+		group2.add(card);
+		
+		
+		JPanel controlPanel2 = new JPanel();
+		controlPanel2.setFont(titlef);
+		controlPanel2.setSize(500,300);
+		controlPanel2.setLocation(1025,300);
+		controlPanel2.setOpaque(false);
+		controlPanel2.add(cash);
+		controlPanel2.add(card);
 		
 		cash.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
@@ -199,9 +212,7 @@ public class WritingPanel extends JPanel{
 			}
 		});
 		
-		controlPanel3.add(cash);
-		controlPanel3.add(card);
-		l.add(controlPanel3);
+		l.add(controlPanel2);
 		/* 현금 or 카드 입력 완료 */
 		
 		
@@ -229,8 +240,8 @@ public class WritingPanel extends JPanel{
 		price.setFont(titlef);
 		l.add(price);
 		
-		Tprice.setSize(200,50);
-		Tprice.setLocation(1180,400);
+		Tprice.setSize(150,50);
+		Tprice.setLocation(1130,400);
 		Tprice.setFont(contentf);
 		Tprice.setHorizontalAlignment(JTextField.CENTER);
 		l.add(Tprice);
@@ -240,8 +251,11 @@ public class WritingPanel extends JPanel{
 		
 		
 		/* 입력, 삭제 버튼 띄우기 */
+		JButton add = new JButton("입력");
+		JButton delete = new JButton("삭제");
+		
 		add.setSize(100,50);
-		add.setLocation(1300,400);
+		add.setLocation(1320,400);
 		add.setFont(titlef);
 		l.add(add);
 		
@@ -258,84 +272,83 @@ public class WritingPanel extends JPanel{
 		/* 입력 삭제 버튼 완료 */
 		
 		
-		
 		statusLabel = new Label(); //나중에 지울 거!
 		statusLabel.setText("statusLabel");
 		statusLabel.setAlignment(Label.CENTER);
 		statusLabel.setFont(titlef);
 		statusLabel.setSize(350,100);
-		statusLabel.setLocation(200,800);
-		
-/*		controlPanel1 = new Panel();
-		controlPanel1.setFont(titlef);
-		controlPanel1.setSize(700,300);
-		controlPanel1.setLocation(170,300);
-*/		
-		
-		
-/*		
-*/		
-/*		Checkbox cate1 = new Checkbox("식비"); //checkbox하나만 선택 가능하게 하기
-		Checkbox cate2 = new Checkbox("교통비");
-		Checkbox cate3 = new Checkbox("문화생활비");
-		Checkbox cate4 = new Checkbox("학비");
-		Checkbox cate5 = new Checkbox("저축");
-*/
-		
-		
-		
+		statusLabel.setLocation(200,800);		
 	
-		
-/*		cate1.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("식비 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		});
-		cate2.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("교통비 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		});
-		cate3.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("문화생활비 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		});
-		cate4.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("학비 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		});
-		cate5.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("저축 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		});
-		
-*/
-		
-		
-		
-		
-		
-/*		controlPanel1.add(cate1);
-		controlPanel1.add(cate2);
-		controlPanel1.add(cate3);
-		controlPanel1.add(cate4);
-		controlPanel1.add(cate5);
-*/
-/*				
-		controlPanel3.add(cash);
-		controlPanel3.add(card);
-*/		
 		l.add(statusLabel);
-	//	l.add(controlPanel1);
+		
+		
+		/* 표  만들기 */
+		String[][] data = new String[20][9];
+		String[] title = new String[9];
+		title[0] = "번호";
+		title[1] = "연";
+		title[2] = "월";
+		title[3] = "일";
+		title[4] = "카테고리";
+		title[5] = "수입/지출";
+		title[6] = "카드/현금";
+		title[7] = "메모";
+		title[8] = "금액";
+		
+		DefaultTableModel model = new DefaultTableModel(data,title);
+		JTable table = new JTable(model);
+		JScrollPane scroll = new JScrollPane(table);
+		scroll.setSize(800,300);
+		scroll.setLocation(200,500);
+		l.add(scroll);
+		
+		int count = 0;
+		
+		
+		/* 표 입력 */	
+		
+		ActionListener listener1 = new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				try{
+					data[count][0] = String.valueOf(count+1); //번호
+					data[count][1] = Tyear.getText(); //연
+					data[count][2] = Tmonth.getText(); //월
+					data[count][3] = Tday.getText(); //일
+					data[count][4] = category.getActionCommand(); //카테고리
+					data[count][5] = ; //수입/지출
+					data[count][6] = ; //카드/현금
+					data[count][7] = Tmemo.getText(); //메모
+					data[count][8] = Tprice.getText(); //금액					
+					
+					table.updateUI();
+					count++;
+					Tyear.setText("");
+					Tmonth.setText("");
+					Tday.setText("");
+					Tmemo.setText("");
+					Tprice.setText("");
+				}catch(Exception e){
+					JOptionPane.showMessageDialog(getParent(), data.length+"명 초과");
+				}
+			}
+		};
+		add.addActionListener(listener1);
+		
+		ActionListener listener2 = new ActionListener(){
+			public void actionPerformed(ActionEvent arg0){
+				//delete
+			}
+		};
+		add.addActionListener(listener2);
+		
+		l.add(add);
+		l.add(delete);
 		
 			
 		add(l);
 		setSize(1700,1000);
 		
-	}	
-	
+	}
+
 
 }
