@@ -26,7 +26,7 @@ public class WritingPanel extends JPanel{
 		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
 		Image oldImage = oldIcon.getImage();
 		Image newImage = oldImage.getScaledInstance(1700,1000,java.awt.Image.SCALE_SMOOTH);
-		ImageIcon newIcon = new ImageIcon(newImage);
+		ImageIcon newIcon = new ImageIcon(newImage);		
 		JLabel l = new JLabel(newIcon);
 		l.setSize(1700,1000);
 		l.setLocation(0,0);
@@ -53,8 +53,8 @@ public class WritingPanel extends JPanel{
 		
 		
 		
-		Font titlef = new Font("HY나무B", Font.PLAIN, 30);
-		Font contentf = new Font("HY나무M", Font.PLAIN, 25);
+		Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
+		Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
 		
 		date_lb.setText("날      짜 : ");
 		year.setText("년");
@@ -70,7 +70,8 @@ public class WritingPanel extends JPanel{
 		/* 홈 버튼 */
 		JButton home = new JButton("홈");
 		home.setSize(80,80);
-		home.setLocation(200,80);
+		home.setLocation(100,80);
+		home.setBackground(new Color(236,230,204));
 		home.setFont(titlef);
 		l.add(home);
 		

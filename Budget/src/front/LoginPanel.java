@@ -21,9 +21,9 @@ public class LoginPanel extends JPanel{
 		l.setSize(1700,1000);
 		l.setLocation(0,0);
 		
-		Font font1 = new Font("HY나무B", Font.BOLD, 100);
-		Font titlef = new Font("HY나무B", Font.PLAIN, 30);
-		Font contentf = new Font("HY나무M", Font.PLAIN, 25);
+		Font font1 = new Font("서울남산체 B", Font.BOLD, 100);
+		Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
+		Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
 		
 		JLabel title = new JLabel("다람이 가계부");
 		title.setFont(font1);

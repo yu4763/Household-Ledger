@@ -20,7 +20,7 @@ public class MyFrame extends JFrame{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().add(front);
 		setVisible(true);
-		setSize(1700,1100);
+		setSize(1730,1080);
 	
 	}
 	
