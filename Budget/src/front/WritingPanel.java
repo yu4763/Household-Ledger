@@ -318,7 +318,7 @@ public class WritingPanel extends JPanel{
 		
 		/* 표 입력 */	
 		
-		ActionListener listener1 = new ActionListener(){
+		/*ActionListener listener1 = new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				try{
 					data[count][0] = String.valueOf(count+1); //번호
@@ -353,7 +353,7 @@ public class WritingPanel extends JPanel{
 		add.addActionListener(listener2);
 		
 		l.add(add);
-		l.add(delete);
+		l.add(delete);*/
 		
 			
 		add(l);
