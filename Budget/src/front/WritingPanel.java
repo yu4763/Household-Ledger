@@ -69,13 +69,13 @@ public class WritingPanel extends JPanel{
 		
 		/* 홈 버튼 */
 		JButton home = new JButton("홈");
-		home.setSize(100,100);
-		home.setLocation(200,100);
+		home.setSize(80,80);
+		home.setLocation(200,80);
 		home.setFont(titlef);
 		l.add(home);
 		
 		home.addActionListener(new ChangePanel());
-		
+		/* 홈버튼 완료 */
 		
 		
 		
