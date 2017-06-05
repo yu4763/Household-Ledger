@@ -69,13 +69,13 @@ public class WritingPanel extends JPanel{
 		
 		/* 홈 버튼 */
 		JButton home = new JButton("홈");
-		home.setSize(100,100);
-		home.setLocation(200,100);
+		home.setSize(80,80);
+		home.setLocation(200,80);
 		home.setFont(titlef);
 		l.add(home);
 		
 		home.addActionListener(new ChangePanel());
-		
+		/* 홈버튼 완료 */
 		
 		
 		
@@ -317,8 +317,9 @@ public class WritingPanel extends JPanel{
 		
 		
 		/* 표 입력 */	
-		
-		/*ActionListener listener1 = new ActionListener(){
+
+
+/*		ActionListener listener1 = new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				try{
 					data[count][0] = String.valueOf(count+1); //번호
@@ -355,7 +356,6 @@ public class WritingPanel extends JPanel{
 		l.add(add);
 		l.add(delete);*/
 		
-			
 		add(l);
 		setSize(1700,1000);
 		
