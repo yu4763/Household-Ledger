@@ -32,6 +32,10 @@ public class MyFrame extends JFrame{
 			this.getContentPane().add(write);			
 		}
 		
+		if(panelName=="home"){
+			this.getContentPane().add(front);
+		}
+		
 		revalidate();
 		repaint();
 	
