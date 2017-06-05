@@ -14,6 +14,10 @@ public class ChangePanel implements ActionListener{
 		if(b.getText().equals("가계부 작성")){
 			Main.fr.change("writing");
 		}
+		
+		if(b.getText().equals("홈")){
+			Main.fr.change("home");
+		}
 	}
 
 }

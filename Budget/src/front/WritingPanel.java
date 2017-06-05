@@ -67,6 +67,17 @@ public class WritingPanel extends JPanel{
 		cashcard.setText("현금/카드 : ");
 		
 		
+		/* 홈 버튼 */
+		JButton home = new JButton("홈");
+		home.setSize(100,100);
+		home.setLocation(200,100);
+		home.setFont(titlef);
+		l.add(home);
+		
+		home.addActionListener(new ChangePanel());
+		
+		
+		
 		
 		/* 여기 부터 날짜 입력 창 띄우기 */
 		date_lb.setSize(160, 50);
