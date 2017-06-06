@@ -10,12 +10,18 @@ public class MyFrame extends JFrame{
 	public FrontPanel front;
 	public WritingPanel write;
 	public LoginPanel login;
+	public BeforeAnalyzePanel beforeAnalyze;
+	public AnalyzePanelCalender analyzeCalender;
+	public AnalyzePanel analyze;
 	
 	MyFrame(){
 		
 		front = new FrontPanel();
 		write = new WritingPanel();
 		login = new LoginPanel();
+		beforeAnalyze = new BeforeAnalyzePanel();
+		analyzeCalender = new AnalyzePanelCalender();
+		analyze = new AnalyzePanel();
 		setTitle("다람이 가계부 프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().add(front);
@@ -35,6 +41,20 @@ public class MyFrame extends JFrame{
 		if(panelName=="home"){
 			this.getContentPane().add(front);
 		}
+		
+		if(panelName=="beforeanalyze"){
+			this.getContentPane().add(beforeAnalyze);
+		}
+		
+		if(panelName=="analyzecalender"){
+			this.getContentPane().add(analyzeCalender);
+		}
+		
+		if(panelName=="analyze"){
+			this.getContentPane().add(analyze);
+		}
+		
+		
 		
 		revalidate();
 		repaint();

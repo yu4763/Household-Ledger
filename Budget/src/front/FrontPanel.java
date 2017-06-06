@@ -5,11 +5,7 @@ import javax.swing.*;
 
 public class FrontPanel extends JPanel{
 	
-	ImageIcon daram;
-	
 	FrontPanel(){
-		
-		daram = new ImageIcon("./resources/darami.jpg");
 		
 		setLayout(null);
 	
@@ -48,6 +44,7 @@ public class FrontPanel extends JPanel{
 		b2.setFont(font2);
 		
 		b1.addActionListener(new ChangePanel());
+		b2.addActionListener(new ChangePanel());
 		
 		l.add(title);
 		l.add(b1);
