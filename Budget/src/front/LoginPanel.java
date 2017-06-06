@@ -1,12 +1,17 @@
 package front;
 
 import java.awt.*;
+import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.event.*;
 
 public class LoginPanel extends JPanel{
 	
 	ImageIcon daram;
+	Register r;
+	private String idvalue;
 	
+
 	LoginPanel(){
 		
 		daram = new ImageIcon("./resources/darami.jpg");
@@ -24,6 +29,7 @@ public class LoginPanel extends JPanel{
 		Font font1 = new Font("서울남산체 B", Font.BOLD, 100);
 		Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
 		Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
+		Font informf = new Font("서울남산체 L", Font.PLAIN, 18);
 		
 		JLabel title = new JLabel("다람이 가계부");
 		title.setFont(font1);
@@ -39,7 +45,7 @@ public class LoginPanel extends JPanel{
 		JButton register = new JButton("회원가입");
 		
 		JTextField id = new JTextField();
-		JPasswordField pw = new JPasswordField();
+		JTextField pw = new JPasswordField();
 		
 		userID.setSize(150, 50);
 		userID.setFont(titlef);
@@ -53,12 +59,14 @@ public class LoginPanel extends JPanel{
 		id.setFont(contentf);
 		id.setLocation(480, 500);
 		id.setOpaque(false);
+		id.addActionListener(r);
+		
 		
 		pw.setSize(300, 50);
 		pw.setLocation(480, 585);
 		pw.setFont(contentf);
 		pw.setOpaque(false);
-	
+		
 		l.add(userID);
 		l.add(id);
 		l.add(userPW);
@@ -66,15 +74,29 @@ public class LoginPanel extends JPanel{
 		
 		
 		log.setSize(185, 50);
-		log.setLocation(595, 710);
+		log.setLocation(595, 700);
 		log.setFont(contentf);
 		
 		register.setSize(235, 50);
-		register.setLocation(330, 710);
+		register.setLocation(330, 700);
 		register.setFont(contentf);
+		
+		register.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				idvalue = id.getText();
+				Client c = new Client(idvalue);
+			}
+		});
 		
 		l.add(log);
 		l.add(register);
+		
+		
+		JLabel inform = new JLabel("**회원가입을 원하실 경우 아이디와 비밀번호를 입력한 후 회원가입 버튼을 눌러주십시오.**");
+		inform.setSize(800,40);
+		inform.setLocation(330, 760);
+		inform.setFont(informf);
+		l.add(inform);
 		
 		add(l);
 		setSize(1700,1000);
