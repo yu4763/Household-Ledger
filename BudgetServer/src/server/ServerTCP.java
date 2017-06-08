@@ -26,7 +26,7 @@ public class ServerTCP {
 		try{
 			
 			server = new ServerSocket(port);
-			System.out.println("Server wating");
+			System.out.println("Server waiting");
 			client = server.accept();
 			System.out.println("connection : "+client.getInetAddress());
 			
