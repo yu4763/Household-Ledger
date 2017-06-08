@@ -55,7 +55,6 @@ public class MyFrame extends JFrame{
 		}
 		
 		
-		
 		revalidate();
 		repaint();
 	
