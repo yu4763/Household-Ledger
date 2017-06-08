@@ -23,15 +23,10 @@ public class MyFrame extends JFrame{
 		analyzeCalender = new AnalyzePanelCalender();
 		analyze = new AnalyzePanel();
 		setTitle("다람이 가계부 프로그램");
-<<<<<<< HEAD
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		getContentPane().add(login);
 
-=======
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().add(front);
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
 		setVisible(true);
 		setSize(1730,1080);
 	
