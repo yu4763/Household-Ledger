@@ -14,7 +14,9 @@ public class ServerTCP {
 	BufferedReader br;
 	
 	OutputStream out;
-	DataOutputStream dout;
+	OutputStreamWriter outw;
+	
+	FileMake fm;
 	
 	String userID = null;
 	
@@ -39,16 +41,19 @@ public class ServerTCP {
 			
 			System.out.println(userID);
 			
+			fm = new FileMake(userID);
+			int check = fm.returnfinish();
+			System.out.println("Server check: " + check);
+			
+			server.close();
+			in.close();
+			inr.close();
+			br.close();
+			ServerThread s = new ServerThread(check);
+			s.run();
+						
 		}catch(Throwable e){
 			e.printStackTrace();
-		}finally{
-			try {
-				in.close();
-				inr.close();
-				br.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 		
 	}

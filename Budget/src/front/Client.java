@@ -9,11 +9,12 @@ public class Client {
 	final String serverIP = "localhost";
 	
 	InputStream in;
-	DataInputStream din;
+	InputStreamReader inr;
 	
 	OutputStream out;
 	OutputStreamWriter outw;
 	BufferedWriter bw;
+	
 	
 	Client(String userID){
 
@@ -29,19 +30,17 @@ public class Client {
 			System.out.println("userID : " + userID);
 			bw.write(userID);
 			bw.flush();
-				
+			
+			client.close();
+			out.close();
+			outw.close();
+			bw.close();
+			
+			RegisterThread rt = new RegisterThread();
+			rt.run();
 			
 		}catch(Throwable e){
 			e.printStackTrace();
-		}finally{
-			try {
-				out.close();
-				outw.close();
-				bw.close();
-			} catch (IOException e) {
-
-				e.printStackTrace();
-			}
 		}
 		
 	}
