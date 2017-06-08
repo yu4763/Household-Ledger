@@ -16,9 +16,9 @@ public class FileMake {
 
 		try {
 
-			br = new BufferedReader(new FileReader("./files/user.csv"));
+			br = new BufferedReader(new FileReader("./files/user.csv")); //id file
 			String s;
-			while( (s = br.readLine()) !=null){
+			while( (s = br.readLine()) !=null){ //똑같은 아이디 있는지 흩는다.
 				if(s.equals(userID)){
 					finish = 1;
 					break;
@@ -27,7 +27,7 @@ public class FileMake {
 			}
 
 			if(finish==0 && checking.equals("register")){
-				fout = new FileOutputStream ("./files/user.csv", true);
+				fout = new FileOutputStream ("./files/user.csv", true); //true 적어야 앞 내용 기록됨
 				osw = new OutputStreamWriter(fout);
 				osw.write(userID, 0, userID.length());
 				osw.append('\n');

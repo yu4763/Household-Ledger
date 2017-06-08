@@ -29,7 +29,7 @@ public class ServerThread extends Thread {
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
 
-			outw.write(check);
+			outw.write(check); //check 보내기
 			outw.flush();
 			
 			out.close();
@@ -43,9 +43,13 @@ public class ServerThread extends Thread {
 		} 
 	}
 	
-	void isregister(){
+	void isregister(){ //연속적으로
 		if(checking.equals("register") || (checking.equals("login") && check == 0)){
 			ServerTCP ss2 = new ServerTCP();
+		}
+		else{ //writingThread 생성 + WritingTread.run //writingPanel에서 새로운 소캣 만들기, 선택 누를때마다 thread 생성
+			//유저아이디 계속 넘겨서 살려놓기 파일이름
+			
 		}
 	}
 	

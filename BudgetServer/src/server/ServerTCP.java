@@ -45,7 +45,7 @@ public class ServerTCP {
 			System.out.println(checking);
 			
 			fm = new FileMake(userID, checking);
-			int check = fm.returnfinish();
+			int check = fm.returnfinish(); //check fileMAKE
 			System.out.println("Server check: " + check);
 			
 			in.close();

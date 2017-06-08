@@ -82,7 +82,7 @@ public class LoginPanel extends JPanel{
 		register.setFont(contentf);
 
 
-		register.addActionListener(new ActionListener(){
+		register.addActionListener(new ActionListener(){ //register 회원가입
 			public void actionPerformed(ActionEvent e){
 				idvalue = id.getText();
 

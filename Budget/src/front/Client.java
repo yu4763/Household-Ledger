@@ -39,7 +39,7 @@ public class Client {
 				outw.close();
 				bw.close();
 				
-				RegisterThread rt = new RegisterThread();
+				RegisterThread rt = new RegisterThread(); //0,1¹Þ´Â°Å
 				rt.run();
 				
 			} catch (UnknownHostException e) {
