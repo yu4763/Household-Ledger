@@ -23,6 +23,7 @@ public class ServerThread extends Thread {
 
 			client = ss.accept();
 			System.out.println("ACCEPTED");
+			
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
 

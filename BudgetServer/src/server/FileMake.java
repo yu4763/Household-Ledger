@@ -31,6 +31,13 @@ public class FileMake {
 				osw.write(userID, 0, userID.length());
 				osw.append('\n');
 				osw.flush();
+				
+				String filename = "./files/";
+				filename = filename + userID;
+				filename = filename + ".csv";
+				FileOutputStream new1 = new FileOutputStream(filename) ;
+				new1.close();
+				
 			}
 
 

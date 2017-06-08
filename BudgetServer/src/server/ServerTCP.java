@@ -45,10 +45,11 @@ public class ServerTCP {
 			int check = fm.returnfinish();
 			System.out.println("Server check: " + check);
 			
-			server.close();
 			in.close();
 			inr.close();
 			br.close();
+			server.close();
+			
 			ServerThread s = new ServerThread(check);
 			s.run();
 						

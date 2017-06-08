@@ -9,7 +9,7 @@ public class LoginPanel extends JPanel{
 
 	ImageIcon daram;
 	Register r;
-	private String idvalue;
+	private String idvalue = null;
 
 
 	LoginPanel(){
@@ -60,12 +60,14 @@ public class LoginPanel extends JPanel{
 		id.setLocation(480, 500);
 		id.setOpaque(false);
 		id.addActionListener(r);
+		id.setText("");
 
 
 		pw.setSize(300, 50);
 		pw.setLocation(480, 585);
 		pw.setFont(contentf);
 		pw.setOpaque(false);
+		pw.setText("");
 
 		l.add(userID);
 		l.add(id);
@@ -86,7 +88,7 @@ public class LoginPanel extends JPanel{
 			public void actionPerformed(ActionEvent e){
 				idvalue = id.getText();
 
-				if(idvalue == null){
+				if(idvalue == null | idvalue.equals("")){
 					JOptionPane.showMessageDialog(null, "아이디를 입력해주세요.");
 				}
 
@@ -96,7 +98,7 @@ public class LoginPanel extends JPanel{
 					int check = RegisterThread.returncheck();
 					try {
 						while( check == -1){
-							this.wait(10);
+							Thread.sleep(2);
 							check = RegisterThread.returncheck();
 						}
 					} catch (InterruptedException e1) {
