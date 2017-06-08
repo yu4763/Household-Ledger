@@ -38,6 +38,19 @@ public class AnalyzePanel extends JPanel{
 		home.addActionListener(new ChangePanel());
 		/* 홈버튼 완료 */
 		
+		
+		/* 뒤로 버튼 */
+		JButton back = new JButton("뒤로");
+		back.setSize(130,80);
+		back.setLocation(250,80);
+		back.setBackground(new Color(236,230,204));
+		back.setFont(titlef);
+		l.add(back);
+		
+		back.addActionListener(new ChangePanel());
+		/* 뒤로 버튼 완료 */
+		
+		
 		add(l);
 		setSize(1700,1000);
 	}

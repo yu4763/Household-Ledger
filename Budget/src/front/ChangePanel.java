@@ -35,6 +35,10 @@ public class ChangePanel implements ActionListener{
 		if(b.getText().equals("일반 분석")){
 			Main.fr.change("analyze");
 		}
+		
+		if(b.getText().equals("뒤로")){
+			Main.fr.change("beforeanalyze");
+		}
 	}
 
 }

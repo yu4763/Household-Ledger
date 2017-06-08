@@ -41,7 +41,7 @@ public class BeforeAnalyzePanel extends JPanel{
 		/* 달력형 분석창 버튼 */
 		JButton calender = new JButton("달력 분석");
 		calender.setSize(200,100);
-		calender.setLocation(600,400);
+		calender.setLocation(600,450);
 		calender.setBackground(new Color(236,230,204));
 		calender.setFont(titlef);
 		l.add(calender);
@@ -53,7 +53,7 @@ public class BeforeAnalyzePanel extends JPanel{
 		/* 일반 분석창 버튼 */
 		JButton analyze = new JButton("일반 분석");
 		analyze.setSize(200,100);
-		analyze.setLocation(900,400);
+		analyze.setLocation(900,450);
 		analyze.setBackground(new Color(236,230,204));
 		analyze.setFont(titlef);
 		l.add(analyze);
