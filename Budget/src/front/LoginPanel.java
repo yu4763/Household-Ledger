@@ -8,7 +8,6 @@ import javax.swing.event.*;
 public class LoginPanel extends JPanel{
 
 	ImageIcon daram;
-	Register r;
 	private String idvalue = null;
 
 
@@ -59,7 +58,6 @@ public class LoginPanel extends JPanel{
 		id.setFont(contentf);
 		id.setLocation(480, 500);
 		id.setOpaque(false);
-		id.addActionListener(r);
 		id.setText("");
 
 
@@ -94,7 +92,7 @@ public class LoginPanel extends JPanel{
 
 				else{
 
-					Client c = new Client(idvalue);
+					Client c = new Client(idvalue, "register");
 					int check = RegisterThread.returncheck();
 					try {
 						while( check == -1){
@@ -117,7 +115,42 @@ public class LoginPanel extends JPanel{
 				}
 			}
 		});
+		
+		
+		
+		log.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				idvalue = id.getText();
 
+				if(idvalue == null || idvalue.equals("")){
+					JOptionPane.showMessageDialog(null, "아이디를 입력해주세요.");
+				}
+
+				else{
+
+					Client c = new Client(idvalue, "login");
+					int check = RegisterThread.returncheck();
+					try {
+						while( check == -1){
+							Thread.sleep(2);
+							check = RegisterThread.returncheck();
+						}
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+					}
+					if(check==0){ 
+						JOptionPane.showMessageDialog(null, "존재하지 않는 아이디입니다.");
+						id.setText("");
+						pw.setText("");
+					}
+					else{ // 로그인 완료
+						Main.fr.change("home");
+					}
+				}
+			}
+		});
+		
+		
 		l.add(log);
 		l.add(register);
 

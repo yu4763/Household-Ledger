@@ -9,9 +9,10 @@ public class FileMake {
 	OutputStream fout;
 	OutputStreamWriter osw;
 
-	int finish = 0;
+	int finish = 0; 
+	//finish == 0: 새로운 아이디,  finish == 1: 이미 있는 아이디
 
-	FileMake(String userID){
+	FileMake(String userID, String checking){
 
 		try {
 
@@ -25,7 +26,7 @@ public class FileMake {
 
 			}
 
-			if(finish==0){
+			if(finish==0 && checking.equals("register")){
 				fout = new FileOutputStream ("./files/user.csv", true);
 				osw = new OutputStreamWriter(fout);
 				osw.write(userID, 0, userID.length());

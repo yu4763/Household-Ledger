@@ -18,7 +18,8 @@ public class ServerTCP {
 	
 	FileMake fm;
 	
-	String userID = null;
+	private String userID = null;
+	private String checking = null;
 	
 	ServerTCP(){
 		
@@ -38,10 +39,12 @@ public class ServerTCP {
 			while( userID == null ){
 				userID = br.readLine();
 			}
+			checking = br.readLine();
 			
 			System.out.println(userID);
+			System.out.println(checking);
 			
-			fm = new FileMake(userID);
+			fm = new FileMake(userID, checking);
 			int check = fm.returnfinish();
 			System.out.println("Server check: " + check);
 			
@@ -50,12 +53,17 @@ public class ServerTCP {
 			br.close();
 			server.close();
 			
-			ServerThread s = new ServerThread(check);
+			ServerThread s = new ServerThread(check, checking);
 			s.run();
+			
 						
 		}catch(Throwable e){
 			e.printStackTrace();
 		}
 		
 	}
+	
+	
+	
+	
 }

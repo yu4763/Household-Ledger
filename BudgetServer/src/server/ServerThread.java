@@ -6,13 +6,15 @@ import java.net.*;
 
 public class ServerThread extends Thread {
 	private int check;
+	private String checking;
 	Socket client = null;
 	OutputStream out = null;
 	OutputStreamWriter outw = null;;
 
 
-	public ServerThread(int check) {
+	public ServerThread(int check, String checking) {
 		this.check = check;
+		this.checking = checking;
 	}
 
 	public void run() {
@@ -30,15 +32,21 @@ public class ServerThread extends Thread {
 			outw.write(check);
 			outw.flush();
 			
+			out.close();
+			outw.close();
+			ss.close();
+			
+			isregister();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				client.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		} 
+	}
+	
+	void isregister(){
+		if(checking.equals("register") || (checking.equals("login") && check == 0)){
+			ServerTCP ss2 = new ServerTCP();
 		}
 	}
+	
 }

@@ -16,32 +16,40 @@ public class Client {
 	BufferedWriter bw;
 	
 	
-	Client(String userID){
+	Client(String userID, String checking){
 
-		try{
-			client = new Socket(serverIP, 5000);
-			System.out.println("client Ready");
+	
+			try {
+				client = new Socket(serverIP, 5000);
+				System.out.println("client Ready");
+				
+				out = client.getOutputStream();
+				outw = new OutputStreamWriter(out);
+				bw = new BufferedWriter(outw);
+						
+				System.out.println("Sending");
+				System.out.println("userID : " + userID);
+				bw.write(userID + '\n');
+				bw.flush();
+				bw.write(checking);
+				bw.flush();
+				
+				client.close();
+				out.close();
+				outw.close();
+				bw.close();
+				
+				RegisterThread rt = new RegisterThread();
+				rt.run();
+				
+			} catch (UnknownHostException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 			
-			out = client.getOutputStream();
-			outw = new OutputStreamWriter(out);
-			bw = new BufferedWriter(outw);
-					
-			System.out.println("Sending");
-			System.out.println("userID : " + userID);
-			bw.write(userID);
-			bw.flush();
 			
-			client.close();
-			out.close();
-			outw.close();
-			bw.close();
-			
-			RegisterThread rt = new RegisterThread();
-			rt.run();
-			
-		}catch(Throwable e){
-			e.printStackTrace();
-		}
+	
 		
 	}
 	
