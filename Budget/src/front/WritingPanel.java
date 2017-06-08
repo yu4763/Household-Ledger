@@ -245,7 +245,6 @@ public class WritingPanel extends JPanel{
 		
 		
 		
-		
 		/* 가격 입력 띄우기 */
 		price.setSize(150,50);
 		price.setLocation(1020,400);
@@ -258,7 +257,6 @@ public class WritingPanel extends JPanel{
 		Tprice.setHorizontalAlignment(JTextField.CENTER);
 		l.add(Tprice);
 		/* 가격 입력 완료 */
-		
 		
 		
 		
