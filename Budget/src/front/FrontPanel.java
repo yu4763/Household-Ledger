@@ -1,11 +1,14 @@
 package front;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 public class FrontPanel extends JPanel{
 	
-	FrontPanel(){
+	FrontPanel(String id){
 		
 		setLayout(null);
 	
@@ -44,7 +47,17 @@ public class FrontPanel extends JPanel{
 		b2.setFont(font2);
 		
 		b1.addActionListener(new ChangePanel());
-		b2.addActionListener(new ChangePanel());
+		//b2.addActionListener(new ChangePanel());
+		
+		b2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				
+				ClientAnalyze c = new ClientAnalyze(id);
+				
+			}
+			
+		});
+		
 		
 		l.add(title);
 		l.add(b1);

@@ -10,7 +10,7 @@ public class RegisterThread extends Thread {
 	private String userID;
 	private Socket client = null;
 	private OutputStream out = null;
-	private OutputStreamWriter outw = null;;
+	private OutputStreamWriter outw = null;
 
 
 	public RegisterThread(int check, String checking, String userID) {

@@ -145,6 +145,7 @@ public class LoginPanel extends JPanel{
 					}
 					else{ // 로그인 완료
 						Main.fr.change("home");
+						FrontPanel csv = new FrontPanel(idvalue);
 					}
 				}
 			}
@@ -164,6 +165,6 @@ public class LoginPanel extends JPanel{
 		add(l);
 		setSize(1700,1000);
 
-
 	}
+	
 }
