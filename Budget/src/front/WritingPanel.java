@@ -298,6 +298,7 @@ public class WritingPanel extends JPanel{
 		delete.setSize(100,50);
 		delete.setLocation(1450,400);
 		delete.setFont(titlef);
+		delete.addActionListener(new EnterInformation());
 		l.add(delete);
 
 		tdelete.setSize(100,50);
@@ -465,6 +466,14 @@ public class WritingPanel extends JPanel{
 		else
 			return null;
 
+	}
+	
+	String getdelete(){
+
+		String del = tdelete.getText();
+		tdelete.setText("");
+		return del;
+	
 	}
 
 }

@@ -23,6 +23,7 @@ public class EnterInformation implements ActionListener{
 	private String memo;
 	private String price;
 	private String sending;
+	private String deletenum;
 
 	private Socket client = null;
 	final String serverIP = "localhost";
@@ -61,36 +62,80 @@ public class EnterInformation implements ActionListener{
 			}
 
 			else{
-				
+
 				try {
 					client = new Socket(serverIP, 5000);
-					System.out.println("client Ready");
-					
-					sending = year + "," + month + "," + day + "," + category + "," + inout + "," + cash + "," + memo + "," + price;
-					
 					out = client.getOutputStream();
 					outw = new OutputStreamWriter(out);
 					bw = new BufferedWriter(outw);
-							
+
+					System.out.println("client Ready");
+					sending = year + "," + month + "," + day + "," + category + "," + inout + "," + cash + "," + memo + "," + price;
+
 					System.out.println("sending info : " + sending);
+					bw.write("add" + '\n');
+					bw.flush();
 					bw.write(sending);
 					bw.flush();
-									
+
 					client.close();
 					out.close();
 					outw.close();
 					bw.close();
-					
+
 				} catch (UnknownHostException e1) {
 					e1.printStackTrace();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
-				
 
-					
+
+
 			}
 
+
+		}
+
+
+		else{
+
+			deletenum =  Main.fr.write.getdelete();
+
+			if(deletenum == null || deletenum.equals("")){
+				JOptionPane.showMessageDialog(null, "삭제할 항목의 번호를 입력해 주십시오.");
+			}
+
+			else{
+
+
+				try {
+					client = new Socket(serverIP, 5000);
+					System.out.println("client Ready");
+
+					out = client.getOutputStream();
+					outw = new OutputStreamWriter(out);
+					bw = new BufferedWriter(outw);
+
+					System.out.println("delete: " + deletenum);
+					bw.write("delete" + '\n');
+					bw.flush();
+					bw.write(deletenum);
+					bw.flush();
+
+					client.close();
+					out.close();
+					outw.close();
+					bw.close();
+
+				} catch (UnknownHostException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+			}
 
 		}
 
