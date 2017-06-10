@@ -12,17 +12,32 @@ import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
 
 public class WritingPanel extends JPanel{
-	
+
 	ImageIcon daram;
-	
-	public JLabel l;
-	public Label statusLabel;
-	public JPanel tablePanel;
-	
+
+	JLabel l;
+	Label statusLabel;
+	JPanel tablePanel;
+
+	private JTextField tyear; 
+	private JTextField tmonth;
+	private JTextField tday;
+	private JTextField tmemo; 
+	private JTextField tprice;
+	private JTextField tdelete;
+	private JComboBox<String> category;
+
+	private JRadioButton in;
+	private JRadioButton out;
+	private JRadioButton cash;
+	private JRadioButton card;
+	private JRadioButton no1;
+	private JRadioButton no2;
+
 	WritingPanel(){
 
 		setLayout(null);
-	
+
 		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
 		Image oldImage = oldIcon.getImage();
 		Image newImage = oldImage.getScaledInstance(1700,1000,java.awt.Image.SCALE_SMOOTH);
@@ -30,9 +45,9 @@ public class WritingPanel extends JPanel{
 		JLabel l = new JLabel(newIcon);
 		l.setSize(1700,1000);
 		l.setLocation(0,0);
-		
+
 		Calendar now = Calendar.getInstance();
-		
+
 		JLabel date_lb = new JLabel();
 		JLabel year = new JLabel();
 		JLabel month = new JLabel();
@@ -42,31 +57,35 @@ public class WritingPanel extends JPanel{
 		JLabel cate = new JLabel();
 		JLabel inout = new JLabel();
 		JLabel cashcard = new JLabel();
-		
-		JTextField Tyear = new JTextField(Integer.toString(now.get(Calendar.YEAR)));
-		JTextField Tmonth = new JTextField(Integer.toString(now.get(Calendar.MONTH)+1));
-		JTextField Tday = new JTextField(Integer.toString(now.get(Calendar.DAY_OF_MONTH)));
-		JTextField Tmemo = new JTextField(20);
-		JTextField Tprice = new JTextField(10);
-		JTextField Tdelete = new JTextField(4);
-				
-		
-		
-		
+
+		tyear = new JTextField(Integer.toString(now.get(Calendar.YEAR)));
+		tmonth = new JTextField(Integer.toString(now.get(Calendar.MONTH)+1));
+		tday = new JTextField(Integer.toString(now.get(Calendar.DAY_OF_MONTH)));
+		tmemo = new JTextField(20);
+		tprice = new JTextField(10);
+		tdelete = new JTextField(4);
+
+		tyear.setText(null);
+		tmonth.setText(null);
+		tday.setText(null);
+		tmemo.setText(null);
+		tprice.setText(null);
+
+
 		Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
 		Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
-		
+
 		date_lb.setText("날      짜 : ");
 		year.setText("년");
 		month.setText("월");
 		day.setText("일");
 		memo.setText("메      모 : ");
-		price.setText("가격 : ");
+		price.setText("금액 : ");
 		cate.setText("카테고리 : ");
 		inout.setText("수입/지출 : ");
 		cashcard.setText("현금/카드 : ");
-		
-		
+
+
 		/* 홈 버튼 */
 		JButton home = new JButton("홈");
 		home.setSize(80,80);
@@ -74,92 +93,96 @@ public class WritingPanel extends JPanel{
 		home.setBackground(new Color(236,230,204));
 		home.setFont(titlef);
 		l.add(home);
-		
+
 		home.addActionListener(new ChangePanel());
 		/* 홈버튼 완료 */
-		
-		
-		
+
+
+
 		/* 여기 부터 날짜 입력 창 띄우기 */
 		date_lb.setSize(160, 50);
 		date_lb.setLocation(100, 200);
 		date_lb.setFont(titlef);
 		l.add(date_lb);
-		
-		Tyear.setSize(130,50);
-		Tyear.setLocation(260, 200);
-		Tyear.setFont(contentf);
-		Tyear.setHorizontalAlignment(JTextField.CENTER);
-		l.add(Tyear);
-		
+
+		tyear.setSize(130,50);
+		tyear.setLocation(260, 200);
+		tyear.setFont(contentf);
+		tyear.setHorizontalAlignment(JTextField.CENTER);
+		l.add(tyear);
+
 		year.setSize(50, 50);
 		year.setLocation(395, 200);
 		year.setFont(contentf);
 		l.add(year);
-		
-		Tmonth.setSize(90,50);
-		Tmonth.setLocation(445, 200);
-		Tmonth.setFont(contentf);
-		Tmonth.setHorizontalAlignment(JTextField.CENTER);
-		l.add(Tmonth);
-		
+
+		tmonth.setSize(90,50);
+		tmonth.setLocation(445, 200);
+		tmonth.setFont(contentf);
+		tmonth.setHorizontalAlignment(JTextField.CENTER);
+		l.add(tmonth);
+
 		month.setSize(50, 50);
 		month.setLocation(535, 200);
 		month.setFont(contentf);
 		l.add(month);
-		
-		Tday.setSize(90,50);
-		Tday.setLocation(590, 200);
-		Tday.setFont(contentf);
-		Tday.setHorizontalAlignment(JTextField.CENTER);
-		l.add(Tday);
-		
+
+		tday.setSize(90,50);
+		tday.setLocation(590, 200);
+		tday.setFont(contentf);
+		tday.setHorizontalAlignment(JTextField.CENTER);
+		l.add(tday);
+
 		day.setSize(90, 50);
 		day.setLocation(685, 200);
 		day.setFont(contentf);
 		l.add(day);
 		/* 날짜 입력 끝 */
-		
-		
-		
-		
+
+
+
+
 		/* 카테고리 입력 띄우기 */
 		cate.setSize(160,50);
 		cate.setLocation(100,300);
 		cate.setFont(titlef);
 		l.add(cate);
-		
+
 		String[] types = {"식비", "교통비", "문화생활비", "학비", "저축"};
-		JComboBox<String> category = new JComboBox<String>(types);
+		category = new JComboBox<String>(types);
 		category.setEditable(false);
 		category.setFont(contentf);
 		category.setSize(200, 50);
 		category.setLocation(260, 300);
 		l.add(category);
 		/* 카테고리 입력 끝 */
-		
-		
-		
-		
+
+
+
+	
+		 
 		/* 수입 or 지출 입력 띄우기 */
 		inout.setSize(170,50);
 		inout.setLocation(580,300);
 		inout.setFont(titlef);
 		l.add(inout);
-		
-		
-		JRadioButton in = new JRadioButton("수입");
-		JRadioButton out = new JRadioButton("지출");
+
+
+		in = new JRadioButton("수입");
+		out = new JRadioButton("지출");
 		in.setOpaque(false);
 		out.setOpaque(false);
 		in.setFont(contentf);
 		out.setFont(contentf);
+		no1 = new JRadioButton();
 		
+
 		ButtonGroup group1 = new ButtonGroup();
 		group1.add(in);
 		group1.add(out);
-		
-		
+		group1.add(no1);
+
+
 		JPanel controlPanel1 = new JPanel();
 		controlPanel1.setFont(titlef);
 		controlPanel1.setSize(500,300);
@@ -167,8 +190,8 @@ public class WritingPanel extends JPanel{
 		controlPanel1.setOpaque(false);
 		controlPanel1.add(in);
 		controlPanel1.add(out);
-		
-		
+
+
 		in.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("수입 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
@@ -179,32 +202,34 @@ public class WritingPanel extends JPanel{
 				statusLabel.setText("지출 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
 		});
-		
+
 		l.add(controlPanel1);
 		/* 수입 or 지출 입력 완료 */
-		
-		
-		
-		
-		
+
+
+
+
+
 		/* 현금 or 카드 입력 띄우기  */
 		cashcard.setSize(170,50);
 		cashcard.setLocation(1020,300);
 		cashcard.setFont(titlef);
 		l.add(cashcard);
-		
-		JRadioButton cash = new JRadioButton("현금");
-		JRadioButton card = new JRadioButton("카드");
+
+		cash = new JRadioButton("현금");
+		card = new JRadioButton("카드");
 		cash.setOpaque(false);
 		card.setOpaque(false);
 		cash.setFont(contentf);
 		card.setFont(contentf);
-		
+		no2 = new JRadioButton();
+
 		ButtonGroup group2 = new ButtonGroup();
 		group2.add(cash);
 		group2.add(card);
-		
-		
+		group2.add(no2);
+
+
 		JPanel controlPanel2 = new JPanel();
 		controlPanel2.setFont(titlef);
 		controlPanel2.setSize(500,300);
@@ -212,7 +237,7 @@ public class WritingPanel extends JPanel{
 		controlPanel2.setOpaque(false);
 		controlPanel2.add(cash);
 		controlPanel2.add(card);
-		
+
 		cash.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("현금 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
@@ -223,75 +248,76 @@ public class WritingPanel extends JPanel{
 				statusLabel.setText("카드 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
 		});
-		
+
 		l.add(controlPanel2);
 		/* 현금 or 카드 입력 완료 */
-		
-		
-		
-		
+
+
+
+
 		/* 메모 입력 띄우기 */
 		memo.setSize(160,50);
 		memo.setLocation(100,400);
 		memo.setFont(titlef);
 		l.add(memo);
-		
-		Tmemo.setSize(660,50);
-		Tmemo.setLocation(260,400);
-		Tmemo.setFont(contentf);
-		Tmemo.setHorizontalAlignment(JTextField.LEFT);
-		l.add(Tmemo);
+
+		tmemo.setSize(660,50);
+		tmemo.setLocation(260,400);
+		tmemo.setFont(contentf);
+		tmemo.setHorizontalAlignment(JTextField.LEFT);
+		l.add(tmemo);
 		/* 메모 입력 완료 */
-		
-		
-		
+
+
+
 		/* 가격 입력 띄우기 */
 		price.setSize(150,50);
 		price.setLocation(1020,400);
 		price.setFont(titlef);
 		l.add(price);
-		
-		Tprice.setSize(150,50);
-		Tprice.setLocation(1130,400);
-		Tprice.setFont(contentf);
-		Tprice.setHorizontalAlignment(JTextField.CENTER);
-		l.add(Tprice);
+
+		tprice.setSize(150,50);
+		tprice.setLocation(1130,400);
+		tprice.setFont(contentf);
+		tprice.setHorizontalAlignment(JTextField.CENTER);
+		l.add(tprice);
 		/* 가격 입력 완료 */
-		
-		
-		
+
+
+
 		/* 입력, 삭제 버튼 띄우기 */
 		JButton add = new JButton("입력");
 		JButton delete = new JButton("삭제");
-		
+
 		add.setSize(100,50);
 		add.setLocation(1320,400);
 		add.setFont(titlef);
+		add.addActionListener(new EnterInformation());
 		l.add(add);
-		
+
 		delete.setSize(100,50);
 		delete.setLocation(1450,400);
 		delete.setFont(titlef);
 		l.add(delete);
-		
-		Tdelete.setSize(100,50);
-		Tdelete.setLocation(1550,400);
-		Tdelete.setFont(titlef);
-		Tdelete.setHorizontalAlignment(JTextField.CENTER);
-		l.add(Tdelete);
+
+		tdelete.setSize(100,50);
+		tdelete.setLocation(1550,400);
+		tdelete.setFont(titlef);
+		tdelete.setHorizontalAlignment(JTextField.CENTER);
+		l.add(tdelete);
 		/* 입력 삭제 버튼 완료 */
-		
-		
+
+
 		statusLabel = new Label(); //나중에 지울 거!
 		statusLabel.setText("statusLabel");
 		statusLabel.setAlignment(Label.CENTER);
 		statusLabel.setFont(titlef);
 		statusLabel.setSize(350,100);
 		statusLabel.setLocation(200,800);		
-	
+
 		l.add(statusLabel);
-		
-		
+
+
 		/* 표  만들기 */
 		String[][] data = new String[20][9];
 		String[] title = new String[9];
@@ -304,61 +330,141 @@ public class WritingPanel extends JPanel{
 		title[6] = "카드/현금";
 		title[7] = "메모";
 		title[8] = "금액";
-		
+
 		DefaultTableModel model = new DefaultTableModel(data,title);
 		JTable table = new JTable(model);
 		JScrollPane scroll = new JScrollPane(table);
 		scroll.setSize(800,300);
 		scroll.setLocation(200,500);
 		l.add(scroll);
-		
+
 		int count = 0;
-		
-		
+
+
 		/* 표 입력 */	
 
 
-/*		ActionListener listener1 = new ActionListener(){
+		/*		ActionListener listener1 = new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				try{
 					data[count][0] = String.valueOf(count+1); //번호
-					data[count][1] = Tyear.getText(); //연
-					data[count][2] = Tmonth.getText(); //월
-					data[count][3] = Tday.getText(); //일
+					data[count][1] = tyear.getText(); //연
+					data[count][2] = tmonth.getText(); //월
+					data[count][3] = tday.getText(); //일
 					data[count][4] = category.getActionCommand(); //카테고리
 					data[count][5] = ; //수입/지출
 					data[count][6] = ; //카드/현금
-					data[count][7] = Tmemo.getText(); //메모
-					data[count][8] = Tprice.getText(); //금액					
-					
+					data[count][7] = tmemo.getText(); //메모
+					data[count][8] = tprice.getText(); //금액					
+
 					table.updateUI();
 					count++;
-					Tyear.setText("");
-					Tmonth.setText("");
-					Tday.setText("");
-					Tmemo.setText("");
-					Tprice.setText("");
+					tyear.setText("");
+					tmonth.setText("");
+					tday.setText("");
+					tmemo.setText("");
+					tprice.setText("");
 				}catch(Exception e){
 					JOptionPane.showMessageDialog(getParent(), data.length+"명 초과");
 				}
 			}
 		};
 		add.addActionListener(listener1);
-		
+
 		ActionListener listener2 = new ActionListener(){
 			public void actionPerformed(ActionEvent arg0){
 				//delete
 			}
 		};
 		add.addActionListener(listener2);
-		
+
 		l.add(add);
 		l.add(delete);*/
-		
+
 		add(l);
 		setSize(1700,1000);
-		
+
 	}
 
+	String getyear(){
+		
+		String year = tyear.getText();
+		tyear.setText("");
+		return year;
+	
+	}
+
+	String getmonth(){
+
+		String month = tmonth.getText();
+		tmonth.setText("");
+		return month;
+	
+	}
+
+	String getday(){
+
+		String day = tday.getText();
+		tday.setText("");
+		return day;
+	
+	}
+
+	String getmemo(){
+
+		String memo = tmemo.getText();
+		tmemo.setText("");
+		return memo;
+	
+	}
+
+	String getprice(){
+
+		String price = tprice.getText();
+		tprice.setText("");
+		return price;
+	
+	}
+
+	String getCategory(){
+		
+		String c = category.getSelectedItem().toString();
+		category.setSelectedIndex(0);
+		return c;
+	}
+
+	String getInout(){
+
+		if(in.isSelected()){
+			no1.setSelected(true);
+			return "수입";
+		}
+
+		else if(out.isSelected()){
+			no1.setSelected(true);
+			return "지출";
+		}
+
+		else
+			return null;
+
+	}
+
+	String getIscash(){
+
+		if(cash.isSelected()){
+			no2.setSelected(true);
+			return "현금";
+		}
+
+		else if(card.isSelected()){
+			no2.setSelected(true);
+			return "카드";
+		}
+
+		else
+			return null;
+
+	}
 
 }

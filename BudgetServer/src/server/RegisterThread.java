@@ -4,17 +4,19 @@ import java.io.*;
 import java.net.*;
 
 
-public class ServerThread extends Thread {
+public class RegisterThread extends Thread {
 	private int check;
 	private String checking;
-	Socket client = null;
-	OutputStream out = null;
-	OutputStreamWriter outw = null;;
+	private String userID;
+	private Socket client = null;
+	private OutputStream out = null;
+	private OutputStreamWriter outw = null;;
 
 
-	public ServerThread(int check, String checking) {
+	public RegisterThread(int check, String checking, String userID) {
 		this.check = check;
 		this.checking = checking;
+		this.userID = userID;
 	}
 
 	public void run() {
@@ -47,10 +49,11 @@ public class ServerThread extends Thread {
 		if(checking.equals("register") || (checking.equals("login") && check == 0)){
 			ServerTCP ss2 = new ServerTCP();
 		}
-		else{ //writingThread 생성 + WritingTread.run //writingPanel에서 새로운 소캣 만들기, 선택 누를때마다 thread 생성
-			//유저아이디 계속 넘겨서 살려놓기 파일이름
+		else if(checking.equals("login") && check == 1 ){
+			WritingServer ws = new WritingServer(userID);
 			
 		}
 	}
+	
 	
 }

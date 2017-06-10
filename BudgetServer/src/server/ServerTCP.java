@@ -5,18 +5,15 @@ import java.net.*;
 
 public class ServerTCP {
 	
-	ServerSocket server = null;
-	Socket client = null;
+	private ServerSocket server = null;
+	private Socket client = null;
 	final int port = 5000;
 	
-	InputStream in;
-	InputStreamReader inr;
-	BufferedReader br;
-	
-	OutputStream out;
-	OutputStreamWriter outw;
-	
-	FileMake fm;
+	private InputStream in;
+	private InputStreamReader inr;
+	private BufferedReader br;
+		
+	private FileMake fm;
 	
 	private String userID = null;
 	private String checking = null;
@@ -53,7 +50,7 @@ public class ServerTCP {
 			br.close();
 			server.close();
 			
-			ServerThread s = new ServerThread(check, checking);
+			RegisterThread s = new RegisterThread(check, checking, userID);
 			s.run();
 			
 						

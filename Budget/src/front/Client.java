@@ -5,15 +5,12 @@ import java.net.*;
 
 public class Client {
 
-	Socket client = null;
+	private Socket client = null;
 	final String serverIP = "localhost";
 	
-	InputStream in;
-	InputStreamReader inr;
-	
-	OutputStream out;
-	OutputStreamWriter outw;
-	BufferedWriter bw;
+	private OutputStream out;
+	private OutputStreamWriter outw;
+	private BufferedWriter bw;
 	
 	
 	Client(String userID, String checking){
