@@ -8,7 +8,10 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Arc2D;
+import java.awt.geom.Ellipse2D;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +26,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	JPanel cir;
 	ChartPanel graph = new ChartPanel();
 	
+	Calendar cal;
 	Calendar today;
 	JPanel pmonth;
 	JPanel color;
@@ -32,6 +36,14 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	JTextField TcurrentMonth;
 	int currentYear;
 	int currentMonth;
+	
+	JButton b1;
+	JButton b2;
+	JButton b3;
+	JButton b4;
+	JButton b5;
+	JButton bexpense;
+	//JButton bleftMoney;
 	
 	SavingInfo info = new SavingInfo();
 	String[][] dataCSV = new String[100][9];
@@ -45,6 +57,8 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	Color[] colors = {new Color(185,24,35),new Color(231,146,20),new Color(138,186,43),new Color(50,175,219),new Color(135,17,126)};
 	String[] cate = {"식비","교통비","문화생활비","학비","저축"};
+	int sum;
+	
 	
 	AnalyzePanel(){
 		setLayout(null);
@@ -90,6 +104,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		pmonth.setOpaque(false);
 
 		today = Calendar.getInstance();
+		cal = new GregorianCalendar();
 		currentYear = today.get(Calendar.YEAR);
 		currentMonth = today.get(Calendar.MONTH)+1;
 		
@@ -118,22 +133,37 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		l.add(pmonth);
 		
 		/* 달 완료 */
+		
 
+		b1 = new JButton();
+		b2 = new JButton();
+		b3 = new JButton();
+		b4 = new JButton();
+		b5 = new JButton();
+		bexpense = new JButton();
+		//bleftMoney = new JButton();
+		
 		
 		/* 원형 그래프 */
 		cir = new JPanel();
 		cir.setSize(500,500);
 		cir.setLocation(300,400);
-		cir.setOpaque(false);
+		//cir.setOpaque(false);
+		
+		before.addActionListener(this);
+		after.addActionListener(this);
 		
 		buttonSet();
-		cir.add(graph);
-		l.add(cir);
+		drawChart();
+		//cir.add(graph);
+		//l.add(cir);
+		
+		graph.setSize(700,700);
+		graph.setLocation(300,300);
+		graph.setOpaque(false);
+		l.add(graph);
 
-		before.addActionListener(this);
-			
-
-		after.addActionListener(this);
+		
 		
 		/* 원형 그래프 완료*/
 		
@@ -142,29 +172,40 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	}
 	
 	void drawChart(){
-		int sum = 0;
+		sum = 0;
 		for(int i=0;i<5;i++){
 			sum+=spentMoney[i];
 		}
-		if(sum==0) return;
-		for(int i=0;i<5;i++){
-			arcAngle[i] = (int)Math.round((double)spentMoney[i]/(double)sum*360);
-			graph.repaint();
+		if(sum!=0){
+			for(int i=0;i<5;i++){
+				arcAngle[i] = (int)Math.round((double)spentMoney[i]/(double)sum*360);
+			}
 		}
+		
+		repaint();
 	}
 	
 	class ChartPanel extends JPanel{
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
-			int angle=0;
-			/*for(int i=0;i<5;i++){
-				g.setColor(colors[i]);
-				g.drawString(cate[i]+Math.round(arcAngle[i]*100/360+"%",50+i*100,20));
-			}*/
-			for(int i=0;i<5;i++){
-				g.setColor(colors[i]);
-				g.fillArc(150,50,200,200,angle,arcAngle[i]);
-				angle += arcAngle[i];
+			if(sum!=0){
+				int angle=0;
+				for(int i=0;i<5;i++){
+					g.setColor(colors[i]);
+					g.drawString(cate[i]+""+Math.round(arcAngle[i]*100/360)+"%", 50+i*100,20);
+				}
+				for(int i=0;i<5;i++){
+					g.setColor(colors[i]);
+					g.fillArc(150,50,500,500,angle,arcAngle[i]);
+					angle += arcAngle[i];
+				}
+			}
+			else{
+				for(int i=0;i<5;i++){
+					g.setColor(colors[i]);
+					g.drawString(cate[i]+"0%", 50+i*100,20);
+				}
+				g.drawOval(150,50,500,500);
 			}
 		}
 	}
@@ -185,18 +226,15 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		dataCSV = info.getInfo();
 		cnt = info.getcnt();
 		
+		cal.set(Calendar.YEAR,currentYear);
+		cal.set(Calendar.MONTH,currentMonth-1);
+		
 		color = new JPanel();
-		color.setLocation(300,800);
-		color.setSize(1000,120);
+		color.setLocation(1020,340);
+		color.setSize(350,600);
 		color.setOpaque(false);
 		
-		JButton b1 = new JButton();
-		JButton b2 = new JButton();
-		JButton b3 = new JButton();
-		JButton b4 = new JButton();
-		JButton b5 = new JButton();
-		JButton bexpense = new JButton();
-		JButton bleftMoney = new JButton();
+		for(int i=0;i<5;i++) spentMoney[i] = 0;
 
 		int dataCSVIntCost,dataCSVIntYear,dataCSVIntMonth;
 		for(int i=0;i<cnt;i++){
@@ -204,26 +242,28 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 			dataCSVIntMonth = Integer.parseInt(dataCSV[i][2]);
 			if(dataCSVIntYear==currentYear && dataCSVIntMonth==currentMonth){
 				dataCSVIntCost = Integer.parseInt(dataCSV[i][8]);
-				if(dataCSV[i][5]=="지출"){
-					if(dataCSV[i][4]=="식비"){
+				
+				if(dataCSV[i][5].equals("지출")){
+					if(dataCSV[i][4].equals("식비")){
 						spentMoney[0] += dataCSVIntCost;
 					}
-					else if(dataCSV[i][4]=="교통비"){
+					else if(dataCSV[i][4].equals("교통비")){
 						spentMoney[1] += dataCSVIntCost;
 					}
-					else if(dataCSV[i][4]=="문화생활비"){
+					else if(dataCSV[i][4].equals("문화생활비")){
 						spentMoney[2] += dataCSVIntCost;
 					}
-					else if(dataCSV[i][4]=="학비"){
+					else if(dataCSV[i][4].equals("학비")){
 						spentMoney[3] += dataCSVIntCost;
 					}
-					else if(dataCSV[i][4]=="저축"){
+					else if(dataCSV[i][4].equals("저축")){
 						spentMoney[4] += dataCSVIntCost;
 					}
 					
 				}
 			}
-		}
+		}	
+		
 		
 		/* 총 지출 */
 		int sumExpense = 0;
@@ -232,16 +272,16 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		}
 		
 		/* leftMoney 지금이 5월이라면 5월까지 남은 돈*/
-		leftMoney = 0;
+		/*leftMoney = 0;
 		for(int i=0;i<cnt;i++){
 			dataCSVIntYear = Integer.parseInt(dataCSV[i][1]);
 			dataCSVIntMonth = Integer.parseInt(dataCSV[i][2]);
 			if(dataCSVIntYear<currentYear || (dataCSVIntYear==currentYear && dataCSVIntMonth<currentMonth)){
 				dataCSVIntCost = Integer.parseInt(dataCSV[i][8]);
-				if(dataCSV[i][5]=="수입") leftMoney += dataCSVIntCost;
-				else if(dataCSV[i][5]=="지출") leftMoney -= dataCSVIntCost;
+				if(dataCSV[i][5].equals("수입")) leftMoney += dataCSVIntCost;
+				else if(dataCSV[i][5].equals("지출")) leftMoney -= dataCSVIntCost;
 			}
-		}
+		}*/
 		
 		b1.setText("식비:"+spentMoney[0]+"원");
 		b2.setText("교통비:"+spentMoney[1]+"원");
@@ -249,7 +289,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		b4.setText("학비:"+spentMoney[3]+"원");
 		b5.setText("저축:"+spentMoney[4]+"원");
 		bexpense.setText("총 지출:"+sumExpense+"원");
-		bleftMoney.setText("남은돈:"+leftMoney+"원");
+		//bleftMoney.setText("남은돈:"+leftMoney+"원");
 		
 		b1.setForeground(new Color(185,24,35));
 		b2.setForeground(new Color(231,146,20));
@@ -262,24 +302,31 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		b1.setFont(titlef);
 		b1.setBackground(new Color(255,255,255));
 		b1.setOpaque(false);
+		b1.setBorderPainted(false);
 		b2.setFont(titlef);
 		b2.setBackground(new Color(255,255,255));
 		b2.setOpaque(false);
+		b2.setBorderPainted(false);
 		b3.setFont(titlef);
 		b3.setBackground(new Color(255,255,255));
 		b3.setOpaque(false);
+		b3.setBorderPainted(false);
 		b4.setFont(titlef);
 		b4.setBackground(new Color(255,255,255));
 		b4.setOpaque(false);
+		b4.setBorderPainted(false);
 		b5.setFont(titlef);
 		b5.setBackground(new Color(255,255,255));
 		b5.setOpaque(false);
+		b5.setBorderPainted(false);
 		bexpense.setFont(titlef);
 		bexpense.setBackground(new Color(255,255,255));
 		bexpense.setOpaque(false);
-		bleftMoney.setFont(titlef);
-		bleftMoney.setBackground(new Color(255,255,255));
-		bleftMoney.setOpaque(false);
+		bexpense.setBorderPainted(false);
+		//bleftMoney.setFont(titlef);
+		//bleftMoney.setBackground(new Color(255,255,255));
+		//bleftMoney.setOpaque(false);
+		//bleftMoney.setBorderPainted(false);
 		
 		color.add(b1);
 		color.add(b2);
@@ -287,27 +334,25 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		color.add(b4);
 		color.add(b5);
 		color.add(bexpense);
-		color.add(bleftMoney);
+		//color.add(bleftMoney);
 		
 		color.setLayout(new GridLayout(7,1));
 		
 		l.add(color);
-		
-		drawChart();
 	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==before){
-			this.pmonth.removeAll();
 			calInput(-1);
 			buttonSet();
+			drawChart();
 			this.TcurrentYear.setText(currentYear+"년");
 			this.TcurrentMonth.setText(currentMonth+"월");
 		}
 		else if(arg0.getSource()==after){
-			this.pmonth.removeAll();
 			calInput(1);
 			buttonSet();
+			drawChart();
 			this.TcurrentYear.setText(currentYear+"년");
 			this.TcurrentMonth.setText(currentMonth+"월");
 		}		
