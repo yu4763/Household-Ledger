@@ -239,7 +239,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 			else{
 				for(int i=0;i<2;i++){
 					g2.setColor(colors[i]);
-					g2.drawString(cate2[i]+" 0%", 50+1*100, 20);
+					g2.drawString(cate2[i]+" 0%",50+i*100,20);
 				}
 				g2.drawOval(50,50,500,500);
 			}
