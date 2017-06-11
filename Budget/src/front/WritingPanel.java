@@ -29,8 +29,12 @@ public class WritingPanel extends JPanel{
 	private JRadioButton card;
 	private JRadioButton no1;
 	private JRadioButton no2;
+	
+	private int count;
 
 	WritingPanel(String[][] tmp, int count){
+		
+		this.count = count;
 
 		setLayout(null);
 
@@ -256,33 +260,6 @@ public class WritingPanel extends JPanel{
 		/* 가격 입력 완료 */
 
 
-
-		/* 입력, 삭제 버튼 띄우기 */
-		JButton add = new JButton("입력");
-		JButton delete = new JButton("삭제");
-
-		add.setSize(100,50);
-		add.setLocation(1320,400);
-		add.setFont(titlef);
-		add.addActionListener(new EnterInformation());
-		l.add(add);
-
-		delete.setSize(100,50);
-		delete.setLocation(1450,400);
-		delete.setFont(titlef);
-		delete.addActionListener(new EnterInformation());
-		l.add(delete);
-
-		tdelete.setSize(100,50);
-		tdelete.setLocation(1550,400);
-		tdelete.setFont(titlef);
-		tdelete.setHorizontalAlignment(JTextField.CENTER);
-		l.add(tdelete);
-		/* 입력 삭제 버튼 완료 */
-
-		
-		
-
 		/* 표  출력 */
 		String[][] data = new String[2000][7];
 		String[] title = new String[7];
@@ -321,6 +298,35 @@ public class WritingPanel extends JPanel{
 		scroll.setLocation(100,510);
 		l.add(scroll);
 		/* 표출력 끝 */
+		
+		
+
+
+
+		/* 입력, 삭제 버튼 띄우기 */
+		JButton add = new JButton("입력");
+		JButton delete = new JButton("삭제");
+
+		add.setSize(100,50);
+		add.setLocation(1320,400);
+		add.setFont(titlef);
+		add.addActionListener(new EnterInformation( table ));
+		l.add(add);
+
+		delete.setSize(100,50);
+		delete.setLocation(1450,400);
+		delete.setFont(titlef);
+		delete.addActionListener(new EnterInformation( table ));
+		l.add(delete);
+
+		tdelete.setSize(100,50);
+		tdelete.setLocation(1550,400);
+		tdelete.setFont(titlef);
+		tdelete.setHorizontalAlignment(JTextField.CENTER);
+		l.add(tdelete);
+		/* 입력 삭제 버튼 완료 */
+
+		
 		
 	
 		
@@ -419,6 +425,10 @@ public class WritingPanel extends JPanel{
 		tdelete.setText("");
 		return del;
 	
+	}
+	
+	int getcount(){
+		return count;
 	}
 
 }

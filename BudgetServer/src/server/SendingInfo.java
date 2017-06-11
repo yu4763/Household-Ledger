@@ -35,6 +35,7 @@ public class SendingInfo extends Thread{
 			if(checknull == -1){
 				bw.write(Integer.toString(checknull));
 				bw.flush();
+				
 			}
 			else{
 
