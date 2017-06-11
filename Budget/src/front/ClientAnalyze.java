@@ -35,9 +35,6 @@ public class ClientAnalyze {
 			outw.close();
 			bw.close();
 			
-			//AnalyzeThread at = new AnalyzeThread();
-			//at.run();
-			
 		}catch(UnknownHostException e){
 			e.printStackTrace();
 		}catch(IOException e){

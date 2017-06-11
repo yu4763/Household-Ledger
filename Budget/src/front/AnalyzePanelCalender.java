@@ -39,8 +39,8 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	SavingInfo info = new SavingInfo();
 	String[][] dataCSV = new String[100][9];
 	int cnt;
-	int earning;
-	int expense;
+	
+	int leftMoney;
 	
 	AnalyzePanelCalender(){
 		setLayout(null);
@@ -169,13 +169,39 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		cal.set(Calendar.MONTH,currentMonth-1);
 		cal.set(Calendar.DATE,1);
 		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
-		
-		String ScurrentYear = Integer.toString(currentYear);
-		String ScurrentMonth = Integer.toString(currentMonth);
-		
+
+		/* 수입, 지출, 총 */
+		int[] earning = new int[32];
+		int[] expense = new int[32];
+		int[] sum = new int[32];
+		int dataCSVIntCost,dataCSVIntYear,dataCSVIntMonth,dataCSVIntDay;
 		for(int i=0;i<cnt;i++){
-			if(dataCSV[i][1]==ScurrentYear && dataCSV[i][2]==ScurrentMonth){
-				
+			dataCSVIntYear = Integer.parseInt(dataCSV[i][1]);
+			dataCSVIntMonth = Integer.parseInt(dataCSV[i][2]);
+			if(dataCSVIntYear==currentYear && dataCSVIntMonth==currentMonth){
+				dataCSVIntCost = Integer.parseInt(dataCSV[i][8]);
+				dataCSVIntDay = Integer.parseInt(dataCSV[i][3]);
+				if(dataCSV[i][5]=="수입"){
+					earning[dataCSVIntDay] += dataCSVIntCost;
+				}
+				else if(dataCSV[i][5]=="지출"){
+					expense[dataCSVIntDay] += dataCSVIntCost;
+				}
+			}
+		}
+		for(int i=1;i<32;i++){
+			sum[i] = earning[i] - expense[i];
+		}
+		
+		/* leftMoney 지금이 5월이라면 4월까지 남은 돈 */
+		leftMoney = 0;
+		for(int i=0;i<cnt;i++){
+			dataCSVIntYear = Integer.parseInt(dataCSV[i][1]);
+			dataCSVIntMonth = Integer.parseInt(dataCSV[i][2]);
+			if(dataCSVIntYear<currentYear || (dataCSVIntYear==currentYear && dataCSVIntMonth<currentMonth)){
+				dataCSVIntCost = Integer.parseInt(dataCSV[i][8]);
+				if(dataCSV[i][5]=="수입") leftMoney += dataCSVIntCost;
+				else if(dataCSV[i][5]=="지출") leftMoney -= dataCSVIntCost;
 			}
 		}
 		
@@ -197,7 +223,8 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 			Bcal[i+6+hopping].setForeground(new Color(0,0,0)); //평일
 			if((i+hopping-1)%7==0) Bcal[i+6+hopping].setForeground(new Color(255,0,0)); //일
 			if((i+hopping)%7==0) Bcal[i+6+hopping].setForeground(new Color(0,0,255)); //토
-			Bcal[i+6+hopping].setText((i)+"");
+			leftMoney += sum[i];
+			Bcal[i+6+hopping].setText((i)+"\n수입:"+earning[i]+"\n지출:"+expense[i]+"\n총:"+sum[i]+"\n남은돈:"+leftMoney);
 			Bcal[i+6+hopping].setFont(contentf2);
 			Bcal[i+6+hopping].setHorizontalAlignment(SwingConstants.LEFT);
 			Bcal[i+6+hopping].setVerticalAlignment(SwingConstants.TOP);
