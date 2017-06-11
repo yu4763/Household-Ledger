@@ -42,6 +42,7 @@ public class SavingInfo extends Thread{
 				System.out.println(line);
 			}
 
+			System.out.println(line);
 			if(!line.equals("-1")){
 				
 				int i;
@@ -55,6 +56,8 @@ public class SavingInfo extends Thread{
 					cnt++;
 					line = br.readLine();
 				}
+				
+				data[0][0] = Integer.toString(1);
 
 				System.out.println("saving : " + cnt);
 
