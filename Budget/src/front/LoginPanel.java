@@ -145,7 +145,6 @@ public class LoginPanel extends JPanel{
 					}
 					else{ // 로그인 완료
 						Main.fr.change("home");
-						FrontPanel csv = new FrontPanel(idvalue);
 					}
 				}
 			}

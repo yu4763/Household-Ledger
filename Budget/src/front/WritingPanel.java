@@ -148,7 +148,7 @@ public class WritingPanel extends JPanel{
 		cate.setFont(titlef);
 		l.add(cate);
 
-		String[] types = {"식비", "교통비", "문화생활비", "학비", "저축"};
+		String[] types = {"식비", "교통비", "문화생활비", "학비", "저축","용돈","월급"};
 		category = new JComboBox<String>(types);
 		category.setEditable(false);
 		category.setFont(contentf);
@@ -238,7 +238,7 @@ public class WritingPanel extends JPanel{
 		controlPanel2.add(cash);
 		controlPanel2.add(card);
 
-		cash.addItemListener(new ItemListener() {
+		/*cash.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("현금 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
@@ -247,7 +247,7 @@ public class WritingPanel extends JPanel{
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("카드 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
-		});
+		});*/
 
 		l.add(controlPanel2);
 		/* 현금 or 카드 입력 완료 */

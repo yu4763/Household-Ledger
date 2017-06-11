@@ -25,7 +25,7 @@ public class MyFrame extends JFrame{
 		setTitle("다람이 가계부 프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		getContentPane().add(login);
+		getContentPane().add(analyze);
 
 		setVisible(true);
 		setSize(1730,1080);
