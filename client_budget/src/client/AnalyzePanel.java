@@ -22,43 +22,45 @@ import javax.swing.JTextField;
 
 public class AnalyzePanel extends JPanel implements ActionListener{
 	
-	JLabel l;
+	private JLabel l;
 	
-	JPanel cir;
-	ChartPanel graph = new ChartPanel();
+	private JPanel cir;
+	private ChartPanel graph = new ChartPanel();
 	
-	Calendar cal;
-	Calendar today;
-	JPanel pmonth;
-	JPanel color;
-	JButton before;
-	JButton after;
-	JTextField TcurrentYear;
-	JTextField TcurrentMonth;
-	int currentYear;
-	int currentMonth;
+	private Calendar cal;
+	private Calendar today;
+	private JPanel pmonth;
+	private JPanel color;
+	private JButton before;
+	private JButton after;
+	private JTextField TcurrentYear;
+	private JTextField TcurrentMonth;
+	private int currentYear;
+	private int currentMonth;
 	
-	JTextArea T1,T2,T3,T4,T5,Texpense;
-	
-	
-	String[][] dataCSV = new String[100][9];
-	int cnt;
-	int leftMoney;
-	int[] spentMoney = new int[5]; //카테고리별 지출 돈
-	int[] arcAngle = new int[5];
+	private JTextArea T1,T2,T3,T4,T5,Texpense;
 	
 	Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
-	Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
+	
+	
+	private String[][] dataCSV = new String[100][9];
+	private int cnt;
+	private int[] spentMoney = new int[5]; //카테고리별 지출 돈
+	private int[] arcAngle = new int[5];
+	
+	
 	
 	Color[] colors = {new Color(185,24,35),new Color(231,146,20),new Color(138,186,43),new Color(50,175,219),new Color(135,17,126)};
-	String[] cate = {"식비","교통비","문화생활비","학비","저축"};
-	int sum;
+	private String[] cate = {"식비","교통비","문화생활비","학비","저축"};
+	private int sum;
 	
 	
 	AnalyzePanel(String[][] data, int cnt){
 		this.dataCSV = data;
 		this.cnt = cnt;
 		setLayout(null);
+		
+		
 		
 		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
 		Image oldImage = oldIcon.getImage();

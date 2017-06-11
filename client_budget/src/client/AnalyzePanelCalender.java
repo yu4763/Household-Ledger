@@ -20,28 +20,28 @@ import javax.swing.SwingConstants;
 
 public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	
-	Calendar today;
-	Calendar cal;
-	int currentYear,currentMonth,currentDay;
-	JButton before;
-	JButton after;
-	JPanel calendar;
-	JPanel calendarDays;
-	JTextField TcurrentMonth;
-	JTextField TcurrentYear;
-	JTextField TcurrentTime;
-	//JButton[] Bcal = new JButton[49];
-	JTextArea[] Tcal = new JTextArea[49];
-	String days[] = {"일","월","화","수","목","금","토"};
+	private Calendar today;
+	private Calendar cal;
+	private int currentYear,currentMonth,currentDay;
+	private JButton before;
+	private JButton after;
+	private JPanel calendar;
+	private JPanel calendarDays;
+	private JTextField TcurrentMonth;
+	private JTextField TcurrentYear;
+
 	
-	Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
-	Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
-	Font contentf2 = new Font("서울남산체 L", Font.PLAIN, 17);
+	private JTextArea[] Tcal = new JTextArea[49];
+	private String days[] = {"일","월","화","수","목","금","토"};
+	
+	private Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
+	private Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
+	private Font contentf2 = new Font("서울남산체 L", Font.PLAIN, 17);
 	
 	
-	String[][] dataCSV = new String[100][9];
-	int cnt;
-	int leftMoney;
+	private String[][] dataCSV = new String[100][9];
+	private int cnt;
+	private int leftMoney;
 	
 	AnalyzePanelCalender(String[][] data, int cnt){
 		
