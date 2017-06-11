@@ -9,6 +9,7 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -23,6 +24,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	JPanel cir;
 	ChartPanel graph = new ChartPanel();
 	
+	Calendar cal;
 	Calendar today;
 	JPanel pmonth;
 	JPanel color;
@@ -90,6 +92,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		pmonth.setOpaque(false);
 
 		today = Calendar.getInstance();
+		cal = new GregorianCalendar();
 		currentYear = today.get(Calendar.YEAR);
 		currentMonth = today.get(Calendar.MONTH)+1;
 		
@@ -131,8 +134,6 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		l.add(cir);
 
 		before.addActionListener(this);
-			
-
 		after.addActionListener(this);
 		
 		/* 원형 그래프 완료*/
@@ -166,6 +167,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 				g.fillArc(150,50,200,200,angle,arcAngle[i]);
 				angle += arcAngle[i];
 			}
+			//color.add();
 		}
 	}
 	
@@ -185,9 +187,12 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		dataCSV = info.getInfo();
 		cnt = info.getcnt();
 		
+		cal.set(Calendar.YEAR,currentYear);
+		cal.set(Calendar.MONTH,currentMonth-1);
+		
 		color = new JPanel();
-		color.setLocation(300,800);
-		color.setSize(1000,120);
+		color.setLocation(1100,300);
+		color.setSize(300,600);
 		color.setOpaque(false);
 		
 		JButton b1 = new JButton();
@@ -262,24 +267,31 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		b1.setFont(titlef);
 		b1.setBackground(new Color(255,255,255));
 		b1.setOpaque(false);
+		b1.setBorderPainted(false);
 		b2.setFont(titlef);
 		b2.setBackground(new Color(255,255,255));
 		b2.setOpaque(false);
+		b2.setBorderPainted(false);
 		b3.setFont(titlef);
 		b3.setBackground(new Color(255,255,255));
 		b3.setOpaque(false);
+		b3.setBorderPainted(false);
 		b4.setFont(titlef);
 		b4.setBackground(new Color(255,255,255));
 		b4.setOpaque(false);
+		b4.setBorderPainted(false);
 		b5.setFont(titlef);
 		b5.setBackground(new Color(255,255,255));
 		b5.setOpaque(false);
+		b5.setBorderPainted(false);
 		bexpense.setFont(titlef);
 		bexpense.setBackground(new Color(255,255,255));
 		bexpense.setOpaque(false);
+		bexpense.setBorderPainted(false);
 		bleftMoney.setFont(titlef);
 		bleftMoney.setBackground(new Color(255,255,255));
 		bleftMoney.setOpaque(false);
+		bleftMoney.setBorderPainted(false);
 		
 		color.add(b1);
 		color.add(b2);
@@ -301,15 +313,15 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 			this.pmonth.removeAll();
 			calInput(-1);
 			buttonSet();
-			this.TcurrentYear.setText(currentYear+"년");
-			this.TcurrentMonth.setText(currentMonth+"월");
+			TcurrentYear.setText(currentYear+"년");
+			TcurrentMonth.setText(currentMonth+"월");
 		}
 		else if(arg0.getSource()==after){
 			this.pmonth.removeAll();
 			calInput(1);
 			buttonSet();
-			this.TcurrentYear.setText(currentYear+"년");
-			this.TcurrentMonth.setText(currentMonth+"월");
+			TcurrentYear.setText(currentYear+"년");
+			TcurrentMonth.setText(currentMonth+"월");
 		}		
 	}
 }
