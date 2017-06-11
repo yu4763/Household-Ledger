@@ -28,8 +28,6 @@ public class EnterInformation implements ActionListener{
 
 	public void actionPerformed(ActionEvent e){
 
-		new SendButton("enter");
-
 		JButton b = (JButton)e.getSource();
 
 		if(b.getText().equals("ют╥б")){
@@ -78,10 +76,12 @@ public class EnterInformation implements ActionListener{
 
 
 				else{
+					
+					new SendButton("enter");
 
 					try {
 
-						Thread.sleep(30);
+						Thread.sleep(40);
 						client = new Socket(serverIP, 5000);
 						out = client.getOutputStream();
 						outw = new OutputStreamWriter(out);
@@ -141,10 +141,11 @@ public class EnterInformation implements ActionListener{
 
 			else{
 
-
+				new SendButton("enter");
+				
 				try {
 
-					Thread.sleep(30);
+					Thread.sleep(40);
 					client = new Socket(serverIP, 5000);
 					System.out.println("client Ready");
 
