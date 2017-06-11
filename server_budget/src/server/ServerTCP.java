@@ -3,6 +3,9 @@ package server;
 import java.io.*;
 import java.net.*;
 
+import java.io.*;
+import java.net.*;
+
 public class ServerTCP {
 	
 	private ServerSocket server = null;
@@ -38,8 +41,6 @@ public class ServerTCP {
 			}
 			checking = br.readLine();
 			
-			System.out.println(userID);
-			System.out.println(checking);
 			
 			fm = new FileMake(userID, checking);
 			int check = fm.returnfinish(); //check fileMAKE

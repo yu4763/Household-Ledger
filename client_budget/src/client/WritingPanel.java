@@ -11,7 +11,6 @@ public class WritingPanel extends JPanel{
 	ImageIcon daram;
 
 	JLabel l;
-	Label statusLabel;
 	JPanel tablePanel;
 	Calendar now;
 

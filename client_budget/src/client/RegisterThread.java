@@ -17,7 +17,6 @@ public class RegisterThread extends Thread{
 		check = -1;
 
 		try {
-			System.out.println("THREAD");
 
 			
 			try {
@@ -33,8 +32,6 @@ public class RegisterThread extends Thread{
 			inr = new InputStreamReader(in);
 			check = in.read();
 
-
-			System.out.println("check : " + check);
 
 			client.close();
 			in.close();

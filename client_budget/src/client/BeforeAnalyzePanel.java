@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class BeforeAnalyzePanel extends JPanel{
 	
-	public JLabel l;
+	private JLabel l;
 	
 	BeforeAnalyzePanel(){
 		setLayout(null);

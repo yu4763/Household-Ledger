@@ -25,8 +25,6 @@ public class ClientAnalyze {
 			outw = new OutputStreamWriter(out);
 			bw = new BufferedWriter(outw);
 					
-			System.out.println("Sending");
-			System.out.println("userID : " + id);
 			bw.write(id + '\n');
 			bw.flush();
 			

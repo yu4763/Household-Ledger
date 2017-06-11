@@ -37,10 +37,8 @@ public class WritingThread {
 			while( type == null ){
 				type = br.readLine();
 			}
-			System.out.println("type: " + type);
 
 			info = br.readLine();
-			System.out.println("info : " + info);
 			in.close();
 			inr.close();
 			br.close();
@@ -89,7 +87,7 @@ public class WritingThread {
 					num = tokens.nextToken(",");
 					rest = tokens.nextToken("\n");
 					if(num.equals(info)){
-						System.out.println("delinfo: " + info);
+						
 					}
 					else{
 						osw.write(Integer.toString(i) + rest);
@@ -99,6 +97,7 @@ public class WritingThread {
 						i++;
 					}
 				}
+				
 				osw.close();
 				fos.close();
 				fis.close();

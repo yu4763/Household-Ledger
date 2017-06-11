@@ -1,19 +1,9 @@
 package client;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.Vector;
-
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import java.awt.event.*;
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
 
 public class EnterInformation implements ActionListener{
 
@@ -81,7 +71,6 @@ public class EnterInformation implements ActionListener{
 					System.out.println("client Ready");
 					sending = year + "," + month + "," + day + "," + category + "," + inout + "," + cash + "," + memo + "," + price;
 
-					System.out.println("sending info : " + sending);
 					bw.write("add" + '\n');
 					bw.flush();
 					bw.write(sending);
@@ -135,7 +124,7 @@ public class EnterInformation implements ActionListener{
 
 				try {
 					
-					Thread.sleep(20);
+					Thread.sleep(30);
 					client = new Socket(serverIP, 5000);
 					System.out.println("client Ready");
 
@@ -143,7 +132,6 @@ public class EnterInformation implements ActionListener{
 					outw = new OutputStreamWriter(out);
 					bw = new BufferedWriter(outw);
 
-					System.out.println("delete: " + deletenum);
 					bw.write("delete" + '\n');
 					bw.flush();
 					bw.write(deletenum);

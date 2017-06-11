@@ -28,7 +28,6 @@ public class SwitchingServer {
 				while( button == null ){
 					button = br.readLine();
 				}
-				System.out.println("button : " + button);
 
 				br.close();
 				inr.close();
@@ -58,7 +57,6 @@ public class SwitchingServer {
 						while( button2 == null ){
 							button2 = br2.readLine();
 						}
-						System.out.println("button : " + button2);
 
 						br2.close();
 						inr2.close();

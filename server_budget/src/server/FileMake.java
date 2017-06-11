@@ -4,10 +4,9 @@ import java.io.*;
 
 public class FileMake {
 
-	InputStream fin;
-	BufferedReader br;
-	OutputStream fout;
-	OutputStreamWriter osw;
+	private BufferedReader br;
+	private OutputStream fout;
+	private OutputStreamWriter osw;
 
 	int finish = 0; 
 	//finish == 0: 새로운 아이디,  finish == 1: 이미 있는 아이디

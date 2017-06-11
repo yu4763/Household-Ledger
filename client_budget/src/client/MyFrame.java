@@ -3,6 +3,8 @@ package client;
 
 import javax.swing.*;
 
+import javax.swing.*;
+
 public class MyFrame extends JFrame{
 
 	public FrontPanel front;
@@ -20,7 +22,7 @@ public class MyFrame extends JFrame{
 		front = new FrontPanel();
 		login = new LoginPanel();
 		beforeAnalyze = new BeforeAnalyzePanel();
-		setTitle("다람이 가계부 프로그램");
+		setTitle("다람이 가계부");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().add(login);
 		setVisible(true);
