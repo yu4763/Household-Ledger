@@ -41,7 +41,7 @@ public class BeforeAnalyzePanel extends JPanel{
 		/* 달력형 분석창 버튼 */
 		JButton calender = new JButton("달력 분석");
 		calender.setSize(270,100);
-		calender.setLocation(650,450);
+		calender.setLocation(570,450);
 		calender.setBackground(new Color(236,230,204));
 		calender.setFont(titlef);
 		l.add(calender);
@@ -50,16 +50,16 @@ public class BeforeAnalyzePanel extends JPanel{
 		/* 달력형 분석창 버튼 완료*/
 		
 		
-		/* 일반 분석창 버튼 */
+		/* 카테고리 분석창 버튼 */
 		JButton analyze = new JButton("카테고리 분석");
 		analyze.setSize(270,100);
-		analyze.setLocation(950,450);
+		analyze.setLocation(920,450);
 		analyze.setBackground(new Color(236,230,204));
 		analyze.setFont(titlef);
 		l.add(analyze);
 		
 		analyze.addActionListener(new ChangePanel());
-		/* 일반 분석창 버튼 완료*/
+		/* 카테고리 분석창 버튼 완료*/
 		
 		add(l);
 		setSize(1700,1000);

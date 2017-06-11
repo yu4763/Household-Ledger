@@ -39,44 +39,28 @@ public class LoginPanel extends JPanel{
 		JLabel title = new JLabel("다람이 가계부");
 		title.setFont(font1);
 		title.setSize(800, 300);
-		title.setLocation(520, 100);
+		title.setLocation(520, 180);
 		l.add(title);
 
 
-		JLabel userID = new JLabel("아이디    : ", JLabel.CENTER);
-		JLabel userPW = new JLabel("비밀번호 : ", JLabel.CENTER);
+		JLabel userID = new JLabel("사용자 : ", JLabel.CENTER);
 		JButton log = new JButton("로그인");
 		JButton register = new JButton("회원가입");
 
 		JTextField id = new JTextField();
-		JPasswordField pw = new JPasswordField();
 
 		userID.setSize(150, 50);
 		userID.setFont(titlef);
-		userID.setLocation(330, 500);
-
-		userPW.setSize(150, 50);
-		userPW.setFont(titlef);
-		userPW.setLocation(330, 585);
+		userID.setLocation(330, 550);
 
 		id.setSize(300, 50);
 		id.setFont(contentf);
-		id.setLocation(480, 500);
+		id.setLocation(480, 550);
 		id.setOpaque(false);
 		id.setText("");
 
-
-		pw.setSize(300, 50);
-		pw.setLocation(480, 585);
-		pw.setFont(contentf);
-		pw.setOpaque(false);
-		pw.setText("");
-
 		l.add(userID);
 		l.add(id);
-		l.add(userPW);
-		l.add(pw);
-
 
 		log.setSize(185, 50);
 		log.setLocation(595, 700);
@@ -90,19 +74,10 @@ public class LoginPanel extends JPanel{
 		register.addActionListener(new ActionListener(){ //register 회원가입
 			public void actionPerformed(ActionEvent e){
 				idvalue = id.getText();
-				pwvalue = pw.getPassword();
-								
-				System.out.println("password : " + pwvalue);
 
 				if(idvalue == null || idvalue.equals("")){
 					JOptionPane.showMessageDialog(null, "아이디를 입력해주세요.");
 				}
-				
-				else if(pwvalue == null ){
-					JOptionPane.showMessageDialog(null, "비밀번호를 입력해주세요.");
-				}
-				
-				
 
 				else{
 
@@ -119,17 +94,14 @@ public class LoginPanel extends JPanel{
 					if(check==0){
 						JOptionPane.showMessageDialog(null, "회원가입이 완료되었습니다.");
 						id.setText("");
-						pw.setText("");
 					}
 					else{
 						JOptionPane.showMessageDialog(null, "이미 존재하는 아이디입니다.");
 						id.setText("");
-						pw.setText("");
 					}
 				}
 			}
 		});
-		
 		
 		
 		log.addActionListener(new ActionListener(){
@@ -153,7 +125,6 @@ public class LoginPanel extends JPanel{
 						if(check==0){ 
 							JOptionPane.showMessageDialog(null, "존재하지 않는 아이디입니다.");
 							id.setText("");
-							pw.setText("");
 						}
 						else{ // 로그인 완료
 							Thread.sleep(2);
