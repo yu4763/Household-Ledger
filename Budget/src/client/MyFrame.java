@@ -1,4 +1,4 @@
-package front;
+package client;
 
 
 import javax.swing.*;

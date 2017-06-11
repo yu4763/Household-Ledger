@@ -1,4 +1,4 @@
-package front;
+package client;
 
 
 public class Main{

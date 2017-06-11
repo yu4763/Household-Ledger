@@ -1,4 +1,4 @@
-package front;
+package client;
 
 import java.io.BufferedWriter;
 import java.io.IOException;

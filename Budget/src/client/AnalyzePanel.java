@@ -1,4 +1,4 @@
-package front;
+package client;
 
 import java.awt.*;
 import java.awt.Color;
