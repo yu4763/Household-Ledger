@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -29,12 +30,13 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	JTextField TcurrentMonth;
 	JTextField TcurrentYear;
 	JTextField TcurrentTime;
-	JButton[] Bcal = new JButton[49];
+	//JButton[] Bcal = new JButton[49];
+	JTextArea[] Tcal = new JTextArea[49];
 	String days[] = {"일","월","화","수","목","금","토"};
 	
 	Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
 	Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
-	Font contentf2 = new Font("서울남산체 L", Font.PLAIN, 15);
+	Font contentf2 = new Font("서울남산체 L", Font.PLAIN, 17);
 	
 	SavingInfo info = new SavingInfo();
 	String[][] dataCSV = new String[100][9];
@@ -87,7 +89,6 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		
 		today = Calendar.getInstance();
 		cal = new GregorianCalendar();
-		String months[] = {"January","February","March","April","May","June","July","August","September","October","November","December"};
 		
 		currentYear = today.get(Calendar.YEAR);
 		currentMonth = today.get(Calendar.MONTH)+1;
@@ -140,21 +141,18 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	}
 
 	private void hideInit() { //나머지 버튼 비활성화
-		for(int i=0;i<Bcal.length;i++){
-			if((Bcal[i].getText()).equals("")) Bcal[i].setEnabled(false);
+		for(int i=0;i<Tcal.length;i++){
+			if((Tcal[i].getText()).equals("")) Tcal[i].setEnabled(false);
 		}		
 	}
 
 	private void gridInit() {
 		for(int i=0;i<days.length;i++){
-			calendarDays.add(Bcal[i]=new JButton(days[i]));
-			Bcal[i].setFont(contentf);
-			Bcal[i].setContentAreaFilled(false);
-			Bcal[i].setBorderPainted(false);
+			calendarDays.add(Tcal[i]=new JTextArea(days[i]));
+			Tcal[i].setFont(contentf);
 		}
 		for(int i=days.length;i<49;i++){
-			calendarDays.add(Bcal[i]=new JButton(""));
-			Bcal[i].addActionListener(this);
+			calendarDays.add(Tcal[i]=new JTextArea(""));
 		}	
 	}
 	
@@ -208,28 +206,26 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		}
 		
 		int hopping = 0;
-		Bcal[0].setForeground(new Color(255,0,0)); //일
-		Bcal[6].setForeground(new Color(0,0,255)); //토
+		Tcal[0].setForeground(new Color(255,0,0)); //일
+		Tcal[6].setForeground(new Color(0,0,255)); //토
 		for(int i=cal.getFirstDayOfWeek();i<dayOfWeek;i++) hopping++;
 		
 		for(int i=0;i<hopping;i++){
-			Bcal[i+7].setText("");
+			Tcal[i+7].setText("");
 		}
 		for(int i=0;i<49;i++){ //배경 투명하게
-			Bcal[i].setBackground(new Color(255,255,255));
-			Bcal[i].setOpaque(false);
+			Tcal[i].setBackground(new Color(255,255,255));
+			Tcal[i].setOpaque(false);
 		}
 		for(int i=cal.getMinimum(Calendar.DAY_OF_MONTH);i<=cal.getMaximum(Calendar.DAY_OF_MONTH);i++){
 			cal.set(Calendar.DATE,i);
 			if(cal.get(Calendar.MONTH)!=currentMonth-1) break;
-			Bcal[i+6+hopping].setForeground(new Color(0,0,0)); //평일
-			if((i+hopping-1)%7==0) Bcal[i+6+hopping].setForeground(new Color(255,0,0)); //일
-			if((i+hopping)%7==0) Bcal[i+6+hopping].setForeground(new Color(0,0,255)); //토
+			Tcal[i+6+hopping].setForeground(new Color(0,0,0)); //평일
+			if((i+hopping-1)%7==0) Tcal[i+6+hopping].setForeground(new Color(255,0,0)); //일
+			if((i+hopping)%7==0) Tcal[i+6+hopping].setForeground(new Color(0,0,255)); //토
 			leftMoney += sum[i];
-			Bcal[i+6+hopping].setText((i)+"\n수입:"+(earning[i])+"원\n지출:"+(expense[i])+"원\n총:"+sum[i]+"원\n남은돈:"+leftMoney+"원");
-			Bcal[i+6+hopping].setFont(contentf2);
-			Bcal[i+6+hopping].setHorizontalAlignment(SwingConstants.LEFT);
-			Bcal[i+6+hopping].setVerticalAlignment(SwingConstants.TOP);
+			Tcal[i+6+hopping].setText((i)+"\n"+"수입:"+(earning[i])+"원\n지출:"+(expense[i])+"원\n총:"+sum[i]+"원\n남은돈:"+leftMoney+"원");
+			Tcal[i+6+hopping].setFont(contentf2);
 		}
 	}
 	

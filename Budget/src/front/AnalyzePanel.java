@@ -141,29 +141,24 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		b4 = new JButton();
 		b5 = new JButton();
 		bexpense = new JButton();
-		//bleftMoney = new JButton();
 		
 		
 		/* 원형 그래프 */
 		cir = new JPanel();
 		cir.setSize(500,500);
 		cir.setLocation(300,400);
-		//cir.setOpaque(false);
 		
 		before.addActionListener(this);
 		after.addActionListener(this);
 		
-		buttonSet();
-		drawChart();
-		//cir.add(graph);
-		//l.add(cir);
-		
 		graph.setSize(700,700);
 		graph.setLocation(300,300);
 		graph.setOpaque(false);
-		l.add(graph);
-
 		
+		buttonSet();
+		drawChart();
+		
+		l.add(graph);
 		
 		/* 원형 그래프 완료*/
 		
@@ -181,7 +176,6 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 				arcAngle[i] = (int)Math.round((double)spentMoney[i]/(double)sum*360);
 			}
 		}
-		
 		repaint();
 	}
 	
@@ -271,33 +265,18 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 			sumExpense += spentMoney[i];
 		}
 		
-		/* leftMoney 지금이 5월이라면 5월까지 남은 돈*/
-		/*leftMoney = 0;
-		for(int i=0;i<cnt;i++){
-			dataCSVIntYear = Integer.parseInt(dataCSV[i][1]);
-			dataCSVIntMonth = Integer.parseInt(dataCSV[i][2]);
-			if(dataCSVIntYear<currentYear || (dataCSVIntYear==currentYear && dataCSVIntMonth<currentMonth)){
-				dataCSVIntCost = Integer.parseInt(dataCSV[i][8]);
-				if(dataCSV[i][5].equals("수입")) leftMoney += dataCSVIntCost;
-				else if(dataCSV[i][5].equals("지출")) leftMoney -= dataCSVIntCost;
-			}
-		}*/
-		
 		b1.setText("식비:"+spentMoney[0]+"원");
 		b2.setText("교통비:"+spentMoney[1]+"원");
 		b3.setText("문화생활비:"+spentMoney[2]+"원");
 		b4.setText("학비:"+spentMoney[3]+"원");
 		b5.setText("저축:"+spentMoney[4]+"원");
 		bexpense.setText("총 지출:"+sumExpense+"원");
-		//bleftMoney.setText("남은돈:"+leftMoney+"원");
 		
 		b1.setForeground(new Color(185,24,35));
 		b2.setForeground(new Color(231,146,20));
 		b3.setForeground(new Color(138,186,43));
 		b4.setForeground(new Color(50,175,219));
 		b5.setForeground(new Color(135,17,126));
-		//b6.setForeground(new Color(235,205,213));
-		//b7.setForeground(new Color(209,175,148));
 		
 		b1.setFont(titlef);
 		b1.setBackground(new Color(255,255,255));
@@ -323,10 +302,6 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		bexpense.setBackground(new Color(255,255,255));
 		bexpense.setOpaque(false);
 		bexpense.setBorderPainted(false);
-		//bleftMoney.setFont(titlef);
-		//bleftMoney.setBackground(new Color(255,255,255));
-		//bleftMoney.setOpaque(false);
-		//bleftMoney.setBorderPainted(false);
 		
 		color.add(b1);
 		color.add(b2);
@@ -334,7 +309,6 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		color.add(b4);
 		color.add(b5);
 		color.add(bexpense);
-		//color.add(bleftMoney);
 		
 		color.setLayout(new GridLayout(7,1));
 		
