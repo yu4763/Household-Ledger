@@ -163,7 +163,7 @@ public class EnterInformation implements ActionListener{
 				}
 				
 				try {
-					Thread.sleep(15);
+					Thread.sleep(20);
 					SavingInfo si = new SavingInfo();
 					si.run();
 					Thread.sleep(2);

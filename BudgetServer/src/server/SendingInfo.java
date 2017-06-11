@@ -26,6 +26,7 @@ public class SendingInfo extends Thread{
 			filename = filename + userID;
 			filename = filename + ".csv";
 
+			Thread.sleep(10);
 
 			FileInputStream fis = new FileInputStream(filename);
 			InputStreamReader isr = new InputStreamReader(fis);
@@ -64,6 +65,9 @@ public class SendingInfo extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

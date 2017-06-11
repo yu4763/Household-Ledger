@@ -108,9 +108,17 @@ public class WritingThread {
 				File f1 = new File(filename);
 				f1.delete();
 				
-				File f3 = new File("./files/..csv");
 				File f2 = new File(filename);
-				f3.renameTo(f2);
+				File f3 = new File("./files/..csv");
+				
+				boolean a;
+				a = f3.renameTo(f2);
+				while(!a){
+					a = f3.renameTo(f2);
+				}
+				
+				FileOutputStream new1 = new FileOutputStream("./files/..csv") ;
+				new1.close();
 			
 			}
 			
