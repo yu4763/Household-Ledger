@@ -39,6 +39,8 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	SavingInfo info = new SavingInfo();
 	String[][] dataCSV = new String[100][9];
 	int cnt;
+	int earning;
+	int expense;
 	
 	AnalyzePanelCalender(){
 		setLayout(null);
@@ -167,6 +169,15 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		cal.set(Calendar.MONTH,currentMonth-1);
 		cal.set(Calendar.DATE,1);
 		int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
+		
+		String ScurrentYear = Integer.toString(currentYear);
+		String ScurrentMonth = Integer.toString(currentMonth);
+		
+		for(int i=0;i<cnt;i++){
+			if(dataCSV[i][1]==ScurrentYear && dataCSV[i][2]==ScurrentMonth){
+				
+			}
+		}
 		
 		int hopping = 0;
 		Bcal[0].setForeground(new Color(255,0,0)); //ÀÏ

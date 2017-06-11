@@ -143,8 +143,9 @@ public class LoginPanel extends JPanel{
 						}
 						else{ // 로그인 완료
 							Thread.sleep(2);
-							Main.fr.change("home");
 							SavingInfo si = new SavingInfo();
+							Thread.sleep(2);
+							Main.fr.change("home");
 							si.run();
 						}
 						

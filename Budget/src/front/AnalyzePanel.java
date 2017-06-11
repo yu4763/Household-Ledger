@@ -16,6 +16,10 @@ public class AnalyzePanel extends JPanel{
 	JPanel graph = new JPanel();
 	int[] data = {0,0,0,0,0,0,0};
 	
+	SavingInfo info = new SavingInfo();
+	String[][] dataCSV = new String[100][9];
+	int cnt;
+	
 	AnalyzePanel(){
 		setLayout(null);
 		
@@ -92,6 +96,9 @@ public class AnalyzePanel extends JPanel{
 
 		
 		/* 원형 그래프 */
+		dataCSV = info.getInfo();
+		cnt = info.getcnt();
+		
 		graph.setSize(500,500);
 		graph.setLocation(300,200);
 		//graph.setOpaque(false);
