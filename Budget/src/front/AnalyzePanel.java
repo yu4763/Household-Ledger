@@ -103,8 +103,10 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		TcurrentMonth.setFont(titlef);
 		before.setBackground(new Color(255,255,255));
 		before.setOpaque(false);
+		before.setBorderPainted(false);
 		after.setBackground(new Color(255,255,255));
 		after.setOpaque(false);
+		after.setBorderPainted(false);
 		
 		pmonth.add(before);
 		pmonth.add(TcurrentYear);
