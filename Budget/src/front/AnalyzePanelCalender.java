@@ -39,7 +39,6 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	SavingInfo info = new SavingInfo();
 	String[][] dataCSV = new String[100][9];
 	int cnt;
-	
 	int leftMoney;
 	
 	AnalyzePanelCalender(){
@@ -224,7 +223,7 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 			if((i+hopping-1)%7==0) Bcal[i+6+hopping].setForeground(new Color(255,0,0)); //일
 			if((i+hopping)%7==0) Bcal[i+6+hopping].setForeground(new Color(0,0,255)); //토
 			leftMoney += sum[i];
-			Bcal[i+6+hopping].setText((i)+"\n수입:"+earning[i]+"\n지출:"+expense[i]+"\n총:"+sum[i]+"\n남은돈:"+leftMoney);
+			Bcal[i+6+hopping].setText((i)+"\n수입:"+earning[i]+"원\n지출:"+expense[i]+"원\n총:"+sum[i]+"원\n남은돈:"+leftMoney+"원");
 			Bcal[i+6+hopping].setFont(contentf2);
 			Bcal[i+6+hopping].setHorizontalAlignment(SwingConstants.LEFT);
 			Bcal[i+6+hopping].setVerticalAlignment(SwingConstants.TOP);
