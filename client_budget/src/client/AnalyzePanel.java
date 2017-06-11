@@ -24,74 +24,41 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	private JLabel l;
 	
-<<<<<<< HEAD
-	ChartPanel graph = new ChartPanel(); //지출
-	ChartPanel2 graph2 = new ChartPanel2(); //수입
-=======
-	private JPanel cir;
-	private ChartPanel graph = new ChartPanel();
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
-	
-<<<<<<< HEAD
-	Calendar cal;
-	Calendar today;
-	JPanel pmonth;
-	JPanel color;
-	JPanel color2;
-	JButton before;
-	JButton after;
-	JTextField TcurrentYear;
-	JTextField TcurrentMonth;
-	int currentYear;
-	int currentMonth;
-=======
+	private ChartPanel graph = new ChartPanel(); //지출
+	private ChartPanel2 graph2 = new ChartPanel2(); //수입
+
 	private Calendar cal;
 	private Calendar today;
 	private JPanel pmonth;
 	private JPanel color;
+	private JPanel color2;
 	private JButton before;
 	private JButton after;
 	private JTextField TcurrentYear;
 	private JTextField TcurrentMonth;
 	private int currentYear;
 	private int currentMonth;
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
-	
-<<<<<<< HEAD
-	JTextArea T1,T2,T3,T4,T5,Texpense;
-	JTextArea T12,T22,Tearning;
-	
-	
-	String[][] dataCSV = new String[100][9];
-	int cnt;
-	int[] spentMoney = new int[5]; //카테고리별 지출 돈
-	int[] spentMoney2 = new int[2];
-	int[] arcAngle = new int[5];
-	int[] arcAngle2 = new int[2];
-=======
+
 	private JTextArea T1,T2,T3,T4,T5,Texpense;
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
+	private JTextArea T12,T22,Tearning;
 	
 	Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
-	
 	
 	private String[][] dataCSV = new String[100][9];
 	private int cnt;
 	private int[] spentMoney = new int[5]; //카테고리별 지출 돈
+	private int[] spentMoney2 = new int[2];
 	private int[] arcAngle = new int[5];
+	private int[] arcAngle2 = new int[2];
 	
 	
 	
 	Color[] colors = {new Color(185,24,35),new Color(231,146,20),new Color(138,186,43),new Color(50,175,219),new Color(135,17,126)};
-<<<<<<< HEAD
-	String[] cate = {"식비","교통비","문화생활비","학비","저축"};
-	String[] cate2 = {"용돈","월급"};
-	int sum;
-	int sum2;
-=======
+
 	private String[] cate = {"식비","교통비","문화생활비","학비","저축"};
+	private String[] cate2 = {"용돈","월급"};
 	private int sum;
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
+	private int sum2;
 	
 	
 	AnalyzePanel(String[][] data, int cnt){
