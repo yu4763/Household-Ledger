@@ -24,13 +24,14 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	JLabel l;
 	
-	JPanel cir;
-	ChartPanel graph = new ChartPanel();
+	ChartPanel graph = new ChartPanel(); //지출
+	ChartPanel2 graph2 = new ChartPanel2(); //수입
 	
 	Calendar cal;
 	Calendar today;
 	JPanel pmonth;
 	JPanel color;
+	JPanel color2;
 	JButton before;
 	JButton after;
 	JTextField TcurrentYear;
@@ -39,20 +40,24 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	int currentMonth;
 	
 	JTextArea T1,T2,T3,T4,T5,Texpense;
+	JTextArea T12,T22,Tearning;
 	
 	
 	String[][] dataCSV = new String[100][9];
 	int cnt;
-	int leftMoney;
 	int[] spentMoney = new int[5]; //카테고리별 지출 돈
+	int[] spentMoney2 = new int[2];
 	int[] arcAngle = new int[5];
+	int[] arcAngle2 = new int[2];
 	
 	Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
 	Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
 	
 	Color[] colors = {new Color(185,24,35),new Color(231,146,20),new Color(138,186,43),new Color(50,175,219),new Color(135,17,126)};
 	String[] cate = {"식비","교통비","문화생활비","학비","저축"};
+	String[] cate2 = {"용돈","월급"};
 	int sum;
+	int sum2;
 	
 	
 	AnalyzePanel(String[][] data, int cnt){
@@ -139,23 +144,30 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		T5 = new JTextArea();
 		Texpense = new JTextArea();
 		
+		T12 = new JTextArea();
+		T22 = new JTextArea();
+		Tearning = new JTextArea();
 		
-		/* 원형 그래프 */
-		cir = new JPanel();
-		cir.setSize(500,500);
-		cir.setLocation(300,400);
 		
+		/* 원형 그래프 */		
 		before.addActionListener(this);
 		after.addActionListener(this);
 		
 		graph.setSize(700,700);
-		graph.setLocation(300,300);
+		graph.setLocation(20,330);
 		graph.setOpaque(false);
+		
+		graph2.setSize(700,700);
+		graph2.setLocation(850,330);
+		graph2.setOpaque(false);
 		
 		buttonSet();
 		drawChart();
+		buttonSet2();
+		drawChart2();
 		
 		l.add(graph);
+		l.add(graph2);
 		
 		/* 원형 그래프 완료*/
 		
@@ -165,13 +177,18 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	void drawChart(){
 		sum = 0;
-		for(int i=0;i<5;i++){
-			sum+=spentMoney[i];
-		}
+		for(int i=0;i<5;i++) sum+=spentMoney[i];
 		if(sum!=0){
-			for(int i=0;i<5;i++){
-				arcAngle[i] = (int)Math.round((double)spentMoney[i]/(double)sum*360);
-			}
+			for(int i=0;i<5;i++) arcAngle[i] = (int)Math.round((double)spentMoney[i]/(double)sum*360);
+		}
+		repaint();
+	}
+	
+	void drawChart2(){
+		sum2 = 0;
+		for(int i=0;i<2;i++) sum2+=spentMoney2[i];
+		if(sum2!=0){
+			for(int i=0;i<2;i++) arcAngle2[i] = (int)Math.round((double)spentMoney2[i]/(double)sum2*360);
 		}
 		repaint();
 	}
@@ -183,20 +200,45 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 				int angle=0;
 				for(int i=0;i<5;i++){
 					g.setColor(colors[i]);
-					g.drawString(cate[i]+""+Math.round(arcAngle[i]*100/360)+"%", 50+i*100,20);
+					g.drawString(cate[i]+" "+Math.round(arcAngle[i]*100/360)+"%", 50+i*100,20);
 				}
 				for(int i=0;i<5;i++){
 					g.setColor(colors[i]);
-					g.fillArc(100,50,500,500,angle,arcAngle[i]);
+					g.fillArc(50,50,500,500,angle,arcAngle[i]);
 					angle += arcAngle[i];
 				}
 			}
 			else{
 				for(int i=0;i<5;i++){
 					g.setColor(colors[i]);
-					g.drawString(cate[i]+"0%", 50+i*100,20);
+					g.drawString(cate[i]+" 0%", 50+i*100,20);
 				}
-				g.drawOval(100,50,500,500);
+				g.drawOval(50,50,500,500);
+			}
+		}
+	}
+	
+	class ChartPanel2 extends JPanel{
+		public void paintComponent(Graphics g2){
+			super.paintComponent(g2);
+			if(sum2!=0){
+				int angle = 0;
+				for(int i=0;i<2;i++){
+					g2.setColor(colors[i]);
+					g2.drawString(cate2[i]+" "+Math.round(arcAngle2[i]*100/360)+"%",50+i*100,20);
+				}
+				for(int i=0;i<2;i++){
+					g2.setColor(colors[i]);
+					g2.fillArc(50, 50, 500, 500, angle, arcAngle2[i]);
+					angle += arcAngle2[i];
+				}
+			}
+			else{
+				for(int i=0;i<2;i++){
+					g2.setColor(colors[i]);
+					g2.drawString(cate2[i]+" 0%", 50+1*100, 20);
+				}
+				g2.drawOval(50,50,500,500);
 			}
 		}
 	}
@@ -225,7 +267,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		cal.set(Calendar.MONTH,currentMonth-1);
 		
 		color = new JPanel();
-		color.setLocation(1020,340);
+		color.setLocation(600,370);
 		color.setSize(350,600);
 		color.setOpaque(false);
 		
@@ -262,7 +304,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		
 		/* 총 지출 */
 		int sumExpense = 0;
-		for(int i=1;i<5;i++){
+		for(int i=0;i<5;i++){
 			sumExpense += spentMoney[i];
 		}
 		
@@ -309,12 +351,83 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		
 		l.add(color);
 	}
+	
+	private void buttonSet2(){
+		
+		try {
+			Thread.sleep(30);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		cal.set(Calendar.YEAR,currentYear);
+		cal.set(Calendar.MONTH,currentMonth-1);
+		
+		color2 = new JPanel();
+		color2.setLocation(1430,450);
+		color2.setSize(350,600);
+		color2.setOpaque(false);
+		
+		for(int i=0;i<2;i++) spentMoney2[i] = 0;
+
+		int dataCSVIntCost,dataCSVIntYear,dataCSVIntMonth;
+		for(int i=0;i<cnt;i++){
+			dataCSVIntYear = Integer.parseInt(dataCSV[i][1]);
+			dataCSVIntMonth = Integer.parseInt(dataCSV[i][2]);
+			if(dataCSVIntYear==currentYear && dataCSVIntMonth==currentMonth){
+				dataCSVIntCost = Integer.parseInt(dataCSV[i][8]);
+				
+				if(dataCSV[i][5].equals("수입")){
+					if(dataCSV[i][4].equals("용돈")){
+						spentMoney2[0] += dataCSVIntCost;
+					}
+					else if(dataCSV[i][4].equals("월급")){
+						spentMoney2[1] += dataCSVIntCost;
+					}
+				}
+			}
+		}	
+		
+		
+		/* 총 수입 */
+		int sumEarning = 0;
+		for(int i=0;i<2;i++){
+			sumEarning += spentMoney2[i];
+		}
+		
+		T12.setText("용돈 : "+spentMoney2[0]+"원");
+		T22.setText("월급 : "+spentMoney2[1]+"원");
+		Tearning.setText("총 수입 : "+sumEarning+"원");
+		
+		T12.setForeground(new Color(185,24,35));
+		T22.setForeground(new Color(231,146,20));
+		
+		T12.setFont(titlef);
+		T12.setBackground(new Color(255,255,255));
+		T12.setOpaque(false);
+		T22.setFont(titlef);
+		T22.setBackground(new Color(255,255,255));
+		T22.setOpaque(false);
+		Tearning.setFont(titlef);
+		Tearning.setBackground(new Color(255,255,255));
+		Tearning.setOpaque(false);
+	
+		color2.add(T12);
+		color2.add(T22);
+		color2.add(Tearning);
+		
+		color2.setLayout(new GridLayout(7,1));
+		
+		l.add(color2);
+	}
 
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==before){
 			calInput(-1);
 			buttonSet();
 			drawChart();
+			buttonSet2();
+			drawChart2();
 			this.TcurrentYear.setText(currentYear+"년");
 			this.TcurrentMonth.setText(currentMonth+"월");
 		}
@@ -322,6 +435,8 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 			calInput(1);
 			buttonSet();
 			drawChart();
+			buttonSet2();
+			drawChart2();
 			this.TcurrentYear.setText(currentYear+"년");
 			this.TcurrentMonth.setText(currentMonth+"월");
 		}		
