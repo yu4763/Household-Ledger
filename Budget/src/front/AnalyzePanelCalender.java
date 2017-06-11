@@ -226,7 +226,7 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 			if((i+hopping-1)%7==0) Tcal[i+6+hopping].setForeground(new Color(255,0,0)); //일
 			if((i+hopping)%7==0) Tcal[i+6+hopping].setForeground(new Color(0,0,255)); //토
 			leftMoney += sum[i];
-			Tcal[i+6+hopping].setText((i)+"\n"+"수입:"+(earning[i])+"원\n지출:"+(expense[i])+"원\n총:"+sum[i]+"원\n남은돈:"+leftMoney+"원");
+			Tcal[i+6+hopping].setText((i)+"\n"+" 수입 : "+(earning[i])+"원\n 지출 : "+(expense[i])+"원\n 총 : "+sum[i]+"원\n 남은돈 : "+leftMoney+"원");
 			Tcal[i+6+hopping].setFont(contentf2);
 		}
 	}
