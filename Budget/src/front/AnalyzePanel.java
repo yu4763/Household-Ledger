@@ -1,7 +1,7 @@
 package front;
 
+import java.awt.*;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AnalyzePanel extends JPanel{
+public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	JLabel l;
 	
@@ -84,14 +84,14 @@ public class AnalyzePanel extends JPanel{
 		
 		
 		/* 원형 그래프 달 */
-		today = Calendar.getInstance();
-		currentYear = today.get(Calendar.YEAR);
-		currentMonth = today.get(Calendar.MONTH)+1;
-		
 		pmonth = new JPanel();
 		pmonth.setLocation(500,180);
 		pmonth.setSize(650,100);
 		pmonth.setOpaque(false);
+
+		today = Calendar.getInstance();
+		currentYear = today.get(Calendar.YEAR);
+		currentMonth = today.get(Calendar.MONTH)+1;
 		
 		before = new JButton("before");
 		after = new JButton("after");
@@ -115,9 +115,6 @@ public class AnalyzePanel extends JPanel{
 		
 		l.add(pmonth);
 		
-		before.addActionListener((ActionListener) this);
-		after.addActionListener((ActionListener) this);
-		
 		/* 달 완료 */
 
 		
@@ -130,6 +127,11 @@ public class AnalyzePanel extends JPanel{
 		buttonSet();
 		cir.add(graph);
 		l.add(cir);
+
+		before.addActionListener(this);
+			
+
+		after.addActionListener(this);
 		
 		/* 원형 그래프 완료*/
 		
@@ -291,8 +293,8 @@ public class AnalyzePanel extends JPanel{
 		
 		drawChart();
 	}
-	
-	public void actionPerformed(ActionEvent arg0){
+
+	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==before){
 			this.pmonth.removeAll();
 			calInput(-1);
@@ -306,6 +308,6 @@ public class AnalyzePanel extends JPanel{
 			buttonSet();
 			this.TcurrentYear.setText(currentYear+"년");
 			this.TcurrentMonth.setText(currentMonth+"월");
-		}
+		}		
 	}
 }
