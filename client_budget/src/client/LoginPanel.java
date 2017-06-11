@@ -43,7 +43,6 @@ public class LoginPanel extends JPanel{
 		l.add(title);
 
 
-
 		JLabel userID = new JLabel("아이디    : ", JLabel.CENTER);
 		JLabel userPW = new JLabel("비밀번호 : ", JLabel.CENTER);
 		JButton log = new JButton("로그인");
