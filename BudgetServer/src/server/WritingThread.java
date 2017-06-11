@@ -49,7 +49,7 @@ public class WritingThread {
 
 			if(type.equals("add")){
 
-				info = Integer.toString(++count) + "," + info;
+				info = Integer.toString(count) + "," + info;
 
 				FileOutputStream fos = new FileOutputStream(filename, true) ;
 				OutputStreamWriter osw = new OutputStreamWriter(fos);
