@@ -134,7 +134,7 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		before.addActionListener(this);
 		after.addActionListener(this);
 		
-		//달력 출력
+		//달력 완료
 		
 		add(l);
 		setSize(1700,1000);
