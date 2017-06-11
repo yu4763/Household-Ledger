@@ -1,15 +1,10 @@
 package front;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.text.*;
 import java.util.*;
 import javax.swing.*;
-import javax.swing.event.*;
 import javax.swing.table.DefaultTableModel;
+
 
 public class WritingPanel extends JPanel{
 
@@ -148,7 +143,7 @@ public class WritingPanel extends JPanel{
 		cate.setFont(titlef);
 		l.add(cate);
 
-		String[] types = {"식비", "교통비", "문화생활비", "학비", "저축","용돈","월급"};
+		String[] types = {"식비", "교통비", "문화생활비", "학비", "저축", "용돈","월급"};
 		category = new JComboBox<String>(types);
 		category.setEditable(false);
 		category.setFont(contentf);
@@ -191,18 +186,6 @@ public class WritingPanel extends JPanel{
 		controlPanel1.add(in);
 		controlPanel1.add(out);
 
-
-	/*	in.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("수입 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		});
-		out.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("지출 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		}); */
-
 		l.add(controlPanel1);
 		/* 수입 or 지출 입력 완료 */
 
@@ -237,25 +220,6 @@ public class WritingPanel extends JPanel{
 		controlPanel2.setOpaque(false);
 		controlPanel2.add(cash);
 		controlPanel2.add(card);
-
-<<<<<<< HEAD
-	/*	cash.addItemListener(new ItemListener() {
-=======
-		/*cash.addItemListener(new ItemListener() {
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("현금 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-		});
-		card.addItemListener(new ItemListener() {
-			public void itemStateChanged(ItemEvent arg0) {
-				statusLabel.setText("카드 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
-			}
-<<<<<<< HEAD
-		});  */
-=======
-		});*/
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
 
 		l.add(controlPanel2);
 		/* 현금 or 카드 입력 완료 */
