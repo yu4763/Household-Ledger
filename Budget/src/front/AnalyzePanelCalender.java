@@ -126,7 +126,9 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		calendarDays.setOpaque(false);
 		
 		l.add(calendarDays);
+		
 		gridInit();
+		panelInit();
 		calSet();
 		hideInit();
 		
@@ -154,7 +156,6 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		for(int i=days.length;i<49;i++){
 			calendarDays.add(Tcal[i]=new JTextArea(""));
 		}
-		
 	}
 	
 	private void panelInit(){
