@@ -12,7 +12,8 @@ public class SavingInfo extends Thread{
 	private InputStreamReader inr;
 	private BufferedReader br;
 	private static String[][] data;
-	private static int cnt;
+	private static int cnt = 0;
+	private static int finish = 0;
 
 	public void run() {
 
@@ -27,23 +28,30 @@ public class SavingInfo extends Thread{
 			inr = new InputStreamReader(in);
 			br = new BufferedReader(inr);
 
-			cnt = 0;
-			int i;
+			
 			
 			String line= br.readLine();
+			System.out.println(line);
 			
-			while(line != null)	
+			while(line == null)	{
 				line = br.readLine();
-				
+			System.out.println(line);
+			}
+		
+			int i;
+			
 			while(line!=null && !line.equals("")){
 				String[] lineData = line.split(",");
 				for(i=0;i<9;i++) {
 					data[cnt][i] = lineData[i];
+					System.out.println(data[cnt][i]);
 				}
 				
 				cnt++;
 				line = br.readLine();
 			}
+			
+			System.out.println("saving : " + cnt);
 
 			client.close();
 			in.close();
@@ -56,6 +64,8 @@ public class SavingInfo extends Thread{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		
+		
+		finish = 1;
 
 	}
 	
@@ -65,6 +75,10 @@ public class SavingInfo extends Thread{
 	
 	static int getcnt(){
 		return cnt;
+	}
+	
+	static int getfin(){
+		return finish;
 	}
 
 }

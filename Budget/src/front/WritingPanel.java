@@ -18,6 +18,7 @@ public class WritingPanel extends JPanel{
 	JLabel l;
 	Label statusLabel;
 	JPanel tablePanel;
+	Calendar now;
 
 	private JTextField tyear; 
 	private JTextField tmonth;
@@ -46,7 +47,7 @@ public class WritingPanel extends JPanel{
 		l.setSize(1700,1000);
 		l.setLocation(0,0);
 
-		Calendar now = Calendar.getInstance();
+		now = Calendar.getInstance();
 
 		JLabel date_lb = new JLabel();
 		JLabel year = new JLabel();
@@ -65,9 +66,6 @@ public class WritingPanel extends JPanel{
 		tprice = new JTextField(10);
 		tdelete = new JTextField(4);
 
-		tyear.setText(null);
-		tmonth.setText(null);
-		tday.setText(null);
 		tmemo.setText(null);
 		tprice.setText(null);
 
@@ -402,7 +400,7 @@ public class WritingPanel extends JPanel{
 	String getyear(){
 		
 		String year = tyear.getText();
-		tyear.setText("");
+		tyear.setText(Integer.toString(now.get(Calendar.YEAR)));
 		return year;
 	
 	}
@@ -410,7 +408,7 @@ public class WritingPanel extends JPanel{
 	String getmonth(){
 
 		String month = tmonth.getText();
-		tmonth.setText("");
+		tmonth.setText(Integer.toString(now.get(Calendar.MONTH)+1));
 		return month;
 	
 	}
@@ -418,7 +416,7 @@ public class WritingPanel extends JPanel{
 	String getday(){
 
 		String day = tday.getText();
-		tday.setText("");
+		tday.setText(Integer.toString(now.get(Calendar.DAY_OF_MONTH)));
 		return day;
 	
 	}
