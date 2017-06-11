@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class AnalyzePanel extends JPanel implements ActionListener{
@@ -37,13 +38,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	int currentYear;
 	int currentMonth;
 	
-	JButton b1;
-	JButton b2;
-	JButton b3;
-	JButton b4;
-	JButton b5;
-	JButton bexpense;
-	//JButton bleftMoney;
+	JTextArea T1,T2,T3,T4,T5,Texpense;
 	
 	SavingInfo info = new SavingInfo();
 	String[][] dataCSV = new String[100][9];
@@ -135,12 +130,12 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		/* 달 완료 */
 		
 
-		b1 = new JButton();
-		b2 = new JButton();
-		b3 = new JButton();
-		b4 = new JButton();
-		b5 = new JButton();
-		bexpense = new JButton();
+		T1 = new JTextArea();
+		T2 = new JTextArea();
+		T3 = new JTextArea();
+		T4 = new JTextArea();
+		T5 = new JTextArea();
+		Texpense = new JTextArea();
 		
 		
 		/* 원형 그래프 */
@@ -190,7 +185,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 				}
 				for(int i=0;i<5;i++){
 					g.setColor(colors[i]);
-					g.fillArc(150,50,500,500,angle,arcAngle[i]);
+					g.fillArc(100,50,500,500,angle,arcAngle[i]);
 					angle += arcAngle[i];
 				}
 			}
@@ -199,7 +194,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 					g.setColor(colors[i]);
 					g.drawString(cate[i]+"0%", 50+i*100,20);
 				}
-				g.drawOval(150,50,500,500);
+				g.drawOval(100,50,500,500);
 			}
 		}
 	}
@@ -265,50 +260,44 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 			sumExpense += spentMoney[i];
 		}
 		
-		b1.setText("식비:"+spentMoney[0]+"원");
-		b2.setText("교통비:"+spentMoney[1]+"원");
-		b3.setText("문화생활비:"+spentMoney[2]+"원");
-		b4.setText("학비:"+spentMoney[3]+"원");
-		b5.setText("저축:"+spentMoney[4]+"원");
-		bexpense.setText("총 지출:"+sumExpense+"원");
+		T1.setText("식비:"+spentMoney[0]+"원");
+		T2.setText("교통비:"+spentMoney[1]+"원");
+		T3.setText("문화생활비:"+spentMoney[2]+"원");
+		T4.setText("학비:"+spentMoney[3]+"원");
+		T5.setText("저축:"+spentMoney[4]+"원");
+		Texpense.setText("총 지출:"+sumExpense+"원");
 		
-		b1.setForeground(new Color(185,24,35));
-		b2.setForeground(new Color(231,146,20));
-		b3.setForeground(new Color(138,186,43));
-		b4.setForeground(new Color(50,175,219));
-		b5.setForeground(new Color(135,17,126));
+		T1.setForeground(new Color(185,24,35));
+		T2.setForeground(new Color(231,146,20));
+		T3.setForeground(new Color(138,186,43));
+		T4.setForeground(new Color(50,175,219));
+		T5.setForeground(new Color(135,17,126));
 		
-		b1.setFont(titlef);
-		b1.setBackground(new Color(255,255,255));
-		b1.setOpaque(false);
-		b1.setBorderPainted(false);
-		b2.setFont(titlef);
-		b2.setBackground(new Color(255,255,255));
-		b2.setOpaque(false);
-		b2.setBorderPainted(false);
-		b3.setFont(titlef);
-		b3.setBackground(new Color(255,255,255));
-		b3.setOpaque(false);
-		b3.setBorderPainted(false);
-		b4.setFont(titlef);
-		b4.setBackground(new Color(255,255,255));
-		b4.setOpaque(false);
-		b4.setBorderPainted(false);
-		b5.setFont(titlef);
-		b5.setBackground(new Color(255,255,255));
-		b5.setOpaque(false);
-		b5.setBorderPainted(false);
-		bexpense.setFont(titlef);
-		bexpense.setBackground(new Color(255,255,255));
-		bexpense.setOpaque(false);
-		bexpense.setBorderPainted(false);
-		
-		color.add(b1);
-		color.add(b2);
-		color.add(b3);
-		color.add(b4);
-		color.add(b5);
-		color.add(bexpense);
+		T1.setFont(titlef);
+		T1.setBackground(new Color(255,255,255));
+		T1.setOpaque(false);
+		T2.setFont(titlef);
+		T2.setBackground(new Color(255,255,255));
+		T2.setOpaque(false);
+		T3.setFont(titlef);
+		T3.setBackground(new Color(255,255,255));
+		T3.setOpaque(false);
+		T4.setFont(titlef);
+		T4.setBackground(new Color(255,255,255));
+		T4.setOpaque(false);
+		T5.setFont(titlef);
+		T5.setBackground(new Color(255,255,255));
+		T5.setOpaque(false);
+		Texpense.setFont(titlef);
+		Texpense.setBackground(new Color(255,255,255));
+		Texpense.setOpaque(false);
+	
+		color.add(T1);
+		color.add(T2);
+		color.add(T3);
+		color.add(T4);
+		color.add(T5);
+		color.add(Texpense);
 		
 		color.setLayout(new GridLayout(7,1));
 		
