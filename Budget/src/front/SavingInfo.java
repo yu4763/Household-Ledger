@@ -22,61 +22,66 @@ public class SavingInfo extends Thread{
 		try {
 			System.out.println("THREAD");
 
+			try {
+				Thread.sleep(5);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			client = new Socket(serverIP, 5000);
 
 			in = client.getInputStream();
 			inr = new InputStreamReader(in);
 			br = new BufferedReader(inr);
 
-			
-			
+
+
 			String line= br.readLine();
-			System.out.println(line);
-			
+
 			while(line == null)	{
 				line = br.readLine();
-			System.out.println(line);
+				System.out.println(line);
 			}
-		
-			int i;
-			
-			while(line!=null && !line.equals("")){
-				String[] lineData = line.split(",");
-				for(i=0;i<9;i++) {
-					data[cnt][i] = lineData[i];
-					System.out.println(data[cnt][i]);
-				}
+
+			if(!line.equals("-1")){
 				
-				cnt++;
-				line = br.readLine();
+				int i;
+				while(line!=null && !line.equals("")){
+					String[] lineData = line.split(",");
+					for(i=0;i<9;i++) {
+						data[cnt][i] = lineData[i];
+						System.out.println(data[cnt][i]);
+					}
+
+					cnt++;
+					line = br.readLine();
+				}
+
+				System.out.println("saving : " + cnt);
+
+				client.close();
+				in.close();
+				inr.close();
+				br.close();
 			}
-			
-			System.out.println("saving : " + cnt);
-
-			client.close();
-			in.close();
-			inr.close();
-			br.close();
-
 
 		}catch (UnknownHostException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		
-		
+
 		finish = 1;
 
 	}
-	
+
 	static String[][] getInfo(){
 		return data;
 	}
-	
+
 	static int getcnt(){
 		return cnt;
 	}
-	
+
 	static int getfin(){
 		return finish;
 	}

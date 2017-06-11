@@ -13,40 +13,48 @@ public class SendingInfo extends Thread{
 
 
 	SendingInfo(Socket client, String userID){
-	
-		
+
+
 		try {
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
 			BufferedWriter bw = new BufferedWriter(outw);		
-				
+
 			String filename = "./files/";
 			filename = filename + userID;
 			filename = filename + ".csv";
-			
-			
+
+
 			FileInputStream fis = new FileInputStream(filename);
 			InputStreamReader isr = new InputStreamReader(fis);
 			BufferedReader br = new BufferedReader(isr);
-		
+
 			count = 0;
-			String tm;
-			while( (tm = br.readLine()) != null ){
-				
-				bw.write(tm);
+
+			int checknull = fis.read();
+			if(checknull == -1){
+				bw.write(Integer.toString(checknull));
 				bw.flush();
-				bw.write("\n");
-				bw.flush();
-				count++;
 			}
-			
+			else{
+
+				String tm;
+				while( (tm = br.readLine()) != null ){
+
+					bw.write(tm);
+					bw.flush();
+					bw.write("\n");
+					bw.flush();
+					count++;
+				}
+			}
+
 			br.close();
 			isr.close();
 			fis.close();
 			bw.close();
 			outw.close();
 			out.close();
-			
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -57,11 +65,11 @@ public class SendingInfo extends Thread{
 		}
 
 	}
-	
+
 	static int getcnt(){
 		return count;
 	}
-	
+
 	static void cntplus(){
 		count++;
 	}
