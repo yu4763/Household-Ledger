@@ -125,7 +125,7 @@ public class EnterInformation implements ActionListener{
 
 				try {
 					
-					Thread.sleep(20);
+					Thread.sleep(30);
 					client = new Socket(serverIP, 5000);
 					System.out.println("client Ready");
 
