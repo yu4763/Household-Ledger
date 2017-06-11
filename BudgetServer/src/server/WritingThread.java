@@ -68,7 +68,7 @@ public class WritingThread {
 		        
 			}
 
-			else if (type.equals("delete")){
+			else {
 				
 
 				FileInputStream fis = new FileInputStream(filename);
@@ -108,17 +108,12 @@ public class WritingThread {
 				File f1 = new File(filename);
 				f1.delete();
 				
-				File f2 = new File(filename);
 				File f3 = new File("./files/..csv");
+				File f2 = new File(filename);
 				f3.renameTo(f2);
 			
 			}
 			
-			else{
-				
-			}
-			
-
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

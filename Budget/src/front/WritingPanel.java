@@ -279,7 +279,7 @@ public class WritingPanel extends JPanel{
 				else if(k==1)
 					data[i][1] = tmp[i][k];
 				else if(k==2 || k==3)
-					data[i][1] +=   " /" + tmp[i][k];
+					data[i][1] +=   " / " + tmp[i][k];
 				else
 					data[i][k-2] = tmp[i][k];
 			}
