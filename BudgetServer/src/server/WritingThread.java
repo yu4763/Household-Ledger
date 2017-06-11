@@ -12,7 +12,7 @@ public class WritingThread {
 	private BufferedReader br;
 	private String info;
 	private String userID;
-	private static int count = 0;
+	private static int count;
 
 	WritingThread(Socket s, String id){
 
@@ -44,11 +44,10 @@ public class WritingThread {
 			String filename = "./files/";
 			filename = filename + userID;
 			filename = filename + ".csv";
+						
 
 			if(type.equals("add")){
 
-
-				count++;
 				info = Integer.toString(count) + "," + info;
 
 				FileOutputStream fos = new FileOutputStream(filename, true) ;
@@ -70,22 +69,25 @@ public class WritingThread {
 
 				String tm; 
 				String num = null;
+				String rest = null;
 
 				FileOutputStream fos = new FileOutputStream("./files/..csv");
 				OutputStreamWriter osw = new OutputStreamWriter(fos);
 				
-				
+				int i = 1;
 				while( (tm = br.readLine()) != null ){
 					StringTokenizer tokens = new StringTokenizer(tm);
 					num = tokens.nextToken(",");
+					rest = tokens.nextToken("\n");
 					if(num.equals(info)){
 						System.out.println("delinfo: " + info);
 					}
 					else{
-						osw.write(tm);
+						osw.write(Integer.toString(i) + rest);
 						osw.flush();
 						osw.write('\n');
 						osw.flush();
+						i++;
 					}
 				}
 				osw.close();

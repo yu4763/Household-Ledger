@@ -135,18 +135,23 @@ public class LoginPanel extends JPanel{
 							Thread.sleep(2);
 							check = RegisterThread.returncheck();
 						}
+						
+						if(check==0){ 
+							JOptionPane.showMessageDialog(null, "존재하지 않는 아이디입니다.");
+							id.setText("");
+							pw.setText("");
+						}
+						else{ // 로그인 완료
+							Thread.sleep(2);
+							Main.fr.change("home");
+							SavingInfo si = new SavingInfo();
+							si.run();
+						}
+						
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
-					if(check==0){ 
-						JOptionPane.showMessageDialog(null, "존재하지 않는 아이디입니다.");
-						id.setText("");
-						pw.setText("");
-					}
-					else{ // 로그인 완료
-						Main.fr.change("home");
-						FrontPanel csv = new FrontPanel(idvalue);
-					}
+					
 				}
 			}
 		});

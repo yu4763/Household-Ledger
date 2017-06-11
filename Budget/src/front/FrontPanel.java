@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class FrontPanel extends JPanel{
 	
-	FrontPanel(String id){
+	FrontPanel(){
 		
 		setLayout(null);
 	
@@ -47,16 +47,7 @@ public class FrontPanel extends JPanel{
 		b2.setFont(font2);
 		
 		b1.addActionListener(new ChangePanel());
-		//b2.addActionListener(new ChangePanel());
-		
-		b2.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				
-				ClientAnalyze c = new ClientAnalyze(id);
-				
-			}
-			
-		});
+		b2.addActionListener(new ChangePanel());
 		
 		
 		l.add(title);
