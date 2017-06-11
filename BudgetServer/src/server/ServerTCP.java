@@ -43,7 +43,6 @@ public class ServerTCP {
 			
 			fm = new FileMake(userID, checking);
 			int check = fm.returnfinish(); //check fileMAKE
-			System.out.println("Server check: " + check);
 			
 			in.close();
 			inr.close();

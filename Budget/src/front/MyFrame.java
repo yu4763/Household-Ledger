@@ -36,25 +36,13 @@ public class MyFrame extends JFrame{
 
 		if(panelName == "writing"){
 
-			int fin = SavingInfo.getfin();
-			while(fin == 0){
-				try {
-					Thread.sleep(2);
-					fin = SavingInfo.getfin();
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}	
-				
-			}
+			
 			count = SavingInfo.getcnt();
 			tmp = SavingInfo.getInfo();
-
-
-			System.out.println(count);
 			write = new WritingPanel(tmp, count);
+			
 			this.getContentPane().add(write);
-			SavingInfo.makezero();
-
+		
 		}
 
 		if(panelName=="home"){

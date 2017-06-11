@@ -35,9 +35,11 @@ public class EnterInformation implements ActionListener{
 	private OutputStreamWriter outw;
 	private BufferedWriter bw;
 	
-	
 
 	public void actionPerformed(ActionEvent e){
+		
+		new SendButton("enter");
+		
 		JButton b = (JButton)e.getSource();
 
 		if(b.getText().equals("ют╥б")){
@@ -69,6 +71,8 @@ public class EnterInformation implements ActionListener{
 			else{
 
 				try {
+					
+					Thread.sleep(20);
 					client = new Socket(serverIP, 5000);
 					out = client.getOutputStream();
 					outw = new OutputStreamWriter(out);
@@ -92,13 +96,15 @@ public class EnterInformation implements ActionListener{
 					e1.printStackTrace();
 				} catch (IOException e1) {
 					e1.printStackTrace();
+				}catch (InterruptedException e1) {
+					e1.printStackTrace();
 				}
 			
 		
 				
 				try {
 				
-					Thread.sleep(20);
+					Thread.sleep(15);
 					SavingInfo si = new SavingInfo();
 					si.run();
 					Thread.sleep(2);
@@ -128,6 +134,8 @@ public class EnterInformation implements ActionListener{
 
 
 				try {
+					
+					Thread.sleep(20);
 					client = new Socket(serverIP, 5000);
 					System.out.println("client Ready");
 
@@ -147,15 +155,15 @@ public class EnterInformation implements ActionListener{
 					bw.close();
 
 				} catch (UnknownHostException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				} catch (IOException e1) {
-					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InterruptedException e1) {
 					e1.printStackTrace();
 				}
 				
 				try {
-					Thread.sleep(20);
+					Thread.sleep(15);
 					SavingInfo si = new SavingInfo();
 					si.run();
 					Thread.sleep(2);
