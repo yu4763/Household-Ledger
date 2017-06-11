@@ -50,7 +50,6 @@ public class SavingInfo extends Thread{
 					String[] lineData = line.split(",");
 					for(i=0;i<9;i++) {
 						data[cnt][i] = lineData[i];
-						System.out.println(data[cnt][i]);
 					}
 
 					cnt++;
