@@ -1,9 +1,7 @@
 package front;
 
-import java.awt.*;
-import java.awt.event.*;
+
 import javax.swing.*;
-import javax.swing.event.*;
 
 public class MyFrame extends JFrame{
 	
@@ -14,10 +12,12 @@ public class MyFrame extends JFrame{
 	public AnalyzePanelCalender analyzeCalender;
 	public AnalyzePanel analyze;
 	
+	private String[][] tmp;
+	private int count;
+	
 	MyFrame(){
 		
 		front = new FrontPanel();
-		write = new WritingPanel();
 		login = new LoginPanel();
 		beforeAnalyze = new BeforeAnalyzePanel();
 		analyzeCalender = new AnalyzePanelCalender();
@@ -37,7 +37,13 @@ public class MyFrame extends JFrame{
 		this.getContentPane().removeAll();
 		
 		if(panelName == "writing"){
-			this.getContentPane().add(write);			
+			
+			tmp = SavingInfo.getInfo();
+			count = SavingInfo.getcnt();
+			System.out.println(count);
+			write = new WritingPanel(tmp, count);
+			this.getContentPane().add(write);
+
 		}
 		
 		if(panelName=="home"){

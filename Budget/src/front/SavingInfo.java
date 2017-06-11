@@ -11,8 +11,8 @@ public class SavingInfo extends Thread{
 	private InputStream in=null;
 	private InputStreamReader inr;
 	private BufferedReader br;
-	private String[][] data;
-	private int cnt;
+	private static String[][] data;
+	private static int cnt;
 
 	public void run() {
 
@@ -27,16 +27,22 @@ public class SavingInfo extends Thread{
 			inr = new InputStreamReader(in);
 			br = new BufferedReader(inr);
 
-			String line;
 			cnt = 0;
 			int i;
-			while((line = br.readLine())!=null){
+			
+			String line= br.readLine();
+			
+			while(line != null)	
+				line = br.readLine();
+				
+			while(line!=null && !line.equals("")){
 				String[] lineData = line.split(",");
 				for(i=0;i<9;i++) {
 					data[cnt][i] = lineData[i];
 				}
 				
 				cnt++;
+				line = br.readLine();
 			}
 
 			client.close();
@@ -53,11 +59,11 @@ public class SavingInfo extends Thread{
 
 	}
 	
-	String[][] getInfo(){
+	static String[][] getInfo(){
 		return data;
 	}
 	
-	int getcnt(){
+	static int getcnt(){
 		return cnt;
 	}
 
