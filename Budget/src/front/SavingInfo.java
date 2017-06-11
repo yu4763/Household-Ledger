@@ -2,7 +2,6 @@ package front;
 
 import java.io.*;
 import java.net.*;
-import java.util.StringTokenizer;
 
 public class SavingInfo extends Thread{
 
@@ -13,6 +12,7 @@ public class SavingInfo extends Thread{
 	private InputStreamReader inr;
 	private BufferedReader br;
 	private String[][] data;
+	private int cnt;
 
 	public void run() {
 
@@ -28,15 +28,15 @@ public class SavingInfo extends Thread{
 			br = new BufferedReader(inr);
 
 			String line;
-			int r = 0;
+			cnt = 0;
 			int i;
 			while((line = br.readLine())!=null){
 				String[] lineData = line.split(",");
 				for(i=0;i<9;i++) {
-					data[r][i] = lineData[i];
+					data[cnt][i] = lineData[i];
 				}
 				
-				r++;
+				cnt++;
 			}
 
 			client.close();
@@ -51,6 +51,14 @@ public class SavingInfo extends Thread{
 			e.printStackTrace();
 		}		
 
+	}
+	
+	String[][] getInfo(){
+		return data;
+	}
+	
+	int getcnt(){
+		return cnt;
 	}
 
 }
