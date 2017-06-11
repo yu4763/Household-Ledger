@@ -37,8 +37,7 @@ public class FileMake {
 				filename = filename + userID;
 				filename = filename + ".csv";
 				FileOutputStream new1 = new FileOutputStream(filename) ;
-				new1.close();
-				
+				osw.close();
 			}
 
 
