@@ -9,6 +9,7 @@ public class LoginPanel extends JPanel{
 
 	ImageIcon daram;
 	private String idvalue = null;
+	private char[] pwvalue = null;
 
 
 	LoginPanel(){
@@ -44,7 +45,7 @@ public class LoginPanel extends JPanel{
 		JButton register = new JButton("회원가입");
 
 		JTextField id = new JTextField();
-		JTextField pw = new JPasswordField();
+		JPasswordField pw = new JPasswordField();
 
 		userID.setSize(150, 50);
 		userID.setFont(titlef);
@@ -85,10 +86,19 @@ public class LoginPanel extends JPanel{
 		register.addActionListener(new ActionListener(){ //register 회원가입
 			public void actionPerformed(ActionEvent e){
 				idvalue = id.getText();
+				pwvalue = pw.getPassword();
+								
+				System.out.println("password : " + pwvalue);
 
-				if(idvalue == null | idvalue.equals("")){
+				if(idvalue == null || idvalue.equals("")){
 					JOptionPane.showMessageDialog(null, "아이디를 입력해주세요.");
 				}
+				
+				else if(pwvalue == null ){
+					JOptionPane.showMessageDialog(null, "비밀번호를 입력해주세요.");
+				}
+				
+				
 
 				else{
 

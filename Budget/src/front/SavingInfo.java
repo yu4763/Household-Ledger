@@ -12,7 +12,7 @@ public class SavingInfo extends Thread{
 	private InputStreamReader inr;
 	private BufferedReader br;
 	private static String[][] data;
-	private static int cnt = 0;
+	private static int cnt;
 
 
 	public void run() {

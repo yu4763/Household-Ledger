@@ -20,8 +20,6 @@ public class MyFrame extends JFrame{
 		front = new FrontPanel();
 		login = new LoginPanel();
 		beforeAnalyze = new BeforeAnalyzePanel();
-		analyzeCalender = new AnalyzePanelCalender();
-		analyze = new AnalyzePanel();
 		setTitle("다람이 가계부 프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().add(login);
@@ -54,10 +52,20 @@ public class MyFrame extends JFrame{
 		}
 
 		if(panelName=="analyzecalender"){
+			String[][] data;
+			int cnt;
+			data = SavingInfo.getInfo();
+			cnt = SavingInfo.getcnt();
+			analyzeCalender = new AnalyzePanelCalender(data, cnt);
 			this.getContentPane().add(analyzeCalender);
 		}
 
 		if(panelName=="analyze"){
+			String[][] data;
+			int cnt;
+			data = SavingInfo.getInfo();
+			cnt = SavingInfo.getcnt();
+			analyze = new AnalyzePanel(data, cnt);
 			this.getContentPane().add(analyze);
 		}
 

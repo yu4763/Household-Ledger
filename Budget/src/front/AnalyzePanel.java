@@ -40,7 +40,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	JTextArea T1,T2,T3,T4,T5,Texpense;
 	
-	SavingInfo info = new SavingInfo();
+	
 	String[][] dataCSV = new String[100][9];
 	int cnt;
 	int leftMoney;
@@ -55,7 +55,9 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	int sum;
 	
 	
-	AnalyzePanel(){
+	AnalyzePanel(String[][] data, int cnt){
+		this.dataCSV = data;
+		this.cnt = cnt;
 		setLayout(null);
 		
 		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
@@ -212,8 +214,12 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	}
 	
 	private void buttonSet(){
-		dataCSV = info.getInfo();
-		cnt = info.getcnt();
+		
+		try {
+			Thread.sleep(30);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		
 		cal.set(Calendar.YEAR,currentYear);
 		cal.set(Calendar.MONTH,currentMonth-1);

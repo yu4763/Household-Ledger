@@ -38,12 +38,16 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
 	Font contentf2 = new Font("서울남산체 L", Font.PLAIN, 17);
 	
-	SavingInfo info = new SavingInfo();
+	
 	String[][] dataCSV = new String[100][9];
 	int cnt;
 	int leftMoney;
 	
-	AnalyzePanelCalender(){
+	AnalyzePanelCalender(String[][] data, int cnt){
+		
+		this.dataCSV = data;
+		this.cnt = cnt;
+		
 		setLayout(null);
 		
 		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
@@ -164,8 +168,15 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	}
 
 	private void calSet() {
-		dataCSV = info.getInfo();
-		cnt = info.getcnt();
+		
+		try {
+			Thread.sleep(30);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		dataCSV = SavingInfo.getInfo();
+		cnt = SavingInfo.getcnt();
 		
 		cal.set(Calendar.YEAR,currentYear);
 		cal.set(Calendar.MONTH,currentMonth-1);
