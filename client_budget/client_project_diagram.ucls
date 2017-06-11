@@ -1,216 +1,237 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.0" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="front.AnalyzePanel.ChartPanel" project="Budget" 
-    file="/Budget/src/front/AnalyzePanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="197" x="802" y="1250"/>    
+  <class id="1" language="java" name="client.LoginPanel" project="client_budget" 
+    file="/client_budget/src/client/LoginPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="123" x="520" y="587"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="front.AnalyzePanelCalender" project="Budget" 
-    file="/Budget/src/front/AnalyzePanelCalender.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="549" width="219" x="407" y="553"/>    
+  <class id="2" language="java" name="client.WritingPanel" project="client_budget" 
+    file="/client_budget/src/client/WritingPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="549" width="190" x="683" y="587"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="front.Main" project="Budget" file="/Budget/src/front/Main.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="99" width="124" x="942" y="-31"/>    
+  <class id="3" language="java" name="client.AnalyzePanel" project="client_budget" 
+    file="/client_budget/src/client/AnalyzePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="783" width="211" x="913" y="587"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="front.MyFrame" project="Budget" file="/Budget/src/front/MyFrame.java" 
+  <class id="4" language="java" name="client.Main" project="client_budget" file="/client_budget/src/client/Main.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="131" x="942" y="378"/>    
+    <position height="99" width="124" x="1024" y="3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="front.SavingInfo" project="Budget" file="/Budget/src/front/SavingInfo.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="152" x="78" y="-31"/>    
+  <class id="5" language="java" name="client.SavingInfo" project="client_budget" 
+    file="/client_budget/src/client/SavingInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="152" x="204" y="3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="front.FrontPanel" project="Budget" file="/Budget/src/front/FrontPanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="81" width="96" x="666" y="553"/>    
+  <class id="6" language="java" name="client.ChangePanel" project="client_budget" 
+    file="/client_budget/src/client/ChangePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="117" width="211" x="396" y="3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="front.SendButton" project="Budget" file="/Budget/src/front/SendButton.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="130" x="270" y="-31"/>    
+  <class id="7" language="java" name="client.SendButton" project="client_budget" 
+    file="/client_budget/src/client/SendButton.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="130" x="647" y="3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="front.AnalyzePanel" project="Budget" file="/Budget/src/front/AnalyzePanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="657" width="211" x="802" y="553"/>    
+  <class id="8" language="java" name="client.FrontPanel" project="client_budget" 
+    file="/client_budget/src/client/FrontPanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="81" width="96" x="1164" y="587"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="9" language="java" name="front.BeforeAnalyzePanel" project="Budget" 
-    file="/Budget/src/front/BeforeAnalyzePanel.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="156" x="1053" y="553"/>    
+  <class id="9" language="java" name="client.ClientAnalyze" project="client_budget" 
+    file="/client_budget/src/client/ClientAnalyze.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="167" x="817" y="3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="front.ChangePanel" project="Budget" file="/Budget/src/front/ChangePanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="117" width="211" x="440" y="-31"/>    
+  <class id="10" language="java" name="client.AnalyzePanelCalender" project="client_budget" 
+    file="/client_budget/src/client/AnalyzePanelCalender.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="531" width="219" x="1300" y="587"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="11" language="java" name="front.WritingPanel" project="Budget" file="/Budget/src/front/WritingPanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="567" width="190" x="1249" y="553"/>    
+  <class id="11" language="java" name="client.MyFrame" project="client_budget" 
+    file="/client_budget/src/client/MyFrame.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="135" width="131" x="1024" y="412"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="12" language="java" name="front.EnterInformation" project="Budget" 
-    file="/Budget/src/front/EnterInformation.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="369" width="211" x="691" y="-31"/>    
+  <class id="12" language="java" name="client.EnterInformation" project="client_budget" 
+    file="/client_budget/src/client/EnterInformation.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="369" width="211" x="1188" y="3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="13" language="java" name="front.ClientAnalyze" project="Budget" file="/Budget/src/front/ClientAnalyze.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="167" x="1106" y="-31"/>    
+  <class id="13" language="java" name="client.BeforeAnalyzePanel" project="client_budget" 
+    file="/client_budget/src/client/BeforeAnalyzePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="156" x="1559" y="587"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="14" language="java" name="front.RegisterThread" project="Budget" 
-    file="/Budget/src/front/RegisterThread.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="207" width="152" x="1313" y="-31"/>    
+  <class id="14" language="java" name="client.AnalyzePanel.ChartPanel2" project="client_budget" 
+    file="/client_budget/src/client/AnalyzePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="197" x="794" y="1410"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="15" language="java" name="front.Client" project="Budget" file="/Budget/src/front/Client.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="167" x="1505" y="-31"/>    
+  <class id="15" language="java" name="client.RegisterThread" project="client_budget" 
+    file="/client_budget/src/client/RegisterThread.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="207" width="152" x="1439" y="3"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="16" language="java" name="front.LoginPanel" project="Budget" file="/Budget/src/front/LoginPanel.java" 
-    binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="123" x="1479" y="553"/>    
+  <class id="16" language="java" name="client.AnalyzePanel.ChartPanel" project="client_budget" 
+    file="/client_budget/src/client/AnalyzePanel.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="197" x="1031" y="1410"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <nesting id="17">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="1"/>  
-  </nesting>  
+  <class id="17" language="java" name="client.Client" project="client_budget" 
+    file="/client_budget/src/client/Client.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="167" x="1631" y="3"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
   <association id="18">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="19" name="graph"/>      
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="19" name="analyzeCalender"/>      
       <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="22" name="login"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="21">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="22" name="beforeAnalyze"/>      
-      <multiplicity id="23" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="9" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <association id="24">    
     <end type="SOURCE" refId="3" navigable="false">      
-      <attribute id="25" name="fr"/>      
+      <attribute id="25" name="graph"/>      
       <multiplicity id="26" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="27">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="28" name="analyzeCalender"/>      
-      <multiplicity id="29" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="30">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="31" name="analyze"/>      
-      <multiplicity id="32" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="33">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="34" name="write"/>      
-      <multiplicity id="35" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="11" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="36">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="37" name="login"/>      
-      <multiplicity id="38" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="39">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="40" name="front"/>      
-      <multiplicity id="41" minimum="0" maximum="1"/>    
+  <nesting id="27">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="14"/>  
+  </nesting>  
+  <nesting id="28">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="16"/>  
+  </nesting>  
+  <association id="29">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="30" name="front"/>      
+      <multiplicity id="31" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="32">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="33" name="fr"/>      
+      <multiplicity id="34" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="11" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="35">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="36" name="analyze"/>      
+      <multiplicity id="37" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="38">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="39" name="beforeAnalyze"/>      
+      <multiplicity id="40" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="41">    
+    <end type="SOURCE" refId="11" navigable="false">      
+      <attribute id="42" name="write"/>      
+      <multiplicity id="43" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="44">    
+    <end type="SOURCE" refId="3" navigable="false">      
+      <attribute id="45" name="graph2"/>      
+      <multiplicity id="46" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 

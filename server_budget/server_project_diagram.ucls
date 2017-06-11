@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.0" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="server.ServerTCP" project="BudgetServer" 
-    file="/BudgetServer/src/server/ServerTCP.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="152" x="310" y="206"/>    
+  <class id="1" language="java" name="server.SendingInfo" project="server_budget" 
+    file="/server_budget/src/server/SendingInfo.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="246" x="118" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="2" language="java" name="server.SendingInfo" project="BudgetServer" 
-    file="/BudgetServer/src/server/SendingInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="246" x="24" y="206"/>    
+  <class id="2" language="java" name="server.ServerTCP" project="server_budget" 
+    file="/server_budget/src/server/ServerTCP.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="152" x="404" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="3" language="java" name="server.SwitchingServer" project="BudgetServer" 
-    file="/BudgetServer/src/server/SwitchingServer.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="153" x="502" y="206"/>    
+  <class id="3" language="java" name="server.SwitchingServer" project="server_budget" 
+    file="/server_budget/src/server/SwitchingServer.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="99" width="153" x="596" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="4" language="java" name="server.FileMake" project="BudgetServer" 
-    file="/BudgetServer/src/server/FileMake.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="162" x="310" y="471"/>    
+  <class id="4" language="java" name="server.RegisterThread" project="server_budget" 
+    file="/server_budget/src/server/RegisterThread.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="201" x="789" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="5" language="java" name="server.RegisterThread" project="BudgetServer" 
-    file="/BudgetServer/src/server/RegisterThread.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="201" x="695" y="206"/>    
+  <class id="5" language="java" name="server.FileMake" project="server_budget" 
+    file="/server_budget/src/server/FileMake.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="162" x="404" y="517"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="server.WritingThread" project="BudgetServer" 
-    file="/BudgetServer/src/server/WritingThread.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="225" width="257" x="936" y="206"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="7" language="java" name="server.Main" project="BudgetServer" file="/BudgetServer/src/server/Main.java" 
+  <class id="6" language="java" name="server.Main" project="server_budget" file="/server_budget/src/server/Main.java" 
     binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="124" x="1233" y="206"/>    
+    <position height="99" width="124" x="1030" y="252"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="server.WritingThread" project="server_budget" 
+    file="/server_budget/src/server/WritingThread.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="225" width="257" x="1194" y="252"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -65,11 +65,11 @@
     </display>  
   </class>  
   <association id="8">    
-    <end type="SOURCE" refId="1" navigable="false">      
+    <end type="SOURCE" refId="2" navigable="false">      
       <attribute id="9" name="fm"/>      
       <multiplicity id="10" minimum="0" maximum="1"/>    
     </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
+    <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
