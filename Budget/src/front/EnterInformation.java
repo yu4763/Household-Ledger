@@ -8,6 +8,7 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -34,11 +35,7 @@ public class EnterInformation implements ActionListener{
 	private OutputStreamWriter outw;
 	private BufferedWriter bw;
 	
-	private JTable table;
 	
-	EnterInformation(JTable f){
-		table = f;
-	}
 
 	public void actionPerformed(ActionEvent e){
 		JButton b = (JButton)e.getSource();
@@ -96,23 +93,22 @@ public class EnterInformation implements ActionListener{
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
+			
+		
 				
+				try {
 				
-				int cnt = Main.fr.write.getcount();
-				String [] row = new String[7];
-				row[0] = Integer.toString(++cnt);
-				row[1] = year + " / " + month + " / " + day;
-				row[2] = category;
-				row[3] = inout;
-				row[4] = cash;
-				row[5] = memo;
-				row[6] = price;
+					Thread.sleep(20);
+					SavingInfo si = new SavingInfo();
+					si.run();
+					Thread.sleep(2);
+					Main.fr.change("writing");	
+					
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
 				
-				DefaultTableModel m = (DefaultTableModel)table.getModel();
-				m.addRow(row);
-				
-
-
+						
 
 			}
 
@@ -157,10 +153,25 @@ public class EnterInformation implements ActionListener{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
+				try {
+					Thread.sleep(20);
+					SavingInfo si = new SavingInfo();
+					si.run();
+					Thread.sleep(2);
+					Main.fr.change("writing");	
+					
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+				
 
 			}
+			
+			
 
 		}
 
 	}
+
 }

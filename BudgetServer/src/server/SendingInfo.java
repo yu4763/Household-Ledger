@@ -12,10 +12,12 @@ public class SendingInfo extends Thread{
 	private static int count;
 
 
-	SendingInfo(Socket client, String userID){
+	SendingInfo(ServerSocket socket, Socket client, String userID){
 
 
 		try {
+
+
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
 			BufferedWriter bw = new BufferedWriter(outw);		
@@ -35,7 +37,7 @@ public class SendingInfo extends Thread{
 			if(checknull == -1){
 				bw.write(Integer.toString(checknull));
 				bw.flush();
-				
+
 			}
 			else{
 
@@ -57,6 +59,7 @@ public class SendingInfo extends Thread{
 			outw.close();
 			out.close();
 
+
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -64,8 +67,8 @@ public class SendingInfo extends Thread{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+
 
 	static int getcnt(){
 		return count;

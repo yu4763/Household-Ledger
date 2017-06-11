@@ -53,6 +53,7 @@ public class MyFrame extends JFrame{
 			System.out.println(count);
 			write = new WritingPanel(tmp, count);
 			this.getContentPane().add(write);
+			SavingInfo.makezero();
 
 		}
 

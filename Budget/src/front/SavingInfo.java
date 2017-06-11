@@ -14,6 +14,8 @@ public class SavingInfo extends Thread{
 	private static String[][] data;
 	private static int cnt = 0;
 	private static int finish = 0;
+	
+	
 
 	public void run() {
 
@@ -46,11 +48,11 @@ public class SavingInfo extends Thread{
 			if(!line.equals("-1")){
 				
 				int i;
+				cnt = 0;
 				while(line!=null && !line.equals("")){
 					String[] lineData = line.split(",");
 					for(i=0;i<9;i++) {
 						data[cnt][i] = lineData[i];
-						System.out.println(data[cnt][i]);
 					}
 
 					cnt++;
@@ -59,8 +61,6 @@ public class SavingInfo extends Thread{
 				
 				data[0][0] = Integer.toString(1);
 				
-				System.out.println("saving : " + cnt);
-
 				client.close();
 				in.close();
 				inr.close();
@@ -87,6 +87,10 @@ public class SavingInfo extends Thread{
 
 	static int getfin(){
 		return finish;
+	}
+	
+	static void makezero(){
+		finish = 0;
 	}
 
 }
