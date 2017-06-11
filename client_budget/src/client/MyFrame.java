@@ -35,14 +35,11 @@ public class MyFrame extends JFrame{
 		this.getContentPane().removeAll();
 
 		if(panelName == "writing"){
-
-			
 			count = SavingInfo.getcnt();
 			tmp = SavingInfo.getInfo();
 			write = new WritingPanel(tmp, count);
 			
 			this.getContentPane().add(write);
-		
 		}
 
 		if(panelName=="home"){
@@ -71,13 +68,7 @@ public class MyFrame extends JFrame{
 			this.getContentPane().add(analyze);
 		}
 
-
 		revalidate();
 		repaint();
-
-
 	}
-
-
-
 }
