@@ -11,6 +11,8 @@ import java.net.UnknownHostException;
 
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 public class EnterInformation implements ActionListener{
 
@@ -31,6 +33,12 @@ public class EnterInformation implements ActionListener{
 	private OutputStream out;
 	private OutputStreamWriter outw;
 	private BufferedWriter bw;
+	
+	private JTable table;
+	
+	EnterInformation(JTable f){
+		table = f;
+	}
 
 	public void actionPerformed(ActionEvent e){
 		JButton b = (JButton)e.getSource();
@@ -88,6 +96,21 @@ public class EnterInformation implements ActionListener{
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
+				
+				
+				int cnt = Main.fr.write.getcount();
+				String [] row = new String[7];
+				row[0] = Integer.toString(++cnt);
+				row[1] = year + " / " + month + " / " + day;
+				row[2] = category;
+				row[3] = inout;
+				row[4] = cash;
+				row[5] = memo;
+				row[6] = price;
+				
+				DefaultTableModel m = (DefaultTableModel)table.getModel();
+				m.addRow(row);
+				
 
 
 
