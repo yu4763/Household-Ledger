@@ -57,17 +57,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	Color[] colors = {new Color(185,24,35),new Color(231,146,20),new Color(138,186,43),new Color(50,175,219),new Color(135,17,126)};
 	String[] cate = {"식비","교통비","문화생활비","학비","저축"};
-	
-	
-	
-	int wid, hei;
-	float value,r;
-	double angle;
-	Arc2D.Float inArc;
-	int x, y;
-	Ellipse2D.Float outCircle;
-	Ellipse2D.Float outFillCircle;
-	
+	int sum;
 	
 	
 	AnalyzePanel(){
@@ -167,7 +157,11 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		drawChart();
 		//cir.add(graph);
 		//l.add(cir);
-		l.add(graph,BorderLayout.CENTER);
+		
+		graph.setSize(700,700);
+		graph.setLocation(300,300);
+		graph.setOpaque(false);
+		l.add(graph);
 
 		
 		
@@ -178,31 +172,41 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	}
 	
 	void drawChart(){
-		int sum = 0;
+		sum = 0;
 		for(int i=0;i<5;i++){
 			sum+=spentMoney[i];
 		}
-		if(sum==0) return;
-		for(int i=0;i<5;i++){
-			arcAngle[i] = (int)Math.round((double)spentMoney[i]/(double)sum*360);
+		if(sum!=0){
+			for(int i=0;i<5;i++){
+				arcAngle[i] = (int)Math.round((double)spentMoney[i]/(double)sum*360);
+			}
 		}
+		
 		repaint();
 	}
 	
 	class ChartPanel extends JPanel{
 		public void paintComponent(Graphics g){
-			/*super.paintComponent(g);
-			int angle=0;
-			for(int i=0;i<5;i++){
-				g.setColor(colors[i]);
-				g.drawString(cate[i]+""+Math.round(arcAngle[i]*100/360)+"%", 50+i*100,20);
+			super.paintComponent(g);
+			if(sum!=0){
+				int angle=0;
+				for(int i=0;i<5;i++){
+					g.setColor(colors[i]);
+					g.drawString(cate[i]+""+Math.round(arcAngle[i]*100/360)+"%", 50+i*100,20);
+				}
+				for(int i=0;i<5;i++){
+					g.setColor(colors[i]);
+					g.fillArc(150,50,500,500,angle,arcAngle[i]);
+					angle += arcAngle[i];
+				}
 			}
-			for(int i=0;i<5;i++){
-				g.setColor(colors[i]);
-				g.fillArc(150,50,200,200,angle,arcAngle[i]);
-				angle += arcAngle[i];
-			}*/
-			g.drawOval(120,70,100,100);
+			else{
+				for(int i=0;i<5;i++){
+					g.setColor(colors[i]);
+					g.drawString(cate[i]+"0%", 50+i*100,20);
+				}
+				g.drawOval(150,50,500,500);
+			}
 		}
 	}
 	
@@ -258,7 +262,8 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 					
 				}
 			}
-		}
+		}	
+		
 		
 		/* 총 지출 */
 		int sumExpense = 0;
