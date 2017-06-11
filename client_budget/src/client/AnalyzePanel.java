@@ -66,8 +66,6 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		this.cnt = cnt;
 		setLayout(null);
 		
-		
-		
 		ImageIcon oldIcon = new ImageIcon("./resources/darami.jpg");
 		Image oldImage = oldIcon.getImage();
 		Image newImage = oldImage.getScaledInstance(1700,1000,java.awt.Image.SCALE_SMOOTH);
@@ -102,7 +100,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		
 		
 		
-		/* 원형 그래프 달 */
+		/* 원형 그래프 연,달 표시 */
 		pmonth = new JPanel();
 		pmonth.setLocation(500,180);
 		pmonth.setSize(650,100);
@@ -137,9 +135,11 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		
 		l.add(pmonth);
 		
-		/* 달 완료 */
+		/* 연, 달 완료 */
 		
 
+
+		/* 원형 그래프 그림, 글*/
 		T1 = new JTextArea();
 		T2 = new JTextArea();
 		T3 = new JTextArea();
@@ -150,9 +150,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		T12 = new JTextArea();
 		T22 = new JTextArea();
 		Tearning = new JTextArea();
-		
-		
-		/* 원형 그래프 */		
+				
 		before.addActionListener(this);
 		after.addActionListener(this);
 		
@@ -172,7 +170,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		l.add(graph);
 		l.add(graph2);
 		
-		/* 원형 그래프 완료*/
+		/* 원형 그래프 완료 그림, 글*/
 		
 		add(l);
 		setSize(1700,1000);
