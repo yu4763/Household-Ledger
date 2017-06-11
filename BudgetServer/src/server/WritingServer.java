@@ -23,6 +23,8 @@ public class WritingServer {
 		
 		try{
 			server = new ServerSocket(port);
+			client = server.accept();
+	        new SendingInfo(client, userID);
 			
 			while (true) {
 		        client = server.accept();
@@ -34,8 +36,9 @@ public class WritingServer {
 			e.printStackTrace();
 		}
 		
-	}
-	
+		
+		
+	}	
 	
 	
 	

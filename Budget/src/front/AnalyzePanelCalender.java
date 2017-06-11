@@ -36,6 +36,10 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
 	Font contentf2 = new Font("서울남산체 L", Font.PLAIN, 10);
 	
+	SavingInfo info = new SavingInfo();
+	String[][] dataCSV = new String[100][9];
+	int cnt;
+	
 	AnalyzePanelCalender(){
 		setLayout(null);
 		
@@ -156,6 +160,9 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	}
 
 	private void calSet() {
+		dataCSV = info.getInfo();
+		cnt = info.getcnt();
+		
 		cal.set(Calendar.YEAR,currentYear);
 		cal.set(Calendar.MONTH,currentMonth-1);
 		cal.set(Calendar.DATE,1);
