@@ -50,7 +50,7 @@ public class RegisterThread extends Thread {
 			ServerTCP ss2 = new ServerTCP();
 		}
 		else if(checking.equals("login") && check == 1 ){
-			WritingServer ws = new WritingServer(userID);
+			SwitchingServer ws = new SwitchingServer(userID);
 			
 		}
 	}

@@ -15,8 +15,8 @@ public class WritingServer {
 		try{
 			ServerSocket server = new ServerSocket(port);
 			Socket client;
+			client = server.accept();
 			
-	
 			while (true) {
 	
 				client = server.accept();

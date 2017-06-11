@@ -21,39 +21,16 @@ public class ChangePanel implements ActionListener{
 		ImageIcon newIcon2 = new ImageIcon(newImage2);*/
 		
 		if(b.getText().equals("가계부 작성")){
-			try {
-				Thread.sleep(20);
-				SavingInfo si = new SavingInfo();
-				si.run();
-				Main.fr.change("writing");
-			} catch (InterruptedException e1) {
-				e1.printStackTrace();
-			}
+			
+			new SendButton("writing");
+			Main.fr.change("writing");
 			
 		}
 		
 		if(b.getText().equals("홈")){
-			
-			try {
-				
-				Socket client = new Socket(serverIP, 5000);
-				OutputStream out = client.getOutputStream();
-				OutputStreamWriter outw = new OutputStreamWriter(out);
-				BufferedWriter bw = new BufferedWriter(outw);
-				
-				bw.write("finish" + '\n');
-				bw.flush();
-				
-				out.close();
-				outw.close();
-				bw.close();
-				client.close();
-				
-				Main.fr.change("home");
-			} catch (IOException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+		
+			new SendButton("home");
+			Main.fr.change("home");
 			
 		}
 		

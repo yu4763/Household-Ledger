@@ -13,9 +13,7 @@ public class SavingInfo extends Thread{
 	private BufferedReader br;
 	private static String[][] data;
 	private static int cnt = 0;
-	private static int finish = 0;
-	
-	
+
 
 	public void run() {
 
@@ -73,7 +71,6 @@ public class SavingInfo extends Thread{
 			e.printStackTrace();
 		}		
 
-		finish = 1;
 
 	}
 
@@ -83,14 +80,6 @@ public class SavingInfo extends Thread{
 
 	static int getcnt(){
 		return cnt;
-	}
-
-	static int getfin(){
-		return finish;
-	}
-	
-	static void makezero(){
-		finish = 0;
 	}
 
 }
