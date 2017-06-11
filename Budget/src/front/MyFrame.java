@@ -24,8 +24,13 @@ public class MyFrame extends JFrame{
 		analyze = new AnalyzePanel();
 		setTitle("다람이 가계부 프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+<<<<<<< HEAD
+		
+		getContentPane().add(analyze);
+=======
 
 		getContentPane().add(login);
+>>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
 
 		setVisible(true);
 		setSize(1730,1080);

@@ -152,7 +152,6 @@ public class LoginPanel extends JPanel{
 					} catch (InterruptedException e1) {
 						e1.printStackTrace();
 					}
-					
 				}
 			}
 		});
