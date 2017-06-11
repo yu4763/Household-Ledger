@@ -24,8 +24,6 @@ public class Client {
 				outw = new OutputStreamWriter(out);
 				bw = new BufferedWriter(outw);
 						
-				System.out.println("Sending");
-				System.out.println("userID : " + userID);
 				bw.write(userID + '\n');
 				bw.flush();
 				bw.write(checking);

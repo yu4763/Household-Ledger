@@ -71,7 +71,6 @@ public class EnterInformation implements ActionListener{
 					System.out.println("client Ready");
 					sending = year + "," + month + "," + day + "," + category + "," + inout + "," + cash + "," + memo + "," + price;
 
-					System.out.println("sending info : " + sending);
 					bw.write("add" + '\n');
 					bw.flush();
 					bw.write(sending);
@@ -133,7 +132,6 @@ public class EnterInformation implements ActionListener{
 					outw = new OutputStreamWriter(out);
 					bw = new BufferedWriter(outw);
 
-					System.out.println("delete: " + deletenum);
 					bw.write("delete" + '\n');
 					bw.flush();
 					bw.write(deletenum);

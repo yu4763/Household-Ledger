@@ -41,8 +41,6 @@ public class ServerTCP {
 			}
 			checking = br.readLine();
 			
-			System.out.println(userID);
-			System.out.println(checking);
 			
 			fm = new FileMake(userID, checking);
 			int check = fm.returnfinish(); //check fileMAKE

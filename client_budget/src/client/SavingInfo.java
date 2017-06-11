@@ -20,7 +20,6 @@ public class SavingInfo extends Thread{
 		data = new String[2000][9];
 
 		try {
-			System.out.println("THREAD");
 
 			try {
 				Thread.sleep(5);
@@ -39,10 +38,8 @@ public class SavingInfo extends Thread{
 
 			while(line == null)	{
 				line = br.readLine();
-				System.out.println(line);
 			}
 
-			System.out.println(line);
 			if(!line.equals("-1")){
 				
 				int i;
