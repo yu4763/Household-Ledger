@@ -14,7 +14,6 @@ public class LoginPanel extends JPanel{
 
 	ImageIcon daram;
 	private String idvalue = null;
-	private char[] pwvalue = null;
 
 
 	LoginPanel(){
