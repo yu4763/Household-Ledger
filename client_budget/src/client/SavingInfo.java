@@ -22,7 +22,7 @@ public class SavingInfo extends Thread{
 		try {
 
 			try {
-				Thread.sleep(5);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

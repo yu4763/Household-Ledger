@@ -17,7 +17,6 @@ public class SendingInfo extends Thread{
 
 		try {
 
-
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
 			BufferedWriter bw = new BufferedWriter(outw);		
@@ -53,13 +52,14 @@ public class SendingInfo extends Thread{
 				}
 			}
 
-			br.close();
-			isr.close();
-			fis.close();
+			
 			bw.close();
 			outw.close();
 			out.close();
-
+			br.close();
+			isr.close();
+			fis.close();
+			
 
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
