@@ -260,12 +260,12 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 			sumExpense += spentMoney[i];
 		}
 		
-		T1.setText("식비:"+spentMoney[0]+"원");
-		T2.setText("교통비:"+spentMoney[1]+"원");
-		T3.setText("문화생활비:"+spentMoney[2]+"원");
-		T4.setText("학비:"+spentMoney[3]+"원");
-		T5.setText("저축:"+spentMoney[4]+"원");
-		Texpense.setText("총 지출:"+sumExpense+"원");
+		T1.setText("식비 : "+spentMoney[0]+"원");
+		T2.setText("교통비 : "+spentMoney[1]+"원");
+		T3.setText("문화생활비 : "+spentMoney[2]+"원");
+		T4.setText("학비 : "+spentMoney[3]+"원");
+		T5.setText("저축 : "+spentMoney[4]+"원");
+		Texpense.setText("총 지출 : "+sumExpense+"원");
 		
 		T1.setForeground(new Color(185,24,35));
 		T2.setForeground(new Color(231,146,20));
