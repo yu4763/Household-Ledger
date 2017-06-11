@@ -72,6 +72,8 @@ public class WritingPanel extends JPanel{
 
 		Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
 		Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
+		Font tabletif = new Font("서울남산체 B", Font.PLAIN, 17);
+		Font tablecof = new Font("서울남산체 L", Font.PLAIN, 20);
 
 		date_lb.setText("날      짜 : ");
 		year.setText("년");
@@ -190,7 +192,7 @@ public class WritingPanel extends JPanel{
 		controlPanel1.add(out);
 
 
-		in.addItemListener(new ItemListener() {
+	/*	in.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("수입 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
@@ -199,7 +201,7 @@ public class WritingPanel extends JPanel{
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("지출 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
-		});
+		}); */
 
 		l.add(controlPanel1);
 		/* 수입 or 지출 입력 완료 */
@@ -236,7 +238,7 @@ public class WritingPanel extends JPanel{
 		controlPanel2.add(cash);
 		controlPanel2.add(card);
 
-		cash.addItemListener(new ItemListener() {
+	/*	cash.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("현금 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
@@ -245,7 +247,7 @@ public class WritingPanel extends JPanel{
 			public void itemStateChanged(ItemEvent arg0) {
 				statusLabel.setText("카드 Checkbox: "+(arg0.getStateChange()==1?"checked":"unchecked")); //나중에 바꿀거!
 			}
-		});
+		});  */
 
 		l.add(controlPanel2);
 		/* 현금 or 카드 입력 완료 */
@@ -307,93 +309,53 @@ public class WritingPanel extends JPanel{
 		/* 입력 삭제 버튼 완료 */
 
 		
+		
 
-		/*statusLabel = new Label(); //나중에 지울 거!
-		statusLabel.setText("statusLabel");
-		statusLabel.setAlignment(Label.CENTER);
-		statusLabel.setFont(titlef);
-		statusLabel.setSize(350,100);
-		statusLabel.setLocation(200,800);		
-
-		l.add(statusLabel);
-*/
-
-		/* 표  만들기 */
-		String[][] data = new String[2000][9];
-		String[] title = new String[9];
+		/* 표  출력 */
+		String[][] data = new String[2000][7];
+		String[] title = new String[7];
 		title[0] = "번호";
-		title[1] = "연";
-		title[2] = "월";
-		title[3] = "일";
-		title[4] = "카테고리";
-		title[5] = "수입/지출";
-		title[6] = "카드/현금";
-		title[7] = "메모";
-		title[8] = "금액";
-		
-		
-		System.out.println(count);
-		
-		for(int i=0; i<count; i++){
-			for(int k=0; k<9; k++){
-				data[i][k] = tmp[i][k];
-				System.out.print(data[i][k] + " ");
-			}
-			System.out.println("end");
-		}
-
+		title[1] = "날짜";
+		title[2] = "카테고리";
+		title[3] = "수입/지출";
+		title[4] = "카드/현금";
+		title[5] = "메모";
+		title[6] = "금액";
 				
-		JTable table = new JTable(data, title);
-		table.setFont(contentf);
+		int i;
+		int k;
+		
+		for(i=0; i<count; i++){
+			for( k=0; k<9; k++){
+				if(k==0)
+					data[i][k] = tmp[i][k];
+				else if(k==1)
+					data[i][1] = tmp[i][k];
+				else if(k==2 || k==3)
+					data[i][1] +=   " /" + tmp[i][k];
+				else
+					data[i][k-2] = tmp[i][k];
+			}
+			
+		}
+				
+		DefaultTableModel model = new DefaultTableModel(data,title);
+		JTable table = new JTable(model);
+		table.getTableHeader().setFont(tabletif);
+		table.setFont(tablecof);
+		table.setRowHeight(35); 
 		JScrollPane scroll = new JScrollPane(table);
 		scroll.setSize(1250,430);
 		scroll.setLocation(100,510);
 		l.add(scroll);
+		/* 표출력 끝 */
 		
+	
 		
-		
-		/* 표 입력 */	
-
-
-		/*		ActionListener listener1 = new ActionListener(){
-			public void actionPerformed(ActionEvent arg0){
-				try{
-					data[count][0] = String.valueOf(count+1); //번호
-					data[count][1] = tyear.getText(); //연
-					data[count][2] = tmonth.getText(); //월
-					data[count][3] = tday.getText(); //일
-					data[count][4] = category.getActionCommand(); //카테고리
-					data[count][5] = ; //수입/지출
-					data[count][6] = ; //카드/현금
-					data[count][7] = tmemo.getText(); //메모
-					data[count][8] = tprice.getText(); //금액					
-
-					table.updateUI();
-					count++;
-					tyear.setText("");
-					tmonth.setText("");
-					tday.setText("");
-					tmemo.setText("");
-					tprice.setText("");
-				}catch(Exception e){
-					JOptionPane.showMessageDialog(getParent(), data.length+"명 초과");
-				}
-			}
-		};
-		add.addActionListener(listener1);
-
-		ActionListener listener2 = new ActionListener(){
-			public void actionPerformed(ActionEvent arg0){
-				//delete
-			}
-		};
-		add.addActionListener(listener2);
-
-		l.add(add);
-		l.add(delete);*/
-
+	
 		add(l);
 		setSize(1700,1000);
+		
 
 	}
 
@@ -442,6 +404,7 @@ public class WritingPanel extends JPanel{
 		String c = category.getSelectedItem().toString();
 		category.setSelectedIndex(0);
 		return c;
+		
 	}
 
 	String getInout(){
