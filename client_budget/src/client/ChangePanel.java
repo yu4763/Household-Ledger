@@ -42,7 +42,7 @@ public class ChangePanel implements ActionListener{
 			Main.fr.change("analyzecalender");
 		}
 		
-		if(b.getText().equals("카테고리 분석")){
+		if(b.getText().equals("일반 분석")){
 			Main.fr.change("analyze");
 		}
 		

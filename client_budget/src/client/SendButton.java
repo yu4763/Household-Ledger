@@ -6,7 +6,6 @@ import java.net.*;
 public class SendButton {
 
 
-
 	final String serverIP = "localhost";
 
 	SendButton(String b){

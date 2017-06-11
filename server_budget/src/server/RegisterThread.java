@@ -3,7 +3,6 @@ package server;
 import java.io.*;
 import java.net.*;
 
-
 public class RegisterThread extends Thread {
 	private int check;
 	private String checking;
@@ -31,7 +30,7 @@ public class RegisterThread extends Thread {
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
 
-			outw.write(check); //check 보내기
+			outw.write(check); 
 			outw.flush();
 			
 			out.close();
@@ -45,7 +44,7 @@ public class RegisterThread extends Thread {
 		} 
 	}
 	
-	void isregister(){ //연속적으로
+	void isregister(){ 
 		if(checking.equals("register") || (checking.equals("login") && check == 0)){
 			ServerTCP ss2 = new ServerTCP();
 		}
