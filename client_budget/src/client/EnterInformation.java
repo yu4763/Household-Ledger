@@ -1,19 +1,9 @@
 package client;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.Vector;
-
-import javax.swing.JButton;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
+import java.awt.event.*;
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
 
 public class EnterInformation implements ActionListener{
 
@@ -163,7 +153,7 @@ public class EnterInformation implements ActionListener{
 				}
 				
 				try {
-					Thread.sleep(15);
+					Thread.sleep(20);
 					SavingInfo si = new SavingInfo();
 					si.run();
 					Thread.sleep(2);
