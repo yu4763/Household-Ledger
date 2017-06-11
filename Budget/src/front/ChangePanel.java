@@ -4,9 +4,13 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import java.io.*;
+import java.net.*;
+
 
 public class ChangePanel implements ActionListener{
 
+	final String serverIP = "localhost";
 	
 	public void actionPerformed(ActionEvent e){
 		JButton b = (JButton)e.getSource();
@@ -17,11 +21,40 @@ public class ChangePanel implements ActionListener{
 		ImageIcon newIcon2 = new ImageIcon(newImage2);*/
 		
 		if(b.getText().equals("가계부 작성")){
-			Main.fr.change("writing");
+			try {
+				Thread.sleep(20);
+				SavingInfo si = new SavingInfo();
+				si.run();
+				Main.fr.change("writing");
+			} catch (InterruptedException e1) {
+				e1.printStackTrace();
+			}
+			
 		}
 		
 		if(b.getText().equals("홈")){
-			Main.fr.change("home");
+			
+			try {
+				
+				Socket client = new Socket(serverIP, 5000);
+				OutputStream out = client.getOutputStream();
+				OutputStreamWriter outw = new OutputStreamWriter(out);
+				BufferedWriter bw = new BufferedWriter(outw);
+				
+				bw.write("finish" + '\n');
+				bw.flush();
+				
+				out.close();
+				outw.close();
+				bw.close();
+				client.close();
+				
+				Main.fr.change("home");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		}
 		
 		if(b.getText().equals("가계부 분석")){

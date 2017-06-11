@@ -30,11 +30,9 @@ public class WritingPanel extends JPanel{
 	private JRadioButton no1;
 	private JRadioButton no2;
 	
-	private int count;
 
 	WritingPanel(String[][] tmp, int count){
-		
-		this.count = count;
+
 
 		setLayout(null);
 
@@ -310,13 +308,13 @@ public class WritingPanel extends JPanel{
 		add.setSize(100,50);
 		add.setLocation(1320,400);
 		add.setFont(titlef);
-		add.addActionListener(new EnterInformation( table ));
+		add.addActionListener(new EnterInformation( ));
 		l.add(add);
 
 		delete.setSize(100,50);
 		delete.setLocation(1450,400);
 		delete.setFont(titlef);
-		delete.addActionListener(new EnterInformation( table ));
+		delete.addActionListener(new EnterInformation( ));
 		l.add(delete);
 
 		tdelete.setSize(100,50);
@@ -426,9 +424,7 @@ public class WritingPanel extends JPanel{
 		return del;
 	
 	}
-	
-	int getcount(){
-		return count;
-	}
 
+	
+	
 }

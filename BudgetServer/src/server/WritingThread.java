@@ -6,17 +6,21 @@ import java.util.StringTokenizer;
 
 public class WritingThread {
 
+	private ServerSocket ss;
 	private Socket client;
 	private InputStream in;
 	private InputStreamReader inr;
 	private BufferedReader br;
 	private String info;
 	private String userID;
+	
+	final int port = 5000;
 
-	WritingThread(Socket s, String id){
+	WritingThread(ServerSocket socket, Socket s, String id){
 
 		client = s;
 		userID = id;
+		ss = socket;
 		
 		int count = SendingInfo.getcnt();
 
@@ -48,7 +52,8 @@ public class WritingThread {
 						
 
 			if(type.equals("add")){
-
+				
+			
 				info = Integer.toString(++count) + "," + info;
 
 				FileOutputStream fos = new FileOutputStream(filename, true) ;
@@ -59,11 +64,12 @@ public class WritingThread {
 				osw.flush();
 				osw.close();
 				fos.close();
-				
-				SendingInfo.cntplus();
+
+		        
 			}
 
-			else{
+			else if (type.equals("delete")){
+				
 
 				FileInputStream fis = new FileInputStream(filename);
 				InputStreamReader isr = new InputStreamReader(fis);
@@ -107,13 +113,19 @@ public class WritingThread {
 				f3.renameTo(f2);
 			
 			}
+			
+			else{
+				
+			}
+			
 
-
+			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		
+		
 
 
 	}
