@@ -6,15 +6,14 @@ import java.net.*;
 
 public class SendingInfo extends Thread{
 
-	private Socket client;
-	private String userID;
+
 	private OutputStream out = null;
 	private OutputStreamWriter outw = null;
+	private static int count;
 
 
 	SendingInfo(Socket client, String userID){
-		this.client = client;
-		this.userID = userID;
+	
 		
 		try {
 			out = client.getOutputStream();
@@ -29,7 +28,8 @@ public class SendingInfo extends Thread{
 			FileInputStream fis = new FileInputStream(filename);
 			InputStreamReader isr = new InputStreamReader(fis);
 			BufferedReader br = new BufferedReader(isr);
-
+		
+			count = 0;
 			String tm;
 			while( (tm = br.readLine()) != null ){
 				
@@ -37,7 +37,7 @@ public class SendingInfo extends Thread{
 				bw.flush();
 				bw.write("\n");
 				bw.flush();
-				
+				count++;
 			}
 			
 			br.close();
@@ -56,8 +56,14 @@ public class SendingInfo extends Thread{
 			e.printStackTrace();
 		}
 
-
-
+	}
+	
+	static int getcnt(){
+		return count;
+	}
+	
+	static void cntplus(){
+		count++;
 	}
 
 }

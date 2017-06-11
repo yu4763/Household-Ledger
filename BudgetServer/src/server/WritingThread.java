@@ -12,12 +12,13 @@ public class WritingThread {
 	private BufferedReader br;
 	private String info;
 	private String userID;
-	private static int count;
 
 	WritingThread(Socket s, String id){
 
 		client = s;
 		userID = id;
+		
+		int count = SendingInfo.getcnt();
 
 		try {
 
@@ -48,7 +49,7 @@ public class WritingThread {
 
 			if(type.equals("add")){
 
-				info = Integer.toString(count) + "," + info;
+				info = Integer.toString(++count) + "," + info;
 
 				FileOutputStream fos = new FileOutputStream(filename, true) ;
 				OutputStreamWriter osw = new OutputStreamWriter(fos);
@@ -58,6 +59,8 @@ public class WritingThread {
 				osw.flush();
 				osw.close();
 				fos.close();
+				
+				SendingInfo.cntplus();
 			}
 
 			else{

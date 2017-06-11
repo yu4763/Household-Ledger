@@ -34,7 +34,7 @@ public class WritingPanel extends JPanel{
 	private JRadioButton no1;
 	private JRadioButton no2;
 
-	WritingPanel(){
+	WritingPanel(String[][] tmp, int count){
 
 		setLayout(null);
 
@@ -308,8 +308,9 @@ public class WritingPanel extends JPanel{
 		l.add(tdelete);
 		/* 입력 삭제 버튼 완료 */
 
+		
 
-		statusLabel = new Label(); //나중에 지울 거!
+		/*statusLabel = new Label(); //나중에 지울 거!
 		statusLabel.setText("statusLabel");
 		statusLabel.setAlignment(Label.CENTER);
 		statusLabel.setFont(titlef);
@@ -317,10 +318,10 @@ public class WritingPanel extends JPanel{
 		statusLabel.setLocation(200,800);		
 
 		l.add(statusLabel);
-
+*/
 
 		/* 표  만들기 */
-		String[][] data = new String[20][9];
+		String[][] data = new String[2000][9];
 		String[] title = new String[9];
 		title[0] = "번호";
 		title[1] = "연";
@@ -331,17 +332,28 @@ public class WritingPanel extends JPanel{
 		title[6] = "카드/현금";
 		title[7] = "메모";
 		title[8] = "금액";
+		
+		
+		System.out.println(count);
+		
+		for(int i=0; i<count; i++){
+			for(int k=0; k<9; k++){
+				data[i][k] = tmp[i][k];
+				System.out.print(data[i][k] + " ");
+			}
+			System.out.println("end");
+		}
 
-		DefaultTableModel model = new DefaultTableModel(data,title);
-		JTable table = new JTable(model);
+				
+		JTable table = new JTable(data, title);
+		table.setFont(contentf);
 		JScrollPane scroll = new JScrollPane(table);
-		scroll.setSize(800,300);
-		scroll.setLocation(200,500);
+		scroll.setSize(1250,430);
+		scroll.setLocation(100,510);
 		l.add(scroll);
-
-		int count = 0;
-
-
+		
+		
+		
 		/* 표 입력 */	
 
 
