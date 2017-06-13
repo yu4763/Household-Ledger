@@ -6,6 +6,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+
+/**
+ * 로그인하고 난 뒤 정보를 입력할지 분석 창을 볼지 고르는 창
+ * @author team 6
+ *
+ */
 public class FrontPanel extends JPanel{
 	
 	FrontPanel(){

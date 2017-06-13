@@ -18,6 +18,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+/**
+ * 달력에 매일매일의 수입, 지출, 남은 돈을 월별로 보여주는 class
+ * @author 구헤라
+ *
+ */
 public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	
 	private Calendar today;
@@ -43,6 +48,11 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 	private int cnt;
 	private int leftMoney;
 	
+	/**
+	 * 달력이 올라갈 기본 바탕과 홈으로 가는 버튼, 뒤로 가는 버튼, 지금의 연도와 달이 써있는 텍스트필드와 달을 앞 뒤로 이동하는 버튼, 달력 생성
+	 * @param data 서버의 csv파일에서 유저의 가계부 기록 정보 저장
+	 * @param cnt 유저의 가계부 기록의 인덱스 개수 저장
+	 */
 	AnalyzePanelCalender(String[][] data, int cnt){
 		
 		this.dataCSV = data;
@@ -146,12 +156,18 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		setSize(1700,1000);
 	}
 
-	private void hideInit() { //나머지 버튼 비활성화
+	/**
+	 * 달력에서 날짜가 적히지 않는 칸을 비활성화한다
+	 */
+	private void hideInit() {
 		for(int i=0;i<Tcal.length;i++){
 			if((Tcal[i].getText()).equals("")) Tcal[i].setEnabled(false);
-		}		
+		}
 	}
 
+	/**
+	 * 달력의 일 칸들 생성
+	 */
 	private void gridInit() {
 		for(int i=0;i<days.length;i++){
 			calendarDays.add(Tcal[i]=new JTextArea(days[i]));
@@ -162,11 +178,17 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		}
 	}
 	
+	/**
+	 * 달력의 일을 적을 7*7의 그리드 만들기
+	 */
 	private void panelInit(){
 		GridLayout gridLayout = new GridLayout(7,7);
 		calendarDays.setLayout(gridLayout);
 	}
 
+	/**
+	 * data에서 각 날의날짜와 수입, 지출액, 그날의 수입에서 지출에서 뺀 값, 남은 돈을 계산해 달력에 적는다
+	 */
 	private void calSet() {
 		
 		try {
@@ -242,6 +264,10 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		}
 	}
 	
+	/**
+	 * 지금의 달에 1을 더하거나 빼서 달을 이동하고 1보다 작아지면 연도를 빼고 12보다 커지면 연도를 더한다.
+	 * @param d 달에 더할 값
+	 */
 	private void calInput(int d){
 		currentMonth += d;
 		if(currentMonth<=0){
@@ -254,6 +280,9 @@ public class AnalyzePanelCalender extends JPanel implements ActionListener{
 		}
 	}
 
+	/**
+	 * 달을 앞, 뒤로 이동하는 버튼을 눌렀을 때 할 명령
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==before){
 			this.calendarDays.removeAll();

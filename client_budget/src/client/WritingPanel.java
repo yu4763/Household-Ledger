@@ -6,6 +6,11 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 
+/**
+ * 가계부 작성화면이다. 정보를 입력하고 싶은 경우에는 날짜 (연, 월, 일), 카테고리, 수입/지출, 현금/카드, 금액을 필수적으로 입력하게 되어있으며 (메모는 선택) 입력되어 있는 정보를 삭제하고 싶은 경우에는 삭제하고 싶은 정보의 번호를 입력하게 되어 있다. 입력 혹은 삭제 버튼을 누를 시 EnterInformation class를 이용해 해당 정보를 server에 보내고  client에도 업데이트한다.
+ * @author team 6
+ *
+ */
 public class WritingPanel extends JPanel{
 
 	ImageIcon daram;
@@ -30,6 +35,11 @@ public class WritingPanel extends JPanel{
 	private JRadioButton no2;
 	
 
+	/**
+	 * 기본 바탕과 홈으로 가는 버튼, 가계부 입력에 필요한 정보들을 입력하는 칸들, 입력 버튼, 삭제 버튼, 가계부 기록 정보를 보여주는 테이블 생성
+	 * @param tmp 서버의 csv파일에서 유저의 가계부 기록 정보 저장
+	 * @param count 유저의 가계부 기록의 인덱스 개수 저장
+	 */
 	WritingPanel(String[][] tmp, int count){
 
 
@@ -336,6 +346,10 @@ public class WritingPanel extends JPanel{
 
 	}
 
+	/**
+	 * 가계부에 입력한 연도를 return하고 오늘의 연도로 바꿔놓는다
+	 * @return year 입력 연도
+	 */
 	String getyear(){
 		
 		String year = tyear.getText();
@@ -343,7 +357,11 @@ public class WritingPanel extends JPanel{
 		return year;
 	
 	}
-
+	
+	/**
+	 * 가계부에 입력한 달을 return하고 오늘의 달로 바꿔놓는다
+	 * @return month 입력 달
+	 */
 	String getmonth(){
 
 		String month = tmonth.getText();
@@ -352,6 +370,10 @@ public class WritingPanel extends JPanel{
 	
 	}
 
+	/**
+	 * 가계부에 입력한 일을 return하고 오늘의 일로 바꿔놓는다
+	 * @return day 입력 일
+	 */
 	String getday(){
 
 		String day = tday.getText();
@@ -360,6 +382,10 @@ public class WritingPanel extends JPanel{
 	
 	}
 
+	/**
+	 * 가계부에 입력한 메모를 return하고 빈칸으로 바꿔놓는다
+	 * @return memo 입력 메모
+	 */
 	String getmemo(){
 
 		String memo = tmemo.getText();
@@ -368,6 +394,10 @@ public class WritingPanel extends JPanel{
 	
 	}
 
+	/**
+	 * 가계부에 입력한 금액을 return하고 빈칸으로 바꿔놓는다
+	 * @return price 입력 금액
+	 */
 	String getprice(){
 
 		String price = tprice.getText();
@@ -376,6 +406,10 @@ public class WritingPanel extends JPanel{
 	
 	}
 
+	/**
+	 * 가계부에 입력한 카테고리를 return하고 첫번째 카테고리로 바꿔놓는다
+	 * @return c 입력 카테고리
+	 */
 	String getCategory(){
 		
 		String c = category.getSelectedItem().toString();
@@ -384,6 +418,10 @@ public class WritingPanel extends JPanel{
 		
 	}
 
+	/**
+	 * 가계부에 수입이 클릭되었는지 지출이 클릭되었는지 확인하고 값을 true로 바꿔논 뒤에 클릭된 값으로 return
+	 * @return in이 클릭되면 수입, out이 클릭되면 지출, 다 아니면 null로 return
+	 */
 	String getInout(){
 
 		if(in.isSelected()){
@@ -401,6 +439,10 @@ public class WritingPanel extends JPanel{
 
 	}
 
+	/**
+	 * 가계부에 현금이 클릭되었는지 카드가 클릭되었는지 확인하고 값을 true로 바꿔논 뒤에 클릭된 값으로 return
+	 * @return cash가 클릭되면 현금, card가 클릭되면 카드, 다 아니면 null로 return
+	 */
 	String getIscash(){
 
 		if(cash.isSelected()){
@@ -418,6 +460,10 @@ public class WritingPanel extends JPanel{
 
 	}
 	
+	/**
+	 * 가계부에 입력한 삭제를 원하는 index를 return하고 빈칸으로 바꾼다
+	 * @return del 삭제하길 원하는 index
+	 */
 	String getdelete(){
 
 		String del = tdelete.getText();

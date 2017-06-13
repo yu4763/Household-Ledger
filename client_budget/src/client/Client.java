@@ -3,6 +3,11 @@ package client;
 import java.io.*;
 import java.net.*;
 
+/**
+ * 로그인 화면에서 버튼 클릭시, 사용자 아이디와 클릭한 버튼의 종류(login or register)을 서버로 전달하는 class
+ * @author team 6
+ *
+ */
 public class Client {
 
 	private Socket client = null;

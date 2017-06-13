@@ -7,10 +7,18 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+/**
+ * 달력형 분석 창과 카테고리별 분석 창 둘 중 하나를 고르는 class
+ * @author team 6
+ *
+ */
 public class BeforeAnalyzePanel extends JPanel{
 	
 	private JLabel l;
 	
+	/**
+	 * 기본 바탕과 홈으로 가는 버튼, 달력형 분석창으로 가는 버튼, 카테고리별 분석창으로 가는 버튼 생성
+	 */
 	BeforeAnalyzePanel(){
 		setLayout(null);
 		
