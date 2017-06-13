@@ -8,24 +8,23 @@ public class RegisterThread extends Thread {
 	private String checking;
 	private String userID;
 	private Socket client = null;
+	private ServerSocket server = null;
 	private OutputStream out = null;
 	private OutputStreamWriter outw = null;
+	
+	final int port = 5000;
 
-
-	public RegisterThread(int check, String checking, String userID) {
+	public RegisterThread(int check, Socket client, ServerSocket server) {
 		this.check = check;
-		this.checking = checking;
-		this.userID = userID;
+		this.checking = ServerTCP.getchecing();
+		this.userID = ServerTCP.getuserID();
+		this.client = client;
+		this.server = server;
 	}
 
 	public void run() {
-		ServerSocket ss = null;
+		
 		try {
-			ss = new ServerSocket(5000);
-			System.out.println("HERE");
-
-			client = ss.accept();
-			System.out.println("ACCEPTED");
 			
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
@@ -35,7 +34,7 @@ public class RegisterThread extends Thread {
 			
 			out.close();
 			outw.close();
-			ss.close();
+			server.close();
 			
 			isregister();
 			
@@ -46,7 +45,7 @@ public class RegisterThread extends Thread {
 	
 	void isregister(){ 
 		if(checking.equals("register") || (checking.equals("login") && check == 0)){
-			ServerTCP ss2 = new ServerTCP();
+			ServerTCP ss = new ServerTCP();
 		}
 		else if(checking.equals("login") && check == 1 ){
 			SwitchingServer ws = new SwitchingServer(userID);

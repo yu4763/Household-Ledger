@@ -31,14 +31,14 @@ public class LoginPanel extends JPanel{
 		l.setLocation(0,0);
 
 		Font font1 = new Font("서울남산체 B", Font.BOLD, 100);
-		Font titlef = new Font("서울남산체 B", Font.PLAIN, 30);
+		Font titlef = new Font("서울남산체 B", Font.PLAIN, 35);
 		Font contentf = new Font("서울남산체 L", Font.PLAIN, 25);
 		Font informf = new Font("서울남산체 L", Font.PLAIN, 18);
 
 		JLabel title = new JLabel("다람이 가계부");
 		title.setFont(font1);
 		title.setSize(800, 300);
-		title.setLocation(520, 180);
+		title.setLocation(520, 170);
 		l.add(title);
 
 
@@ -50,11 +50,11 @@ public class LoginPanel extends JPanel{
 
 		userID.setSize(150, 50);
 		userID.setFont(titlef);
-		userID.setLocation(330, 550);
+		userID.setLocation(325, 565);
 
 		id.setSize(300, 50);
 		id.setFont(contentf);
-		id.setLocation(480, 550);
+		id.setLocation(480, 565);
 		id.setOpaque(false);
 		id.setText("");
 
@@ -145,7 +145,7 @@ public class LoginPanel extends JPanel{
 		l.add(register);
 
 
-		JLabel inform = new JLabel("**회원가입을 원하실 경우 아이디와 비밀번호를 입력한 후 회원가입 버튼을 눌러주십시오.**");
+		JLabel inform = new JLabel("**회원가입을 원하실 경우 아이디를 입력한 후 회원가입 버튼을 눌러주십시오.**");
 		inform.setSize(800,40);
 		inform.setLocation(330, 760);
 		inform.setFont(informf);

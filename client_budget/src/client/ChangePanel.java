@@ -9,8 +9,6 @@ import java.net.*;
 
 
 public class ChangePanel implements ActionListener{
-
-	final String serverIP = "localhost";
 	
 	public void actionPerformed(ActionEvent e){
 		JButton b = (JButton)e.getSource();

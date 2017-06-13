@@ -7,6 +7,7 @@ public class SendButton {
 
 
 	final String serverIP = "localhost";
+	final int port = 5000;
 
 	SendButton(String b){
 
@@ -17,7 +18,7 @@ public class SendButton {
 			Thread.sleep(5);
 
 			Socket client;
-			client = new Socket(serverIP, 5000);
+			client = new Socket(serverIP, port);
 
 			OutputStream out = client.getOutputStream();
 			OutputStreamWriter outw = new OutputStreamWriter(out);

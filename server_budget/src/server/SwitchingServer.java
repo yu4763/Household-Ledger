@@ -6,6 +6,7 @@ import java.net.*;
 public class SwitchingServer {
 
 	final int port = 5000;
+	
 
 	SwitchingServer(String userID){
 
@@ -17,7 +18,7 @@ public class SwitchingServer {
 			while(true){
 
 				client = server.accept();
-
+						
 				InputStream in = client.getInputStream();
 				InputStreamReader inr = new InputStreamReader(in);
 				BufferedReader br = new BufferedReader(inr);
@@ -37,7 +38,8 @@ public class SwitchingServer {
 				if(button.equals("login")){
 
 					client = server.accept();
-					new SendingInfo(server, client, userID);
+					SendingInfo si = new SendingInfo(client, userID);
+					si.run();
 				}
 
 				if(button.equals("writing")){
@@ -69,10 +71,13 @@ public class SwitchingServer {
 						else{
 
 							client = server.accept();
-							new WritingThread(server, client, userID);
+							WritingThread wt = new WritingThread(client, userID);
+							wt.run();
 
 							client = server.accept();
-							new SendingInfo(server, client, userID);
+							SendingInfo si = new SendingInfo(client, userID);
+							si.run();
+							
 						}
 
 					}
@@ -87,8 +92,6 @@ public class SwitchingServer {
 		}
 
 	}
-
-
 
 
 }

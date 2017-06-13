@@ -10,9 +10,18 @@ public class SendingInfo extends Thread{
 	private OutputStream out = null;
 	private OutputStreamWriter outw = null;
 	private static int count;
+	private Socket client = null;
+	private String userID;
 
 
-	SendingInfo(ServerSocket socket, Socket client, String userID){
+	SendingInfo(Socket client, String userID){
+		
+		this.client = client;
+		this.userID = userID;
+		
+	}
+	
+	public void run(){
 
 
 		try {

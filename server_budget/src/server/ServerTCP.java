@@ -18,8 +18,8 @@ public class ServerTCP {
 		
 	private FileMake fm;
 	
-	private String userID = null;
-	private String checking = null;
+	private static String userID = null;
+	private static String checking = null;
 	
 	ServerTCP(){
 		
@@ -48,9 +48,10 @@ public class ServerTCP {
 			in.close();
 			inr.close();
 			br.close();
-			server.close();
 			
-			RegisterThread s = new RegisterThread(check, checking, userID);
+			client = server.accept();
+			
+			RegisterThread s = new RegisterThread(check, client, server);
 			s.run();
 			
 						
@@ -58,6 +59,14 @@ public class ServerTCP {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	static String getuserID(){
+		return userID;
+	}
+	
+	static String getchecing(){
+		return checking;
 	}
 	
 	

@@ -7,6 +7,7 @@ public class RegisterThread extends Thread{
 
 	private Socket client = null;
 	final String serverIP = "localhost";
+	final int port = 5000;
 
 	private InputStream in=null;
 	private InputStreamReader inr;
@@ -26,7 +27,7 @@ public class RegisterThread extends Thread{
 				e.printStackTrace();
 			}
 			
-			client = new Socket(serverIP, 5000);
+			client = new Socket(serverIP, port);
 
 			in = client.getInputStream();
 			inr = new InputStreamReader(in);

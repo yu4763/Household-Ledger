@@ -6,23 +6,24 @@ import java.util.StringTokenizer;
 
 public class WritingThread {
 
-	private ServerSocket ss;
 	private Socket client;
 	private InputStream in;
 	private InputStreamReader inr;
 	private BufferedReader br;
 	private String info;
 	private String userID;
+	private int count;
+	final int port = 18806;
 	
-	final int port = 5000;
 
-	WritingThread(ServerSocket socket, Socket s, String id){
+	WritingThread(Socket s, String id){
 
 		client = s;
-		userID = id;
-		ss = socket;
-		
-		int count = SendingInfo.getcnt();
+		userID = id;		
+		count = SendingInfo.getcnt();
+	}
+	
+	public void run(){	
 
 		try {
 
