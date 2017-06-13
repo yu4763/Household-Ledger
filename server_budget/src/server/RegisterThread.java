@@ -10,7 +10,8 @@ public class RegisterThread extends Thread {
 	private Socket client = null;
 	private OutputStream out = null;
 	private OutputStreamWriter outw = null;
-
+	
+	final int port = 5000;
 
 	public RegisterThread(int check, String checking, String userID) {
 		this.check = check;
@@ -21,7 +22,7 @@ public class RegisterThread extends Thread {
 	public void run() {
 		ServerSocket ss = null;
 		try {
-			ss = new ServerSocket(5000);
+			ss = new ServerSocket(port);
 			System.out.println("HERE");
 
 			client = ss.accept();

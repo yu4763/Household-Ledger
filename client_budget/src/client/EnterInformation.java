@@ -20,7 +20,8 @@ public class EnterInformation implements ActionListener{
 
 	private Socket client = null;
 	final String serverIP = "localhost";
-
+	final int port = 5000;
+	
 	private OutputStream out;
 	private OutputStreamWriter outw;
 	private BufferedWriter bw;
@@ -82,7 +83,7 @@ public class EnterInformation implements ActionListener{
 					try {
 
 						Thread.sleep(40);
-						client = new Socket(serverIP, 5000);
+						client = new Socket(serverIP, port);
 						out = client.getOutputStream();
 						outw = new OutputStreamWriter(out);
 						bw = new BufferedWriter(outw);
@@ -146,7 +147,7 @@ public class EnterInformation implements ActionListener{
 				try {
 
 					Thread.sleep(40);
-					client = new Socket(serverIP, 5000);
+					client = new Socket(serverIP, port);
 					System.out.println("client Ready");
 
 					out = client.getOutputStream();

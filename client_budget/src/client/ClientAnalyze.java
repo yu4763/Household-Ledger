@@ -11,6 +11,8 @@ public class ClientAnalyze {
 	
 	private Socket client = null;
 	final String serverIP = "localhost";
+	final int port = 5000;
+
 	
 	private OutputStream out;
 	private OutputStreamWriter outw;
@@ -18,7 +20,7 @@ public class ClientAnalyze {
 
 	ClientAnalyze(String id) {
 		try{
-			client = new Socket(serverIP,5000);
+			client = new Socket(serverIP, port);
 			System.out.println("client Ready");
 			
 			out = client.getOutputStream();

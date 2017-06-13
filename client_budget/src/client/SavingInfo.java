@@ -7,6 +7,7 @@ public class SavingInfo extends Thread{
 
 	private Socket client = null;
 	final String serverIP = "localhost";
+	final int port = 5000;
 
 	private InputStream in=null;
 	private InputStreamReader inr;
@@ -26,12 +27,11 @@ public class SavingInfo extends Thread{
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			client = new Socket(serverIP, 5000);
+			client = new Socket(serverIP, port);
 
 			in = client.getInputStream();
 			inr = new InputStreamReader(in);
 			br = new BufferedReader(inr);
-
 
 
 			String line= br.readLine();
@@ -61,6 +61,7 @@ public class SavingInfo extends Thread{
 				inr.close();
 				br.close();
 			}
+			
 
 		}catch (UnknownHostException e) {
 			e.printStackTrace();
