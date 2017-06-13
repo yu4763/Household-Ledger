@@ -20,6 +20,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+/**
+ * 
+ * 카테고리별로 수입, 지출 패턴을 분석해주는 class
+ * @author team 6
+ * 
+ */
 public class AnalyzePanel extends JPanel implements ActionListener{
 	
 	private JLabel l;
@@ -47,11 +53,9 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	private String[][] dataCSV = new String[100][9];
 	private int cnt;
 	private int[] spentMoney = new int[5]; //카테고리별 지출 돈
-	private int[] spentMoney2 = new int[2];
+	private int[] earnedMoney = new int[2];
 	private int[] arcAngle = new int[5];
 	private int[] arcAngle2 = new int[2];
-	
-	
 	
 	Color[] colors = {new Color(185,24,35),new Color(231,146,20),new Color(138,186,43),new Color(50,175,219),new Color(135,17,126)};
 
@@ -60,7 +64,11 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 	private int sum;
 	private int sum2;
 	
-	
+	/**
+	 * 수입, 지출 원형 그래프가 올라갈 기본 바탕과 홈으로 가는 버튼, 뒤로 가는 버튼, 지금의 연도와 달이 써있는 텍스트필드와 달을 앞 뒤로 이동하는 버튼, 수입, 지출 원형 그래프 생성
+	 * @param data 서버의 csv파일에서 유저의 가계부 기록 정보 저장
+	 * @param cnt 유저의 가계부 기록의 인덱스 개수 저장
+	 */
 	AnalyzePanel(String[][] data, int cnt){
 		this.dataCSV = data;
 		this.cnt = cnt;
@@ -176,6 +184,9 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		setSize(1700,1000);
 	}
 	
+	/**
+	 * 각 카테고리별 지출 금액을 다 더해 그 값이 0이 아니면 각 카테고리의 지출 금액 별로 원형 그래프서 차지할 각도를 구한다.
+	 */
 	void drawChart(){
 		sum = 0;
 		for(int i=0;i<5;i++) sum+=spentMoney[i];
@@ -185,15 +196,23 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		repaint();
 	}
 	
+	/**
+	 * 각 카테고리별 수입 금액을 다 더해 그 값이 0이 아니면 각 카테고리의 수입 금액 별로 원형 그래프서 차지할 각도를 구한다.
+	 */
 	void drawChart2(){
 		sum2 = 0;
-		for(int i=0;i<2;i++) sum2+=spentMoney2[i];
+		for(int i=0;i<2;i++) sum2+=earnedMoney[i];
 		if(sum2!=0){
-			for(int i=0;i<2;i++) arcAngle2[i] = (int)Math.round((double)spentMoney2[i]/(double)sum2*360);
+			for(int i=0;i<2;i++) arcAngle2[i] = (int)Math.round((double)earnedMoney[i]/(double)sum2*360);
 		}
 		repaint();
 	}
 	
+	/**
+	 * 각 카테고리별 지출 금액을 퍼센트로 환산해서 보여주고 지출 원형 그래프를 그리고 색칠한다.
+	 * @author team 6
+	 *
+	 */
 	class ChartPanel extends JPanel{
 		public void paintComponent(Graphics g){
 			super.paintComponent(g);
@@ -219,6 +238,11 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		}
 	}
 	
+	/**
+	 * 각 카테고리별 수입 금액을 퍼센트로 환산해서 보여주고 수입 원형 그래프를 그리고 색칠한다.
+	 * @author team 6
+	 *
+	 */
 	class ChartPanel2 extends JPanel{
 		public void paintComponent(Graphics g2){
 			super.paintComponent(g2);
@@ -244,6 +268,10 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		}
 	}
 	
+	/**
+	 * 지금의 달에 1을 더하거나 빼서 달을 이동하고 1보다 작아지면 연도를 빼고 12보다 커지면 연도를 더한다.
+	 * @param d 달에 더할 값
+	 */
 	private void calInput(int d){
 		currentMonth += d;
 		if(currentMonth<=0){
@@ -256,6 +284,9 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		}
 	}
 	
+	/**
+	 * 지출 원형 그래프를 그릴때 지금의 달의 각 카테고리별 지출 금액과 총 지출액을 구하고 그 내역을 보여준다. 
+	 */
 	private void buttonSet(){
 		
 		try {
@@ -301,7 +332,6 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 				}
 			}
 		}	
-		
 		
 		/* 총 지출 */
 		int sumExpense = 0;
@@ -353,6 +383,9 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		l.add(color);
 	}
 	
+	/**
+	 * 수입 원형 그래프를 그릴때 지금의 달의 각 카테고리별 수입 금액과 총 수입액을 구하고 그 내역을 보여준다. 
+	 */
 	private void buttonSet2(){
 		
 		try {
@@ -369,7 +402,7 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		color2.setSize(350,600);
 		color2.setOpaque(false);
 		
-		for(int i=0;i<2;i++) spentMoney2[i] = 0;
+		for(int i=0;i<2;i++) earnedMoney[i] = 0;
 
 		int dataCSVIntCost,dataCSVIntYear,dataCSVIntMonth;
 		for(int i=0;i<cnt;i++){
@@ -380,10 +413,10 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 				
 				if(dataCSV[i][5].equals("수입")){
 					if(dataCSV[i][4].equals("용돈")){
-						spentMoney2[0] += dataCSVIntCost;
+						earnedMoney[0] += dataCSVIntCost;
 					}
 					else if(dataCSV[i][4].equals("월급")){
-						spentMoney2[1] += dataCSVIntCost;
+						earnedMoney[1] += dataCSVIntCost;
 					}
 				}
 			}
@@ -393,11 +426,11 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		/* 총 수입 */
 		int sumEarning = 0;
 		for(int i=0;i<2;i++){
-			sumEarning += spentMoney2[i];
+			sumEarning += earnedMoney[i];
 		}
 		
-		T12.setText("용돈 : "+spentMoney2[0]+"원");
-		T22.setText("월급 : "+spentMoney2[1]+"원");
+		T12.setText("용돈 : "+earnedMoney[0]+"원");
+		T22.setText("월급 : "+earnedMoney[1]+"원");
 		Tearning.setText("총 수입 : "+sumEarning+"원");
 		
 		T12.setForeground(new Color(185,24,35));
@@ -422,6 +455,9 @@ public class AnalyzePanel extends JPanel implements ActionListener{
 		l.add(color2);
 	}
 
+	/**
+	 * 달을 앞, 뒤로 이동하는 버튼을 눌렀을 때 할 명령
+	 */
 	public void actionPerformed(ActionEvent arg0) {
 		if(arg0.getSource()==before){
 			calInput(-1);

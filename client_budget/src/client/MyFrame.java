@@ -5,6 +5,11 @@ import javax.swing.*;
 
 import javax.swing.*;
 
+/**
+ * client에서 가장 밑의 바탕이 되는 틀. 이 프레임 위에 경우에 맞는 판넬을 올려서 사용자에게 보여줌. (처음 초기화는 LoginPanel)
+ * @author team 6
+ *
+ */
 public class MyFrame extends JFrame{
 
 	public FrontPanel front;

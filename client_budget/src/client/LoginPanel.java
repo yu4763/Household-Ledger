@@ -10,6 +10,11 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 
+/**
+ * 입력된 아이디 정보를 서버에 보내(Client class 사용) 로그인 또는 회원가입을 하는 창. (로그인, 회원가입 가능한 지에 대한 여부는 RegisterThread class를 사용하여 받아옴) 로그인이 완료될 경우에는 SavingInfo class를 불러 예전에 입력되있던 정보를 server 에서 불러올 수 있도록 함.
+ * @author team 6
+ *
+ */
 public class LoginPanel extends JPanel{
 
 	ImageIcon daram;

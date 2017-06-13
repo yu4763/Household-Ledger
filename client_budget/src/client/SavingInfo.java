@@ -3,6 +3,11 @@ package client;
 import java.io.*;
 import java.net.*;
 
+/**
+ * 처음 로그인 시, 그리고 작성화면에서 입력/ 삭제 정보를 서버에 보낸 뒤에 다시, client 로 서버에 있는 정보를 불러오기 위해 열리는 socket이다.
+ * @author team 6
+ *
+ */
 public class SavingInfo extends Thread{
 
 	private Socket client = null;
