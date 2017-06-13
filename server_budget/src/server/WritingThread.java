@@ -4,6 +4,11 @@ import java.io.*;
 import java.net.*;
 import java.util.StringTokenizer;
 
+/**
+ * 
+ * @author ¹ÚÇÑ³ª
+ *
+ */
 public class WritingThread {
 
 	private Socket client;
@@ -16,6 +21,11 @@ public class WritingThread {
 	final int port = 18806;
 	
 
+	/**
+	 * 
+	 * @param s
+	 * @param id
+	 */
 	WritingThread(Socket s, String id){
 
 		client = s;
@@ -23,6 +33,9 @@ public class WritingThread {
 		count = SendingInfo.getcnt();
 	}
 	
+	/**
+	 * 
+	 */
 	public void run(){	
 
 		try {

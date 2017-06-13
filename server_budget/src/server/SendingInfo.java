@@ -3,7 +3,11 @@ package server;
 import java.io.*;
 import java.net.*;
 
-
+/**
+ * 
+ * @author ¹ÚÇÑ³ª
+ *
+ */
 public class SendingInfo extends Thread{
 
 
@@ -14,6 +18,11 @@ public class SendingInfo extends Thread{
 	private String userID;
 
 
+	/**
+	 * 
+	 * @param client
+	 * @param userID
+	 */
 	SendingInfo(Socket client, String userID){
 		
 		this.client = client;
@@ -21,6 +30,9 @@ public class SendingInfo extends Thread{
 		
 	}
 	
+	/**
+	 * 
+	 */
 	public void run(){
 
 
@@ -83,10 +95,17 @@ public class SendingInfo extends Thread{
 	}
 
 
+	/**
+	 * 
+	 * @return
+	 */
 	static int getcnt(){
 		return count;
 	}
 
+	/**
+	 * 
+	 */
 	static void cntplus(){
 		count++;
 	}

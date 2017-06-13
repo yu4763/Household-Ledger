@@ -3,6 +3,11 @@ package server;
 import java.io.*;
 import java.net.*;
 
+/**
+ * 
+ * @author ¹ÚÇÑ³ª
+ *
+ */
 public class RegisterThread extends Thread {
 	private int check;
 	private String checking;
@@ -14,6 +19,12 @@ public class RegisterThread extends Thread {
 	
 	final int port = 5000;
 
+	/**
+	 * 
+	 * @param check
+	 * @param client
+	 * @param server
+	 */
 	public RegisterThread(int check, Socket client, ServerSocket server) {
 		this.check = check;
 		this.checking = ServerTCP.getchecing();
@@ -22,6 +33,9 @@ public class RegisterThread extends Thread {
 		this.server = server;
 	}
 
+	/**
+	 * 
+	 */
 	public void run() {
 		
 		try {
@@ -43,6 +57,9 @@ public class RegisterThread extends Thread {
 		} 
 	}
 	
+	/**
+	 * 
+	 */
 	void isregister(){ 
 		if(checking.equals("register") || (checking.equals("login") && check == 0)){
 			ServerTCP ss = new ServerTCP();

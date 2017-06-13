@@ -3,11 +3,20 @@ package server;
 import java.io.*;
 import java.net.*;
 
+/**
+ * 
+ * @author ¹ÚÇÑ³ª
+ *
+ */
 public class SwitchingServer {
 
 	final int port = 5000;
 	
 
+	/**
+	 * 
+	 * @param userID
+	 */
 	SwitchingServer(String userID){
 
 		try{

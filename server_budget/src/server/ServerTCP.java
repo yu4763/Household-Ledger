@@ -6,6 +6,12 @@ import java.net.*;
 import java.io.*;
 import java.net.*;
 
+/**
+ * client와 회원가입과 로그인에 관한 정보를 주고 받기 위한 ServerSocket을 연다.
+ *
+ * @author 박한나
+ *
+ */
 public class ServerTCP {
 	
 	private ServerSocket server = null;
@@ -21,6 +27,9 @@ public class ServerTCP {
 	private static String userID = null;
 	private static String checking = null;
 	
+	/**
+	 * 
+	 */
 	ServerTCP(){
 		
 		try{
