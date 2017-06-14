@@ -13,10 +13,7 @@ public class RegisterThread extends Thread{
 	private Socket client = null;
 	final String serverIP = "localhost";
 	final int port = 5000;
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
 	private InputStream in=null;
 	private InputStreamReader inr;
 	private static int check = -1;

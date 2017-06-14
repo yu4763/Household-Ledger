@@ -12,11 +12,7 @@ public class SendButton {
 
 	final String serverIP = "localhost";
 	final int port = 5000;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
 	SendButton(String b){
 
 

@@ -26,11 +26,7 @@ public class EnterInformation implements ActionListener{
 	private Socket client = null;
 	final String serverIP = "localhost";
 	final int port = 5000;
-<<<<<<< HEAD
 
-=======
-	
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
 	private OutputStream out;
 	private OutputStreamWriter outw;
 	private BufferedWriter bw;

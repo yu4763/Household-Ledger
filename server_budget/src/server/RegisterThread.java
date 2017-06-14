@@ -19,7 +19,7 @@ public class RegisterThread extends Thread {
 	
 	final int port = 5000;
 
-<<<<<<< HEAD
+
 	/**
 	 * 
 	 * @param check
@@ -27,9 +27,7 @@ public class RegisterThread extends Thread {
 	 * @param server
 	 */
 	public RegisterThread(int check, Socket client, ServerSocket server) {
-=======
-	public RegisterThread(int check, String checking, String userID) {
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
+
 		this.check = check;
 		this.checking = ServerTCP.getchecing();
 		this.userID = ServerTCP.getuserID();
@@ -43,15 +41,7 @@ public class RegisterThread extends Thread {
 	public void run() {
 		
 		try {
-<<<<<<< HEAD
-=======
-			ss = new ServerSocket(port);
-			System.out.println("HERE");
 
-			client = ss.accept();
-			System.out.println("ACCEPTED");
->>>>>>> branch 'master' of https://github.com/yu4763/SoftwarePractice1
-			
 			out = client.getOutputStream();
 			outw = new OutputStreamWriter(out);
 
