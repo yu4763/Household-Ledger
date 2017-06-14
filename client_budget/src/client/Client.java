@@ -18,7 +18,11 @@ public class Client {
 	private OutputStreamWriter outw;
 	private BufferedWriter bw;
 	
-	
+	/**
+	 * userID와 checking 의 값을 서버로 전달하는 class
+	 * @param userID	사용자가 로그인 화면에서 입력한 아이디
+	 * @param checking	사용자가 클릭한 버튼 정보(로그인 버튼이면 'login', 회원가입 버튼이면 'register')
+	 */
 	Client(String userID, String checking){
 
 	

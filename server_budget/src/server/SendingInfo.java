@@ -4,8 +4,9 @@ import java.io.*;
 import java.net.*;
 
 /**
- * 
- * @author 박한나
+ * 로그인 되어있는 유저아이디의 이름을 가진 csv파일을 찾아 내용을 읽어 client의 SavingInfo socket으로 보내는 class
+ * 만약 해당 csv파일에 아무런 정보도 저장되어 있지 않으면 -1을 보낸다.
+ * @author team 6
  *
  */
 public class SendingInfo extends Thread{
@@ -19,9 +20,9 @@ public class SendingInfo extends Thread{
 
 
 	/**
-	 * 
-	 * @param client
-	 * @param userID
+	 * SendingInfo class의 constructor.
+	 * @param client	client의 SavingInfo에서 열려 SwitchingServer의 ServerSocket에 연결된 소켓
+	 * @param userID	로그인 되어 있는 사용자의 아이디
 	 */
 	SendingInfo(Socket client, String userID){
 		
@@ -31,7 +32,8 @@ public class SendingInfo extends Thread{
 	}
 	
 	/**
-	 * 
+	 * 로그인 되어 있는 유저아이디의 이름을 가진 csv파일을 읽어 아무것도 저장되어 있지 않으면 -1, 저장되어 있다면 한 줄씩 읽어 client로 보낸다.
+	 * 저장되어 있는 정보의 줄 수를 count에 저장한다.
 	 */
 	public void run(){
 
@@ -96,18 +98,12 @@ public class SendingInfo extends Thread{
 
 
 	/**
-	 * 
-	 * @return
+	 * count의 값을 리턴한다.
+	 * @return count	해당 유저의 csv파일에 저장되어 있는 정보의 줄 수
 	 */
 	static int getcnt(){
 		return count;
 	}
 
-	/**
-	 * 
-	 */
-	static void cntplus(){
-		count++;
-	}
 
 }

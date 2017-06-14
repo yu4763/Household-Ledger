@@ -14,6 +14,10 @@ import javax.swing.*;
  */
 public class FrontPanel extends JPanel{
 	
+	/**
+	 * '가계부 작성' 버튼과 '가계부 분석' 버튼이 존재하고,
+	 * 해당 버튼을 누르면 해당하는 화면이 뜰 수 있게 바꿔 주는 ChangePanel 클래스를 부른다.
+	 */
 	FrontPanel(){
 		
 		setLayout(null);

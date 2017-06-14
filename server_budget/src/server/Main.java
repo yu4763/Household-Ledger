@@ -2,7 +2,7 @@ package server;
 
 /**
  * 서버 프로젝트를 running 할 때 제일 먼저 시작되는 main 함수를 가지고 있는 class
- * @author 박한나
+ * @author team 6
  *
  */
 public class Main {

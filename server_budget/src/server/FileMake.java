@@ -7,7 +7,7 @@ import java.io.*;
  * 사용자가 client에서 입력한 아이디가 회원가입되어 있는 아이디인지 아닌지를 확인하고 그 정보를 finish에 저장한다.
  * 만약 사용자가 client에서 요구한 것이 회원가입인데, 아직 회원가입 되어있지 않은 아이디를 넘겨받았을 시 해당 아이디 이름의 csv 파일을 생성한다.
  * finish의 정보를 다른 class에서 얻을 수 있게 리턴해주는 method가 존재한다.
- * @author 박한나
+ * @author team 6
  *
  */
 public class FileMake {
@@ -16,7 +16,7 @@ public class FileMake {
 	private OutputStream fout;
 	private OutputStreamWriter osw;
 
-	private int finish = -1; 
+	private int finish = 0; 
 	//finish == 0: 새로운 아이디,  finish == 1: 이미 있는 아이디
 
 	/**

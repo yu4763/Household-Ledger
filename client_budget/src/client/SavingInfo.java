@@ -61,10 +61,12 @@ public class SavingInfo extends Thread{
 				
 				data[0][0] = Integer.toString(1);
 				
-				client.close();
+				
 				in.close();
 				inr.close();
 				br.close();
+				client.close();
+				
 			}
 			
 

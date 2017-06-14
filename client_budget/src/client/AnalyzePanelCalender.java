@@ -20,7 +20,7 @@ import javax.swing.SwingConstants;
 
 /**
  * 달력에 매일매일의 수입, 지출, 남은 돈을 월별로 보여주는 class
- * @author 구헤라
+ * @author team 6
  *
  */
 public class AnalyzePanelCalender extends JPanel implements ActionListener{

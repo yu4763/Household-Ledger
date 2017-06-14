@@ -6,7 +6,8 @@ import java.net.*;
 import javax.swing.*;
 
 /**
- * 날짜나 금액인데 char형이거나 필요한 항목이 null(입력이 되지 않은 경우) 인지도 처음에 확인한다. 입력이 정확할 경우 가계부 작성화면에서 입력 혹은 삭제 버튼을 누를 때 실행되는 ActionListener 로써 홈 버튼을 누른 게 아니라는 뜻에서 “enter”이라는 정보를 보내고, Server가 정보를 받아들일 준비가 되면 입력버튼인지, 삭제 버튼인지 정보를 보내고, 그 이후 입력된 정보를 보낸다. 정보 전달이 완료된 뒤에는 SavingInfo class를 통해 Client에도 update 된 정보를 불러와서 띄운다. 
+ * 가계부 작성화면에서 사용자가 입력한 정보를 server로 보내는 class.
+ * 정보를 server로 보낸 뒤에는 update된 정보를 다시 받아오기 위해 SavingInfo class를 선언하고 작동시킨다.
  * @author team 6
  *
  */
@@ -32,6 +33,13 @@ public class EnterInformation implements ActionListener{
 	private BufferedWriter bw;
 
 
+	/**
+	 * 날짜나 금액인데 char형이거나 필요한 항목이 null(입력이 되지 않은 경우) 인지 확인한다.
+	 * 입력이 정확할 경우 가계부 작성화면에서 입력 혹은 삭제 버튼을 누를 때 실행되는 ActionListener 로써 홈 버튼을 누른 게 아니라는 뜻에서 “enter”이라는 정보를 보내고, 
+	 * 그 다음으로 입력버튼인 경우 "add" 라는 String 을  보낸 뒤, '날짜, 카테고리, 출금/입금, 현금/카드, 메모, 금액' 의 정보가 담긴 String 을  server로 보낸다.
+	 * 삭제 버튼인 경우에는 'delete' 라는 String 을 보낸 뒤, 삭제할 정보의 번호를 server로 보낸다.
+	 * 정보 전달이 완료된 뒤에는 SavingInfo class를 작동시킨다.
+	 */
 	public void actionPerformed(ActionEvent e){
 
 		JButton b = (JButton)e.getSource();
