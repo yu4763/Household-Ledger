@@ -22,6 +22,10 @@ public class MyFrame extends JFrame{
 	private String[][] tmp;
 	private int count;
 
+	/**
+	 *  client에서 가장 밑의 바탕이 되는 틀을 생성.
+	 *  처음 초기화는 LoginPanel
+	 */
 	MyFrame(){
 
 		front = new FrontPanel();
@@ -35,6 +39,11 @@ public class MyFrame extends JFrame{
 
 	}
 
+	/**
+	 * 사용자가 누른 버튼의 정보에 따라 ChangePanel class에서 호출하는 함수.
+	 * panelName에 따라 Frame 위에 올리는 판넬을 바꿈!
+	 * @param panelName 	만들어진 Frame 위에 올릴 판넬에 대한 정보
+	 */
 	public void change(String panelName){
 
 		this.getContentPane().removeAll();

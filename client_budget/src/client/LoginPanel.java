@@ -24,7 +24,10 @@ public class LoginPanel extends JPanel{
 
 	/**
 	 * 아이디를 입력하는 창과 회원가입 버튼, 로그인 버튼이 존재함.
-	 * 
+	 * 버튼을 클릭시 입력한 아이디 정보와 버튼 정보를 Client class 에 전달
+	 * 로그인 회원가능 여부를 RegisterThread class를 통해 받아옴
+	 * 로그인 or 회원가입 성공 여부를 사용자에게 알려줌
+	 * 로그인 성공시 SendButton을 통해 서버에 전달하고, SavingInfo class 를 작동시킨 후 FrontPanel로 화면 바꿈.
 	 */
 	LoginPanel(){
 

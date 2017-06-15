@@ -7,7 +7,10 @@ import javax.swing.table.DefaultTableModel;
 
 
 /**
- * 가계부 작성화면이다. 정보를 입력하고 싶은 경우에는 날짜 (연, 월, 일), 카테고리, 수입/지출, 현금/카드, 금액을 필수적으로 입력하게 되어있으며 (메모는 선택) 입력되어 있는 정보를 삭제하고 싶은 경우에는 삭제하고 싶은 정보의 번호를 입력하게 되어 있다. 입력 혹은 삭제 버튼을 누를 시 EnterInformation class를 이용해 해당 정보를 server에 보내고  client에도 업데이트한다.
+ * 가계부 작성화면이다. 
+ * 정보를 입력하고 싶은 경우에는 날짜 (연, 월, 일), 카테고리, 수입/지출, 현금/카드, 금액을 필수적으로 입력하게 되어있으며 (메모는 선택) 
+ * 입력되어 있는 정보를 삭제하고 싶은 경우에는 삭제하고 싶은 정보의 번호를 입력하게 되어 있다. 
+ * 입력 혹은 삭제 버튼을 누를 시 EnterInformation class를 이용해 해당 정보를 server에 보내고 client에도 업데이트 된다.
  * @author team 6
  *
  */
@@ -37,7 +40,10 @@ public class WritingPanel extends JPanel{
 
 	/**
 	 * 기본 바탕과 홈으로 가는 버튼, 가계부 입력에 필요한 정보들을 입력하는 칸들, 입력 버튼, 삭제 버튼, 가계부 기록 정보를 보여주는 테이블 생성
-	 * @param tmp 서버의 csv파일에서 유저의 가계부 기록 정보 저장
+	 * 가계부 기록정보를 인자로 넘겨받아 테이블에 띄운다.
+	 * 작성/ 삭제 버튼 시 서버에 해당정보를 보내는 EnterInformation class 생성
+	 * 홈 버튼 클릭시 FontPanel 화면으로 돌아가게 된다.
+	 * @param tmp 	서버에서 받아온 가계부 기록 정보가 저장되어 있는 이차원 배열
 	 * @param count 유저의 가계부 기록의 인덱스 개수 저장
 	 */
 	WritingPanel(String[][] tmp, int count){
@@ -420,7 +426,7 @@ public class WritingPanel extends JPanel{
 
 	/**
 	 * 가계부에 수입이 클릭되었는지 지출이 클릭되었는지 확인하고 값을 true로 바꿔논 뒤에 클릭된 값으로 return
-	 * @return in이 클릭되면 수입, out이 클릭되면 지출, 다 아니면 null로 return
+	 * @return in이 클릭되면 수입, out이 클릭되면 지출, 둘 다 아니면 null로 return
 	 */
 	String getInout(){
 
@@ -441,7 +447,7 @@ public class WritingPanel extends JPanel{
 
 	/**
 	 * 가계부에 현금이 클릭되었는지 카드가 클릭되었는지 확인하고 값을 true로 바꿔논 뒤에 클릭된 값으로 return
-	 * @return cash가 클릭되면 현금, card가 클릭되면 카드, 다 아니면 null로 return
+	 * @return cash가 클릭되면 현금, card가 클릭되면 카드, 둘 다 아니면 null로 return
 	 */
 	String getIscash(){
 

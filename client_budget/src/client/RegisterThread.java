@@ -4,7 +4,9 @@ import java.io.*;
 import java.net.*;
 
 /**
- * 로그인 혹은 회원가입 시 server 에서 보내는 숫자 (로그인 혹은 회원가입 가능 여부) 를 받아옴. ( 0: 새로운 아이디이므로 회원가입 가능, 1: 기존에 있는 아이디이므로 로그인 가능)
+ * 로그인 혹은 회원가입 시 server 에서 보내는 숫자 (로그인 혹은 회원가입 가능 여부) 를 받아옴. 
+ * ( 0: 새로운 아이디이므로 회원가입 가능, 1: 기존에 있는 아이디이므로 로그인 가능)
+ * 해당 정보를 리턴하는 함수를 가짐.
  * @author team 6
  *
  */
@@ -18,6 +20,10 @@ public class RegisterThread extends Thread{
 	private InputStreamReader inr;
 	private static int check = -1;
 
+	/**
+	 * 로그인 혹은 회원가입 시 server 에서 보내는 숫자 (로그인 혹은 회원가입 가능 여부) 를 받아옴. 
+	 * ( 0: 새로운 아이디이므로 회원가입 가능, 1: 기존에 있는 아이디이므로 로그인 가능)
+	 */
 	public void run() {
 
 		check = -1;
@@ -51,6 +57,10 @@ public class RegisterThread extends Thread{
 
 	}
 
+	/**
+	 * check의 값을 리턴한다.
+	 * @return check	(check의 값 -> 0: 새로운 아이디이므로 회원가입 가능/로그인 불가, 1: 기존에 있는 아이디이므로 로그인 가능/회원가입 불가)
+	 */
 	public static int returncheck(){
 		return check;
 	}
