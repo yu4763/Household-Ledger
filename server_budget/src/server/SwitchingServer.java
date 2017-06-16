@@ -6,7 +6,7 @@ import java.net.*;
 /**
  * client에서 사용자가 선택하는 button의 정보를 받아 필요한 thread를 실행하는 class이다.
  * 이 class에서 열리는 ServerSocket은 선언된 이후 계속 열려 있으면서 client의 접속을 기다린다.
- * @author 박한나
+ * @author team 6
  *
  */
 public class SwitchingServer {

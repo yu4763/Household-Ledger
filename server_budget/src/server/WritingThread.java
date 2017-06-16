@@ -9,7 +9,7 @@ import java.util.StringTokenizer;
  * 먼저 사용자가 클릭한 button 이 입력(add) 인지 삭제(delete)인지를 받아온다.
  * 입력이면 날짜 + 카테고리 + 입출금여부 + 현금/카드 + 메모 + 금액 정보를 가진 String, 삭제이면 삭제하고 싶은 정보의 번호를 받아온다. 
  * 입력이면 해당 정보를 파일에 추가 기입하고, 삭제인 경우 그 정보를 제외한 나머지 정보를 입력한 새로운 파일을 만들고 원본 파일을 삭제한 후 새로 만든 파일의 이름을 유저아이디로 다시바꾼다.
- * @author 박한나
+ * @author team 6
  *
  */
 public class WritingThread {
